@@ -99,10 +99,10 @@
             </div>
 
             <!-- Slider Container -->
-            <div class="relative w-full max-w-4xl mx-auto aspect-[4/3] md:aspect-[16/9] overflow-hidden shadow-2xl border border-gray-100 group select-none bg-gray-200">
+            <div class="before-after-slider relative w-full max-w-4xl mx-auto aspect-[4/3] md:aspect-[16/9] overflow-hidden shadow-2xl border border-gray-100 group select-none bg-gray-200">
 
-                <!-- Bilde 1: Før (Background layer - always visible) -->
-                <img src="54603800-d5a2-4466-b8e1-9880f1748d86.jpg"
+                <!-- Bilde 1: Før -->
+                <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80"
                      alt="Før styling"
                      class="absolute inset-0 w-full h-full object-cover"
                      id="before-image">
@@ -111,12 +111,12 @@
                     Før
                 </div>
 
-                <!-- Bilde 2: Etter (Overlay layer - clipped by container width) -->
-                <div id="after-image-container" class="absolute inset-0 w-[50%] overflow-hidden">
-                    <img src="Demo_1_after.png"
+                <!-- Bilde 2: Etter -->
+                <div id="after-image-container" class="absolute inset-0 w-[50%] max-w-full overflow-hidden border-r-2 border-white z-10 transition-[width] duration-200 ease-out pointer-events-none">
+                    <img src="https://images.unsplash.com/photo-1505691938894-2907709d43ce?auto=format&fit=crop&w=1600&q=80"
                          alt="Etter styling"
-                         class="absolute inset-0 w-full h-full object-cover"
-                         id="after-image">
+                         id="after-image"
+                         class="absolute inset-0 w-full h-full object-cover">
 
                     <div class="absolute top-4 right-4 bg-[#c5a059]/90 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 backdrop-blur-sm z-20 pointer-events-none">
                         Etter
@@ -124,8 +124,9 @@
                 </div>
 
                 <!-- Slider Handle -->
-                <div id="slider-handle" class="absolute inset-y-0 left-[50%] w-1 bg-white z-30 pointer-events-none flex items-center justify-center shadow-lg">
-                    <div class="w-10 h-10 bg-white rounded-full shadow-xl flex items-center justify-center text-gray-800 border-2 border-gray-200">
+                <div id="slider-handle" class="absolute inset-y-0 left-[50%] w-0.5 z-30 flex items-center justify-center pointer-events-none">
+                    <div class="slider-line absolute inset-0"></div>
+                    <div class="slider-knob w-10 h-10 bg-white rounded-full shadow-xl flex items-center justify-center text-gray-800 border border-gray-100">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" transform="rotate(-90 12 12)" />
                         </svg>
@@ -133,7 +134,7 @@
                 </div>
 
                 <!-- Input -->
-                <input type="range" min="0" max="100" value="50" id="slider-range" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40 m-0 p-0" aria-label="Sammenlign før og etter bilder">
+                <input type="range" min="0" max="100" value="50" id="slider-range" class="slider-range absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40 m-0 p-0" aria-label="Sammenlign før og etter bilder">
 
             </div>
         </div>
