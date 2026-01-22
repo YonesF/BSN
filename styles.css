@@ -78,6 +78,7 @@ input[type=range]::-moz-range-thumb {
 
 #slider-handle {
     transform: translateX(-50%);
+    pointer-events: none;
 }
 
 .slider-line {
@@ -87,6 +88,10 @@ input[type=range]::-moz-range-thumb {
 
 .slider-knob {
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.before-after-slider input[type=range] {
+    pointer-events: auto;
 }
 
 /* FAQ Section Styles */

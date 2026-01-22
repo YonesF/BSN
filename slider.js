@@ -8,6 +8,7 @@
     const sliderHandle = document.getElementById('slider-handle');
     const beforeImage = document.getElementById('before-image');
     const afterImage = document.getElementById('after-image');
+    const sliderContainer = document.querySelector('.before-after-slider');
 
     // Validate all required elements exist
     if (!sliderRange || !afterImageContainer || !sliderHandle) {
@@ -48,6 +49,42 @@
     // Attach event listener
     sliderRange.addEventListener('input', handleSliderInput);
     sliderRange.addEventListener('change', handleSliderInput);
+    
+    // Pointer/touch drag support on the slider container
+    function clientXToPercent(clientX) {
+        if (!sliderContainer) return 50;
+        const rect = sliderContainer.getBoundingClientRect();
+        const position = ((clientX - rect.left) / rect.width) * 100;
+        return Math.max(0, Math.min(100, position));
+    }
+
+    let isDragging = false;
+
+    function startDrag(event) {
+        isDragging = true;
+        const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+        setSliderPosition(clientXToPercent(clientX));
+    }
+
+    function moveDrag(event) {
+        if (!isDragging) return;
+        const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+        setSliderPosition(clientXToPercent(clientX));
+    }
+
+    function endDrag() {
+        isDragging = false;
+    }
+
+    if (sliderContainer) {
+        sliderContainer.addEventListener('pointerdown', startDrag);
+        sliderContainer.addEventListener('pointermove', moveDrag);
+        sliderContainer.addEventListener('pointerup', endDrag);
+        sliderContainer.addEventListener('pointerleave', endDrag);
+        sliderContainer.addEventListener('touchstart', startDrag, { passive: true });
+        sliderContainer.addEventListener('touchmove', moveDrag, { passive: true });
+        sliderContainer.addEventListener('touchend', endDrag);
+    }
 
     // Initialize position
     setSliderPosition(sliderRange.value || 50);
@@ -82,4 +119,4 @@
             }
         }, { once: false });
     }
-})();
+ })();
