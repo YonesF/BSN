@@ -57,7 +57,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 /* FIX: Before/After slider - prevent zoom */
-#after-image-container {
+#before-image-container {
     position: absolute;
     inset: 0;
     will-change: width;
@@ -66,7 +66,7 @@ input[type=range]::-moz-range-thumb {
     pointer-events: none;
 }
 
-#after-image-container img {
+#before-image-container img {
     position: absolute;
     inset: 0;
     height: 100%;

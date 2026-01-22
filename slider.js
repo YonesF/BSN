@@ -4,14 +4,14 @@
     
     // Get DOM elements
     const sliderRange = document.getElementById('slider-range');
-    const afterImageContainer = document.getElementById('after-image-container');
+    const beforeImageContainer = document.getElementById('before-image-container');
     const sliderHandle = document.getElementById('slider-handle');
     const beforeImage = document.getElementById('before-image');
     const afterImage = document.getElementById('after-image');
     const sliderContainer = document.querySelector('.before-after-slider');
 
     // Validate all required elements exist
-    if (!sliderRange || !afterImageContainer || !sliderHandle) {
+    if (!sliderRange || !beforeImageContainer || !sliderHandle) {
         // PRODUCTION: Silent fail
         return;
     }
@@ -38,7 +38,7 @@
     function setSliderPosition(value) {
         const sanitizedValue = sanitizeSliderValue(value);
         sliderRange.value = sanitizedValue;
-        afterImageContainer.style.width = sanitizedValue + '%';
+        beforeImageContainer.style.width = sanitizedValue + '%';
         sliderHandle.style.left = sanitizedValue + '%';
     }
 
@@ -50,7 +50,6 @@
     sliderRange.addEventListener('input', handleSliderInput);
     sliderRange.addEventListener('change', handleSliderInput);
     
-    // Pointer/touch drag support on the slider container
     function clientXToPercent(clientX) {
         if (!sliderContainer) return 50;
         const rect = sliderContainer.getBoundingClientRect();
@@ -58,33 +57,29 @@
         return Math.max(0, Math.min(100, position));
     }
 
-    let isDragging = false;
-
     function startDrag(event) {
-        isDragging = true;
         const clientX = event.touches ? event.touches[0].clientX : event.clientX;
         setSliderPosition(clientXToPercent(clientX));
     }
 
     function moveDrag(event) {
-        if (!isDragging) return;
+        if (event.buttons === 0 && !event.touches) return; // ignore move without press (mouse)
         const clientX = event.touches ? event.touches[0].clientX : event.clientX;
         setSliderPosition(clientXToPercent(clientX));
-    }
-
-    function endDrag() {
-        isDragging = false;
     }
 
     if (sliderContainer) {
         sliderContainer.addEventListener('pointerdown', startDrag);
         sliderContainer.addEventListener('pointermove', moveDrag);
-        sliderContainer.addEventListener('pointerup', endDrag);
-        sliderContainer.addEventListener('pointerleave', endDrag);
         sliderContainer.addEventListener('touchstart', startDrag, { passive: true });
         sliderContainer.addEventListener('touchmove', moveDrag, { passive: true });
-        sliderContainer.addEventListener('touchend', endDrag);
     }
+    
+    // Also support dragging directly on the hidden range input (which sits on top)
+    sliderRange.addEventListener('pointerdown', startDrag);
+    sliderRange.addEventListener('pointermove', moveDrag);
+    sliderRange.addEventListener('touchstart', startDrag, { passive: true });
+    sliderRange.addEventListener('touchmove', moveDrag, { passive: true });
 
     // Initialize position
     setSliderPosition(sliderRange.value || 50);
