@@ -57,29 +57,18 @@
         return Math.max(0, Math.min(100, position));
     }
 
-    function startDrag(event) {
-        const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-        setSliderPosition(clientXToPercent(clientX));
-    }
-
-    function moveDrag(event) {
-        if (event.buttons === 0 && !event.touches) return; // ignore move without press (mouse)
+    function syncDrag(event) {
         const clientX = event.touches ? event.touches[0].clientX : event.clientX;
         setSliderPosition(clientXToPercent(clientX));
     }
 
     if (sliderContainer) {
-        sliderContainer.addEventListener('pointerdown', startDrag);
-        sliderContainer.addEventListener('pointermove', moveDrag);
-        sliderContainer.addEventListener('touchstart', startDrag, { passive: true });
-        sliderContainer.addEventListener('touchmove', moveDrag, { passive: true });
+        ['pointerdown', 'pointermove'].forEach(evt => sliderContainer.addEventListener(evt, syncDrag));
+        ['touchstart', 'touchmove'].forEach(evt => sliderContainer.addEventListener(evt, syncDrag, { passive: true }));
     }
-    
-    // Also support dragging directly on the hidden range input (which sits on top)
-    sliderRange.addEventListener('pointerdown', startDrag);
-    sliderRange.addEventListener('pointermove', moveDrag);
-    sliderRange.addEventListener('touchstart', startDrag, { passive: true });
-    sliderRange.addEventListener('touchmove', moveDrag, { passive: true });
+
+    ['pointerdown', 'pointermove'].forEach(evt => sliderRange.addEventListener(evt, syncDrag));
+    ['touchstart', 'touchmove'].forEach(evt => sliderRange.addEventListener(evt, syncDrag, { passive: true }));
 
     // Initialize position
     setSliderPosition(sliderRange.value || 50);
@@ -104,14 +93,6 @@
         let afterErrorCount = 0;
         afterImage.addEventListener('error', function() {
             afterErrorCount++;
-            
-            if (afterErrorCount === 1) {
-                // Try fallback image
-                this.src = 'https://images.unsplash.com/photo-1513161455079-7dc1de15ef3e?q=80&w=1976&auto=format&fit=crop';
-            } else if (afterErrorCount === 2) {
-                // If fallback also fails, hide gracefully
-                this.style.display = 'none';
-            }
         }, { once: false });
     }
  })();
