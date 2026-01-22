@@ -2,6 +2,10 @@
 # Build settings
 markdown: kramdown
 
+# Base URL for GitHub Pages project repository
+baseurl: "/BSN"
+url: "https://yonesf.github.io"
+
 # Do not use theme
 theme: null
 
