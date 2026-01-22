@@ -1,4 +1,4 @@
-// Simple and robust before/after slider
+// Simple and robust before/after slider - FIXED VERSION
 (function() {
     'use strict';
     
@@ -6,27 +6,38 @@
     const afterWrapper = document.querySelector('.after-image-wrapper');
     const sliderControl = document.querySelector('.slider-control');
     
-    if (!container || !afterWrapper || !sliderControl) return;
+    if (!container || !afterWrapper || !sliderControl) {
+        console.error('Slider elements not found');
+        return;
+    }
     
     let isDragging = false;
     
     function updateSlider(clientX) {
         const rect = container.getBoundingClientRect();
         const x = clientX - rect.left;
-        const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+        let percentage = (x / rect.width) * 100;
         
-        afterWrapper.style.width = percentage + '%';
+        // Clamp between 0 and 100
+        percentage = Math.max(0, Math.min(100, percentage));
+        
+        // Update after image wrapper (use right instead of width)
+        afterWrapper.style.right = (100 - percentage) + '%';
+        
+        // Update slider control position
         sliderControl.style.left = percentage + '%';
     }
     
     // Mouse events
     container.addEventListener('mousedown', (e) => {
+        e.preventDefault();
         isDragging = true;
         updateSlider(e.clientX);
     });
     
     document.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
+        e.preventDefault();
         updateSlider(e.clientX);
     });
     
@@ -38,7 +49,7 @@
     container.addEventListener('touchstart', (e) => {
         isDragging = true;
         updateSlider(e.touches[0].clientX);
-    });
+    }, { passive: true });
     
     document.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
@@ -50,8 +61,16 @@
         isDragging = false;
     });
     
-    // Prevent text selection while dragging
+    // Prevent text selection
     container.addEventListener('selectstart', (e) => {
         if (isDragging) e.preventDefault();
     });
+    
+    // Prevent image dragging
+    const images = container.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('dragstart', (e) => e.preventDefault());
+    });
+    
+    console.log('Slider initialized successfully');
 })();
