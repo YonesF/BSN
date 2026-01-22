@@ -98,38 +98,71 @@
                 <p class="text-gray-500 text-sm tracking-wide uppercase">Dra slideren for å se effekten av digital styling</p>
             </div>
 
-            <!-- Slider Container -->
-            <div class="before-after-slider relative w-full max-w-4xl mx-auto aspect-[4/3] md:aspect-[16/9] overflow-hidden shadow-2xl border border-gray-100 select-none bg-gray-100">
+            <!-- Luxury Slider Container -->
+            <div id="luxury-slider-container" class="luxury-slider-wrapper relative w-full max-w-4xl mx-auto aspect-[4/3] md:aspect-[16/9] overflow-hidden shadow-2xl border border-gray-100 cursor-ew-resize select-none">
 
-                <!-- Etter (grunnlag, full bredde) -->
+                <!-- After Image (Background - Full Width) -->
                 <img src="Demo_1_after.png"
                      alt="Etter styling"
-                     class="ba-image absolute inset-0"
-                     id="after-image">
+                     class="absolute inset-0 w-full h-full object-cover"
+                     draggable="false">
 
-                <!-- Før (overlay som klippes av slider) -->
-                <div id="before-image-container" class="ba-overlay absolute inset-0 w-[50%]">
-                    <img src="54603800-d5a2-4466-b8e1-9880f1748d86.jpg"
-                         alt="Før styling"
-                         class="ba-image"
-                         id="before-image">
-                    <div class="ba-label ba-label-left">Før</div>
+                <!-- Label: ETTER -->
+                <div class="after-label absolute top-6 right-6 px-4 py-2 bg-black/30 backdrop-blur-md border border-white/20 text-white text-xs tracking-widest uppercase transition-opacity duration-500">
+                    <span class="font-bold text-[#c5a059]">Etter</span> Styling
                 </div>
 
-                <div class="ba-label ba-label-right">Etter</div>
+                <!-- Before Image Container (Clipped) -->
+                <div class="before-image-container absolute inset-0 overflow-hidden" style="width: 50%; box-shadow: 5px 0 30px rgba(0,0,0,0.3);">
+                    <img src="54603800-d5a2-4466-b8e1-9880f1748d86.jpg"
+                         alt="Før styling"
+                         class="absolute inset-0 h-full object-cover"
+                         style="width: 100vw; max-width: none;"
+                         draggable="false">
 
-                <!-- Håndtak -->
-                <div id="slider-handle" class="ba-handle">
-                    <div class="ba-handle-line"></div>
-                    <div class="ba-handle-knob" aria-hidden="true">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" transform="rotate(-90 12 12)" />
-                        </svg>
+                    <!-- Dark overlay for contrast -->
+                    <div class="absolute inset-0 bg-neutral-900/20 mix-blend-multiply pointer-events-none"></div>
+
+                    <!-- Label: FØR -->
+                    <div class="before-label absolute top-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md text-neutral-900 text-xs tracking-widest uppercase shadow-sm transition-opacity duration-500">
+                        <span class="font-bold text-[#c5a059] mr-1">Før</span> Styling
                     </div>
                 </div>
 
-                <!-- Range Input -->
-                <input type="range" min="0" max="100" value="50" id="slider-range" class="ba-range" aria-label="Sammenlign før og etter bilder">
+                <!-- Slider Handle -->
+                <div class="slider-handle absolute inset-y-0 w-0.5 bg-white z-20" style="left: 50%;">
+                    <!-- Glow effect -->
+                    <div class="absolute inset-y-0 -left-1 w-2 bg-white/30 blur-sm"></div>
+
+                    <!-- Handle Button -->
+                    <div class="handle-button absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center cursor-ew-resize transition-transform duration-200 hover:scale-110 active:scale-95">
+                        <!-- Outer glass ring -->
+                        <div class="handle-ring absolute inset-0 rounded-full bg-white/10 backdrop-blur-md border border-white/60 shadow-[0_0_20px_rgba(0,0,0,0.2)] transition-all duration-300"></div>
+                        
+                        <!-- Inner circle -->
+                        <div class="absolute w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center">
+                            <!-- Arrows SVG -->
+                            <svg class="text-[#c5a059]" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                            <svg class="text-[#c5a059]" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instruction (Fades on interaction) -->
+                <div class="slider-instruction absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none transition-opacity duration-700" style="opacity: 0.8;">
+                    <div class="flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur rounded-full text-white text-[10px] uppercase tracking-widest border border-white/10">
+                        <svg class="text-[#c5a059]" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 3L2 21h20L12 3z"></path>
+                            <path d="M12 10v6"></path>
+                            <path d="M12 18h.01"></path>
+                        </svg>
+                        <span>Dra for å sammenligne</span>
+                    </div>
+                </div>
 
             </div>
         </div>

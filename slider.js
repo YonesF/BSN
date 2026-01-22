@@ -1,98 +1,132 @@
-// SECURITY: XSS-safe implementation with enhanced error handling
-(function() {
-    'use strict';
+/**
+ * LuksusEiendom Luxury Before/After Slider
+ * Pure JavaScript implementation with intro animation
+ */
+
+class LuxurySlider {
+  constructor(containerId) {
+    this.container = document.getElementById(containerId);
+    if (!this.container) {
+      console.error('Slider container not found');
+      return;
+    }
+
+    this.sliderPosition = 0; // Start at 0 for intro animation
+    this.isDragging = false;
+    this.isHovered = false;
     
-    // Get DOM elements
-    const sliderRange = document.getElementById('slider-range');
-    const beforeImageContainer = document.getElementById('before-image-container');
-    const sliderHandle = document.getElementById('slider-handle');
-    const beforeImage = document.getElementById('before-image');
-    const afterImage = document.getElementById('after-image');
-    const sliderContainer = document.querySelector('.before-after-slider');
+    this.init();
+  }
 
-    // Validate all required elements exist
-    if (!sliderRange || !beforeImageContainer || !sliderHandle) {
-        // PRODUCTION: Silent fail
-        return;
-    }
+  init() {
+    this.setupEventListeners();
+    this.runIntroAnimation();
+  }
 
-    // SECURITY: Enhanced sanitization and validation
-    function sanitizeSliderValue(value) {
-        // Ensure input is string or number
-        if (typeof value !== 'string' && typeof value !== 'number') {
-            return 50;
-        }
-        
-        const numValue = parseInt(value, 10);
-        
-        // Extra validation for safety
-        if (isNaN(numValue) || !isFinite(numValue)) {
-            return 50;
-        }
-        
-        // Clamp value between 0 and 100
-        return Math.max(0, Math.min(100, numValue));
-    }
+  runIntroAnimation() {
+    const start = 0;
+    const end = 50;
+    const duration = 1500; // 1.5 seconds
+    const startTime = performance.now();
 
-    // Handle slider input
-    function setSliderPosition(value) {
-        const sanitizedValue = sanitizeSliderValue(value);
-        sliderRange.value = sanitizedValue;
-        beforeImageContainer.style.width = sanitizedValue + '%';
-        sliderHandle.style.left = sanitizedValue + '%';
-    }
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function (easeOutQuart) for smooth luxury feel
+      const easeOut = 1 - Math.pow(1 - progress, 4);
+      
+      this.sliderPosition = start + (end - start) * easeOut;
+      this.updateSliderPosition();
 
-    function handleSliderInput(event) {
-        setSliderPosition(event.target.value);
-    }
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
 
-    // Attach event listener
-    sliderRange.addEventListener('input', handleSliderInput);
-    sliderRange.addEventListener('change', handleSliderInput);
+    // Wait 500ms before starting animation
+    setTimeout(() => {
+      requestAnimationFrame(animate);
+    }, 500);
+  }
+
+  setupEventListeners() {
+    // Mouse events
+    this.container.addEventListener('mousedown', (e) => this.handleStart(e));
+    this.container.addEventListener('mouseenter', () => this.handleHover(true));
+    this.container.addEventListener('mouseleave', () => this.handleHover(false));
     
-    function clientXToPercent(clientX) {
-        if (!sliderContainer) return 50;
-        const rect = sliderContainer.getBoundingClientRect();
-        const position = ((clientX - rect.left) / rect.width) * 100;
-        return Math.max(0, Math.min(100, position));
+    // Touch events
+    this.container.addEventListener('touchstart', (e) => this.handleStart(e), { passive: false });
+    
+    // Global move/end events
+    document.addEventListener('mousemove', (e) => this.handleMove(e));
+    document.addEventListener('mouseup', () => this.handleEnd());
+    document.addEventListener('touchmove', (e) => this.handleMove(e), { passive: false });
+    document.addEventListener('touchend', () => this.handleEnd());
+  }
+
+  handleStart(e) {
+    this.isDragging = true;
+    this.container.classList.add('dragging');
+    this.updatePosition(e);
+  }
+
+  handleMove(e) {
+    if (this.isDragging) {
+      e.preventDefault();
+      this.updatePosition(e);
+    }
+  }
+
+  handleEnd() {
+    this.isDragging = false;
+    this.container.classList.remove('dragging');
+  }
+
+  handleHover(isHovered) {
+    this.isHovered = isHovered;
+    const instruction = this.container.querySelector('.slider-instruction');
+    if (instruction) {
+      instruction.style.opacity = isHovered || this.isDragging ? '0' : '0.8';
+    }
+  }
+
+  updatePosition(e) {
+    const rect = this.container.getBoundingClientRect();
+    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    const x = clientX - rect.left;
+    const width = rect.width;
+    
+    this.sliderPosition = Math.max(0, Math.min(100, (x / width) * 100));
+    this.updateSliderPosition();
+  }
+
+  updateSliderPosition() {
+    const beforeContainer = this.container.querySelector('.before-image-container');
+    const handle = this.container.querySelector('.slider-handle');
+    const beforeLabel = this.container.querySelector('.before-label');
+    const afterLabel = this.container.querySelector('.after-label');
+
+    if (beforeContainer) {
+      beforeContainer.style.width = `${this.sliderPosition}%`;
+    }
+    
+    if (handle) {
+      handle.style.left = `${this.sliderPosition}%`;
     }
 
-    function syncDrag(event) {
-        const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-        setSliderPosition(clientXToPercent(clientX));
+    // Fade labels near edges
+    if (beforeLabel) {
+      beforeLabel.style.opacity = this.sliderPosition < 10 ? '0' : '1';
     }
-
-    if (sliderContainer) {
-        ['pointerdown', 'pointermove'].forEach(evt => sliderContainer.addEventListener(evt, syncDrag));
-        ['touchstart', 'touchmove'].forEach(evt => sliderContainer.addEventListener(evt, syncDrag, { passive: true }));
+    if (afterLabel) {
+      afterLabel.style.opacity = this.sliderPosition > 90 ? '0' : '1';
     }
+  }
+}
 
-    ['pointerdown', 'pointermove'].forEach(evt => sliderRange.addEventListener(evt, syncDrag));
-    ['touchstart', 'touchmove'].forEach(evt => sliderRange.addEventListener(evt, syncDrag, { passive: true }));
-
-    // Initialize position
-    setSliderPosition(sliderRange.value || 50);
-
-    // SECURITY: Enhanced image error handling with fallback chain
-    if (beforeImage) {
-        let beforeErrorCount = 0;
-        beforeImage.addEventListener('error', function() {
-            beforeErrorCount++;
-            
-            if (beforeErrorCount === 1) {
-                // Try fallback image
-                this.src = 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop';
-            } else if (beforeErrorCount === 2) {
-                // If fallback also fails, hide gracefully
-                this.style.display = 'none';
-            }
-        }, { once: false });
-    }
-
-    if (afterImage) {
-        let afterErrorCount = 0;
-        afterImage.addEventListener('error', function() {
-            afterErrorCount++;
-        }, { once: false });
-    }
- })();
+// Initialize slider when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  new LuxurySlider('luxury-slider-container');
+});

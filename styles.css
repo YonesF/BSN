@@ -23,23 +23,6 @@ body {
 }
 
 /* Slider spesifikk CSS */
-.before-after-slider {
-    background: #e4e6eb;
-    position: relative;
-}
-
-.slider-range {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
-
-.ba-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -56,86 +39,20 @@ input[type=range]::-moz-range-thumb {
     cursor: ew-resize;
 }
 
-.ba-overlay {
-    position: absolute;
-    inset: 0;
+/* FIX: Before/After slider - prevent zoom */
+#after-image-container {
     will-change: width;
-    overflow: hidden;
-    border-right: 2px solid #fff;
-    pointer-events: none;
 }
 
-.ba-label {
+#after-image-container img {
     position: absolute;
-    top: 1rem;
-    padding: 0.35rem 0.85rem;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    backdrop-filter: blur(4px);
-    color: #fff;
-    z-index: 25;
-}
-
-.ba-label-left {
-    left: 1rem;
-    background: rgba(0, 0, 0, 0.6);
-}
-
-.ba-label-right {
-    right: 1rem;
-    background: rgba(197, 160, 89, 0.9);
-}
-
-.ba-handle {
-    position: absolute;
-    inset: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    pointer-events: none;
-    z-index: 30;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.ba-handle-line {
-    position: absolute;
-    inset: 0;
-    width: 2px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.9);
-}
-
-.ba-handle-knob {
-    width: 44px;
-    height: 44px;
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 9999px;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #111827;
-}
-
-.ba-range {
-    position: absolute;
-    inset: 0;
-    width: 100%;
+    left: 0;
+    top: 0;
     height: 100%;
-    opacity: 0;
-    cursor: ew-resize;
-    z-index: 40;
-    margin: 0;
-    padding: 0;
-    background: transparent;
-}
-
-.ba-range:focus-visible {
-    outline: none;
+    width: auto;
+    min-width: 100%;
+    object-fit: cover;
+    object-position: left center;
 }
 
 /* FAQ Section Styles */
@@ -168,5 +85,78 @@ details[open] summary ~ * {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* ===========================
+   LUXURY SLIDER STYLES
+   ========================== */
+
+.luxury-slider-wrapper {
+    background-color: #f5f5f5;
+}
+
+/* Dragging state */
+.luxury-slider-wrapper.dragging {
+    cursor: grabbing;
+}
+
+.luxury-slider-wrapper.dragging .handle-button {
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+.luxury-slider-wrapper.dragging .handle-ring {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: rgba(197, 160, 89, 0.2);
+    border-color: #c5a059;
+}
+
+/* Before image container - ensure proper width calculation */
+.before-image-container img {
+    min-width: 100%;
+    width: 100vw;
+    max-width: none;
+}
+
+/* Smooth transitions for labels */
+.before-label,
+.after-label {
+    transition: opacity 0.5s ease;
+}
+
+/* Handle hover effects */
+.handle-button:hover .handle-ring {
+    box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+}
+
+/* Prevent text selection during drag */
+.luxury-slider-wrapper.dragging * {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .before-label,
+    .after-label {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.625rem;
+    }
+
+    .handle-button {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .handle-button .w-8 {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+
+    .slider-instruction {
+        font-size: 0.5rem;
+        padding: 0.375rem 0.75rem;
     }
 }
