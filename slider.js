@@ -7,7 +7,7 @@ class LuxurySlider {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
     if (!this.container) {
-      console.error('Slider container not found');
+      console.error('Slider container not found:', containerId);
       return;
     }
 
@@ -19,8 +19,42 @@ class LuxurySlider {
   }
 
   init() {
+    // Make sure images are loaded before initializing
+    const images = this.container.querySelectorAll('img');
+    let loadedCount = 0;
+    
+    images.forEach(img => {
+      if (img.complete) {
+        loadedCount++;
+      } else {
+        img.addEventListener('load', () => {
+          loadedCount++;
+          if (loadedCount === images.length) {
+            this.startSlider();
+          }
+        });
+      }
+    });
+    
+    // If all images already loaded
+    if (loadedCount === images.length) {
+      this.startSlider();
+    }
+  }
+
+  startSlider() {
+    this.fixBeforeImageWidth();
     this.setupEventListeners();
     this.runIntroAnimation();
+  }
+
+  fixBeforeImageWidth() {
+    // Fix the before image to match container width
+    const beforeImg = this.container.querySelector('.before-image-container img');
+    if (beforeImg) {
+      const containerWidth = this.container.offsetWidth;
+      beforeImg.style.width = containerWidth + 'px';
+    }
   }
 
   runIntroAnimation() {
@@ -51,19 +85,25 @@ class LuxurySlider {
   }
 
   setupEventListeners() {
-    // Mouse events
+    // Click/tap anywhere to jump
     this.container.addEventListener('mousedown', (e) => this.handleStart(e));
+    this.container.addEventListener('touchstart', (e) => this.handleStart(e), { passive: false });
+    
+    // Hover effect
     this.container.addEventListener('mouseenter', () => this.handleHover(true));
     this.container.addEventListener('mouseleave', () => this.handleHover(false));
-    
-    // Touch events
-    this.container.addEventListener('touchstart', (e) => this.handleStart(e), { passive: false });
     
     // Global move/end events
     document.addEventListener('mousemove', (e) => this.handleMove(e));
     document.addEventListener('mouseup', () => this.handleEnd());
     document.addEventListener('touchmove', (e) => this.handleMove(e), { passive: false });
     document.addEventListener('touchend', () => this.handleEnd());
+    
+    // Recalculate on window resize
+    window.addEventListener('resize', () => {
+      this.fixBeforeImageWidth();
+      this.updateSliderPosition();
+    });
   }
 
   handleStart(e) {
@@ -127,6 +167,11 @@ class LuxurySlider {
 }
 
 // Initialize slider when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    new LuxurySlider('luxury-slider-container');
+  });
+} else {
+  // DOM already loaded
   new LuxurySlider('luxury-slider-container');
-});
+}
