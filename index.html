@@ -98,42 +98,35 @@
                 <p class="text-gray-500 text-sm tracking-wide uppercase">Dra slideren for å se effekten av digital styling</p>
             </div>
 
-            <!-- Slider Container -->
-            <div class="relative w-full max-w-4xl mx-auto aspect-[4/3] md:aspect-[16/9] overflow-hidden shadow-2xl border border-gray-100 group select-none bg-gray-200">
-
-                <!-- Bilde 1: Før -->
-                <img src="54603800-d5a2-4466-b8e1-9880f1748d86.jpg"
-                     alt="Før styling"
-                     class="absolute inset-0 w-full h-full object-cover"
-                     id="before-image">
-
-                <div class="absolute top-4 left-4 bg-black/60 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 backdrop-blur-sm z-10 pointer-events-none">
-                    Før
-                </div>
-
-                <!-- Bilde 2: Etter -->
-                <div id="after-image-container" class="absolute inset-0 w-[50%] overflow-hidden border-r-2 border-white z-10">
-                    <img src="Demo_1_after.png"
-                         alt="Etter styling"
-                         id="after-image">
-
-                    <div class="absolute top-4 right-4 bg-[#c5a059]/90 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 backdrop-blur-sm z-20 pointer-events-none">
-                        Etter
+            <!-- Ny Before/After Slider -->
+            <div class="before-after-slider">
+                <div class="before-after-container">
+                    <!-- Before Image (bottom layer) -->
+                    <img src="54603800-d5a2-4466-b8e1-9880f1748d86.jpg" 
+                         alt="Før digital styling" 
+                         class="before-after-image">
+                    
+                    <!-- After Image (top layer with clip) -->
+                    <div class="after-image-wrapper">
+                        <img src="Demo_1_after.png" 
+                             alt="Etter digital styling" 
+                             class="before-after-image">
                     </div>
-                </div>
-
-                <!-- Slider Handle -->
-                <div id="slider-handle" class="absolute inset-y-0 left-[50%] w-0.5 z-30 pointer-events-none flex items-center justify-center">
-                    <div class="w-10 h-10 bg-white rounded-full shadow-xl flex items-center justify-center text-gray-800 border border-gray-100">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" transform="rotate(-90 12 12)" />
-                        </svg>
+                    
+                    <!-- Slider Control -->
+                    <div class="slider-control">
+                        <div class="slider-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 8L22 12L18 16"></path>
+                                <path d="M6 8L2 12L6 16"></path>
+                            </svg>
+                        </div>
                     </div>
+                    
+                    <!-- Labels -->
+                    <div class="label label-before">Før</div>
+                    <div class="label label-after">Etter</div>
                 </div>
-
-                <!-- Input -->
-                <input type="range" min="0" max="100" value="50" id="slider-range" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40 m-0 p-0" aria-label="Sammenlign før og etter bilder">
-
             </div>
         </div>
     </section>
