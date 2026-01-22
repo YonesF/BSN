@@ -92,16 +92,16 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     cursor: ew-resize;
     color: #333;
-    transition: transform 0.2s ease;
 }
 
 .slider-button:hover {
-    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 .slider-button svg {
     width: 24px;
     height: 24px;
+    display: block;
 }
 
 .label {
