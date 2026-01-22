@@ -1,0 +1,24 @@
+File: _config.yml
+````````
+# Jekyll configuration for GitHub Pages
+theme: null
+plugins: []
+
+# Include HTML files
+include:
+  - personvern.html
+  - index.html
+  - 404.html
+  - 500.html
+  
+exclude:
+  - .vs/
+  - .vscode/
+  - BACKUP-RECOVERY.md
+  - MONITORING-LOGGING.md
+  - PRE-LAUNCH-CHECKLIST.md
+  - SECURITY-AUDIT-REPORT.md
+  - SECURITY-DEPLOYMENT.md
+  - CONTRIBUTING.md
+  - README.md
+  - .gitignore

@@ -1,0 +1,83 @@
+# SECURITY: HTTP Security Headers for Apache Server
+# Place this file in your web root directory
+
+<IfModule mod_headers.c>
+    # Prevent clickjacking attacks
+    Header always set X-Frame-Options "DENY"
+    
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Enable XSS protection in older browsers
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Strict referrer policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions policy (disable unnecessary features)
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
+    
+    # Force HTTPS (enable after SSL certificate is installed)
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Additional CSP via HTTP header (backup for meta tag)
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; media-src 'self' https:; connect-src 'self' https://cdn.tailwindcss.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self' https://forms.gle; upgrade-insecure-requests;"
+</IfModule>
+
+# Custom Error Pages (prevents information disclosure)
+ErrorDocument 400 /404.html
+ErrorDocument 401 /404.html
+ErrorDocument 403 /404.html
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+ErrorDocument 502 /500.html
+ErrorDocument 503 /500.html
+
+# Force HTTPS redirect (enable after SSL certificate is installed)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Disable directory listing
+Options -Indexes
+
+# Prevent access to sensitive files
+<FilesMatch "^\.(?!well-known)">
+    Require all denied
+</FilesMatch>
+
+# Prevent access to backup and config files
+<FilesMatch "\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)$">
+    Require all denied
+</FilesMatch>
+
+# SECURITY: Rate limiting (requires mod_ratelimit)
+<IfModule mod_ratelimit.c>
+    # Limit to 10 KB/s per connection to prevent DoS
+    SetOutputFilter RATE_LIMIT
+    SetEnv rate-limit 10
+</IfModule>
+
+# SECURITY: Hotlink protection for images
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    # Allow your domain and direct access
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?luksuseiendom\.no [NC]
+    RewriteRule \.(jpg|jpeg|png|gif|svg|webp|mov|mp4)$ - [F,NC,L]
+</IfModule>
+
+# Disable server signature
+ServerSignature Off
+
+# Prevent access to .git directory
+<DirectoryMatch "\.git">
+    Require all denied
+</DirectoryMatch>
+
+# Additional security for PHP (if you add PHP later)
+<IfModule mod_php7.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+    php_flag expose_php Off
+</IfModule>

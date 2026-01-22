@@ -1,0 +1,18 @@
+# LuksusEiendom - Robots.txt
+User-agent: *
+Allow: /
+
+# Blokkér tilgang til sensitive områder
+Disallow: /.htaccess
+Disallow: /slider.js.map
+Disallow: /*.log$
+
+# Sitemap
+Sitemap: https://www.luksuseiendom.no/sitemap.xml
+
+# Security
+User-agent: *
+Disallow: /admin/
+Disallow: /config/
+Disallow: /backup/
+Disallow: /.git/

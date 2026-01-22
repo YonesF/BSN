@@ -1,0 +1,89 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fafafa;
+    color: #1a1a1a;
+    scroll-behavior: smooth;
+}
+
+.serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.gold-accent {
+    color: #c5a059;
+}
+
+.gold-bg {
+    background-color: #c5a059;
+}
+
+/* Slider spesifikk CSS */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    cursor: ew-resize;
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    cursor: ew-resize;
+}
+
+/* FIX: Before/After slider - prevent zoom */
+#after-image-container {
+    will-change: width;
+}
+
+#after-image-container img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: auto;
+    min-width: 100%;
+    object-fit: cover;
+    object-position: left center;
+}
+
+/* FAQ Section Styles */
+details {
+    transition: all 0.3s ease;
+}
+
+details[open] {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+details summary {
+    list-style: none;
+    user-select: none;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] summary ~ * {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
