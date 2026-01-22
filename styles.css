@@ -39,35 +39,33 @@ input[type=range]::-moz-range-thumb {
     cursor: ew-resize;
 }
 
-/* FIXED: Before/After slider - prevent zoom and show full images */
-/* Key changes:
-   1. Use object-fit: contain instead of cover (shows full image, no crop)
-   2. Remove min-width constraint that forced scaling
-   3. Both before/after images use same sizing rules
-   4. Only the container width changes, not the images themselves
+/* FIXED: Before/After slider - Simple and working approach */
+/* Strategy: 
+   1. Both images use object-fit: cover to fill container
+   2. After-image container clips the reveal
+   3. After-image is positioned to match the before-image perfectly
 */
 
 #after-image-container {
     will-change: width;
-    transition: none; /* Smooth performance, no animation lag */
+    transition: none;
 }
 
-/* Before image - Full background layer */
+/* Before image - Full background */
 #before-image {
-    object-fit: contain; /* Show full room without cropping */
-    object-position: center center; /* Center the image */
+    object-fit: cover;
+    object-position: center center;
 }
 
-/* After image container and image */
+/* After image - Must match before image positioning */
 #after-image {
-    object-fit: contain; /* Show full room without cropping */
-    object-position: center center; /* Center the image */
-    /* width: 200% is set inline to compensate for 50% container */
+    object-fit: cover;
+    object-position: center center;
 }
 
 /* Slider handle styling */
 #slider-handle {
-    transition: none; /* Instant response for smooth dragging */
+    transition: none;
 }
 
 /* FAQ Section Styles */
