@@ -3,8 +3,8 @@
 markdown: kramdown
 
 # Base URL for GitHub Pages project repository
-baseurl: "/BSN"
-url: "https://yonesf.github.io"
+baseurl: ""
+url: "http://luksuseiendsomstudio.no"
 
 # Do not use theme
 theme: null
