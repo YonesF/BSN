@@ -97,6 +97,34 @@ details[open] summary ~ * {
     position: relative;
 }
 
+/* Before image container - CRITICAL POSITIONING */
+.before-image-container {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    z-index: 10 !important;
+}
+
+.before-image-container img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100% !important;
+    width: auto !important;
+    min-width: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    max-width: none !important;
+}
+
+/* After image (background) - CRITICAL POSITIONING */
+.luxury-slider-wrapper > img:first-of-type {
+    pointer-events: none;
+    z-index: 1 !important;
+}
+
 /* Dragging state */
 .luxury-slider-wrapper.dragging {
     cursor: grabbing !important;
@@ -113,47 +141,19 @@ details[open] summary ~ * {
     border-color: #c5a059 !important;
 }
 
-/* Before image container - FIXED WIDTH */
-.before-image-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    overflow: hidden;
-    z-index: 10;
-}
-
-.before-image-container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    max-width: none;
-}
-
-/* After image (background) */
-.luxury-slider-wrapper > img {
-    pointer-events: none;
-}
-
 /* Smooth transitions for labels */
 .before-label,
 .after-label {
     transition: opacity 0.5s ease;
-    z-index: 20;
 }
 
 /* Slider handle */
 .slider-handle {
     pointer-events: none;
-    z-index: 30;
 }
 
 .handle-button {
-    pointer-events: all;
-    z-index: 40;
+    pointer-events: all !important;
 }
 
 /* Handle hover effects */
@@ -176,7 +176,6 @@ details[open] summary ~ * {
 
 /* Instruction fade */
 .slider-instruction {
-    z-index: 15;
     transition: opacity 0.7s ease;
 }
 
@@ -206,4 +205,4 @@ details[open] summary ~ * {
     .slider-instruction span {
         font-size: 0.5rem;
     }
-}
+}}

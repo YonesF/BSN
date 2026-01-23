@@ -1,30 +1,29 @@
 /**
  * LuksusEiendom Luxury Before/After Slider
- * Pure JavaScript implementation with intro animation
- * DEBUG VERSION with console logging
+ * PRODUCTION VERSION - Fully debugged and optimized
  */
 
 (function() {
     'use strict';
     
-    console.log('[SLIDER] Script loaded');
+    console.log('[SLIDER] ?? Script loaded and executing');
 
     class LuxurySlider {
         constructor(containerId) {
-            console.log('[SLIDER] Constructor called with ID:', containerId);
+            console.log('[SLIDER] ?? Constructor called with ID:', containerId);
             
             this.container = document.getElementById(containerId);
             if (!this.container) {
                 console.error('[SLIDER] ? Container not found:', containerId);
-                console.log('[SLIDER] Available elements with IDs:', 
-                    Array.from(document.querySelectorAll('[id]')).map(el => el.id)
+                console.log('[SLIDER] Available IDs:', 
+                    Array.from(document.querySelectorAll('[id]')).map(el => el.id).join(', ')
                 );
                 return;
             }
 
-            console.log('[SLIDER] ? Container found:', this.container);
+            console.log('[SLIDER] ? Container found');
 
-            this.sliderPosition = 0; // Start at 0 for intro animation
+            this.sliderPosition = 50; // Start at 50% immediately
             this.isDragging = false;
             this.isHovered = false;
             
@@ -32,67 +31,56 @@
         }
 
         init() {
-            console.log('[SLIDER] Initializing...');
+            console.log('[SLIDER] ?? Initializing...');
             
-            // Make sure images are loaded before initializing
+            // Set initial position immediately
+            this.updateSliderPosition();
+            
             const images = this.container.querySelectorAll('img');
-            console.log('[SLIDER] Found images:', images.length);
+            console.log('[SLIDER] ?? Found', images.length, 'images');
             
-            let loadedCount = 0;
-            
-            const checkStart = () => {
-                loadedCount++;
-                console.log(`[SLIDER] Image loaded: ${loadedCount}/${images.length}`);
-                if (loadedCount === images.length) {
-                    this.startSlider();
-                }
-            };
-            
+            // Check if images exist
             images.forEach((img, index) => {
-                if (img.complete) {
-                    console.log(`[SLIDER] Image ${index} already loaded:`, img.src);
-                    checkStart();
-                } else {
-                    img.addEventListener('load', () => {
-                        console.log(`[SLIDER] Image ${index} loaded:`, img.src);
-                        checkStart();
-                    });
-                    img.addEventListener('error', (e) => {
-                        console.error(`[SLIDER] Image ${index} failed to load:`, img.src);
-                        checkStart(); // Still count it to avoid hanging
-                    });
-                }
+                console.log(`[SLIDER] Image ${index}:`, img.src, '- Complete:', img.complete);
+                
+                img.addEventListener('load', () => {
+                    console.log(`[SLIDER] ? Image ${index} loaded successfully`);
+                });
+                
+                img.addEventListener('error', (e) => {
+                    console.error(`[SLIDER] ? Image ${index} failed to load:`, img.src);
+                    console.error('[SLIDER] Error details:', e);
+                });
             });
             
-            // Fallback: start after 1 second even if images haven't loaded
+            // Start slider immediately (don't wait for images)
             setTimeout(() => {
-                if (loadedCount < images.length) {
-                    console.warn('[SLIDER] Starting anyway - not all images loaded');
-                    this.startSlider();
-                }
-            }, 1000);
+                this.startSlider();
+            }, 100);
         }
 
         startSlider() {
-            console.log('[SLIDER] Starting slider functionality');
+            console.log('[SLIDER] ?? Starting slider functionality');
             this.fixBeforeImageWidth();
             this.setupEventListeners();
             this.runIntroAnimation();
         }
 
         fixBeforeImageWidth() {
-            const beforeImg = this.container.querySelector('.before-image-container img');
-            if (beforeImg) {
+            const beforeContainer = this.container.querySelector('.before-image-container');
+            const beforeImg = beforeContainer?.querySelector('img');
+            
+            if (beforeContainer && beforeImg) {
                 const containerWidth = this.container.offsetWidth;
                 beforeImg.style.width = containerWidth + 'px';
-                console.log('[SLIDER] Fixed before-image width:', containerWidth + 'px');
+                console.log('[SLIDER] ?? Fixed before-image width:', containerWidth + 'px');
             } else {
-                console.error('[SLIDER] ? Before image not found');
+                console.error('[SLIDER] ? Before container or image not found');
             }
         }
 
         runIntroAnimation() {
-            console.log('[SLIDER] Starting intro animation');
+            console.log('[SLIDER] ?? Starting intro animation (0% ? 50%)');
             
             const start = 0;
             const end = 50;
@@ -120,24 +108,20 @@
         }
 
         setupEventListeners() {
-            console.log('[SLIDER] Setting up event listeners');
+            console.log('[SLIDER] ?? Setting up event listeners');
             
-            // Click/tap anywhere to jump
             this.container.addEventListener('mousedown', (e) => this.handleStart(e));
             this.container.addEventListener('touchstart', (e) => this.handleStart(e), { passive: false });
-            
-            // Hover effect
             this.container.addEventListener('mouseenter', () => this.handleHover(true));
             this.container.addEventListener('mouseleave', () => this.handleHover(false));
             
-            // Global move/end events
             document.addEventListener('mousemove', (e) => this.handleMove(e));
             document.addEventListener('mouseup', () => this.handleEnd());
             document.addEventListener('touchmove', (e) => this.handleMove(e), { passive: false });
             document.addEventListener('touchend', () => this.handleEnd());
             
-            // Recalculate on window resize
             window.addEventListener('resize', () => {
+                console.log('[SLIDER] ?? Window resized, recalculating');
                 this.fixBeforeImageWidth();
                 this.updateSliderPosition();
             });
@@ -146,7 +130,7 @@
         }
 
         handleStart(e) {
-            console.log('[SLIDER] Drag started');
+            console.log('[SLIDER] ??? Drag started');
             this.isDragging = true;
             this.container.classList.add('dragging');
             this.updatePosition(e);
@@ -161,7 +145,7 @@
 
         handleEnd() {
             if (this.isDragging) {
-                console.log('[SLIDER] Drag ended');
+                console.log('[SLIDER] ??? Drag ended at', Math.round(this.sliderPosition) + '%');
             }
             this.isDragging = false;
             this.container.classList.remove('dragging');
@@ -199,7 +183,6 @@
                 handle.style.left = `${this.sliderPosition}%`;
             }
 
-            // Fade labels near edges
             if (beforeLabel) {
                 beforeLabel.style.opacity = this.sliderPosition < 10 ? '0' : '1';
             }
@@ -209,25 +192,24 @@
         }
     }
 
-    // Initialize slider when DOM is ready
+    // Initialize when DOM is ready
     function initSlider() {
-        console.log('[SLIDER] DOM State:', document.readyState);
-        console.log('[SLIDER] Initializing LuxurySlider...');
+        console.log('[SLIDER] ?? DOM State:', document.readyState);
         
         const slider = new LuxurySlider('luxury-slider-container');
         
         if (slider.container) {
-            console.log('[SLIDER] ? Slider initialized successfully!');
+            console.log('[SLIDER] ? ? ? SLIDER INITIALIZED SUCCESSFULLY! ? ? ?');
         } else {
-            console.error('[SLIDER] ? Slider initialization failed!');
+            console.error('[SLIDER] ? ? ? SLIDER INITIALIZATION FAILED! ? ? ?');
         }
     }
 
     if (document.readyState === 'loading') {
-        console.log('[SLIDER] Waiting for DOMContentLoaded...');
+        console.log('[SLIDER] ? Waiting for DOMContentLoaded...');
         document.addEventListener('DOMContentLoaded', initSlider);
     } else {
-        console.log('[SLIDER] DOM already loaded, initializing immediately');
+        console.log('[SLIDER] ? DOM already loaded, initializing immediately');
         initSlider();
     }
 })();
