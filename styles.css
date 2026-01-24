@@ -22,6 +22,55 @@ body {
     background-color: #c5a059;
 }
 
+/* ===========================
+   8PX GRID SYSTEM
+   All spacing follows an 8px base unit
+   ========================== */
+
+:root {
+    /* 8px Grid System Scale */
+    --space-1: 8px;    /* 1 unit */
+    --space-2: 16px;   /* 2 units */
+    --space-3: 24px;   /* 3 units */
+    --space-4: 32px;   /* 4 units */
+    --space-5: 40px;   /* 5 units */
+    --space-6: 48px;   /* 6 units */
+    --space-8: 64px;   /* 8 units */
+    --space-10: 80px;  /* 10 units */
+    --space-12: 96px;  /* 12 units */
+    --space-16: 128px; /* 16 units */
+    --space-20: 160px; /* 20 units */
+    --space-24: 192px; /* 24 units */
+}
+
+/* ===========================
+   BASE STYLES
+   ========================== */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fafafa;
+    color: #1a1a1a;
+    scroll-behavior: smooth;
+}
+
+.serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.gold-accent {
+    color: #c5a059;
+}
+
+.gold-bg {
+    background-color: #c5a059;
+}
+
 /* Slider spesifikk CSS */
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -205,4 +254,4 @@ details[open] summary ~ * {
     .slider-instruction span {
         font-size: 0.5rem;
     }
-}}
+}
