@@ -8,7 +8,6 @@
     <!-- SEO Meta Tags -->
     <meta name="description"
         content="LuksusEiendom Digital Styling Policy. Våre etiske retningslinjer for bildebehandling og presentasjon av eiendom.">
-    <meta name="keywords" content="digital styling policy, eiendomsetikk, bildebehandling regler">
     <meta name="author" content="LuksusEiendom">
 
     <link rel="icon" type="image/png" href="./favicon.png">
@@ -16,6 +15,25 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#c5a059',
+                            500: '#b08d45',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- Fonts -->
     <link
@@ -26,47 +44,51 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 
-<body class="antialiased flex flex-col min-h-screen bg-white text-gray-900">
+<body class="antialiased flex flex-col min-h-screen bg-white text-gray-900 transition-colors duration-300">
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="bg-gray-900/80 backdrop-blur-md border-b border-white/10 w-full relative z-50">
-            <div class="max-w-[120rem] mx-auto px-8 h-24 flex justify-between items-center">
+        <div
+            class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-100 dark:border-white/10 w-full relative z-50">
+            <div class="max-w-[120rem] mx-auto px-6 md:px-8 h-24 flex justify-between items-center">
                 <div class="flex items-center">
                     <a href="index.html"
-                        class="text-xl md:text-3xl font-medium tracking-wide text-gray-100 font-sans hover:text-white transition-colors">LuksusEiendomStudio</a>
+                        class="text-xl md:text-2xl font-serif tracking-wide text-gray-900 dark:text-white hover:text-[#c5a059] transition-colors">
+                        LuksusEiendom<span class="text-[#c5a059]">.</span>
+                    </a>
                 </div>
-                <div class="flex items-center gap-4 md:gap-8">
+                <!-- Right Actions -->
+                <div class="flex items-center gap-6 md:gap-8">
                     <a href="index.html#kontakt"
-                        class="hidden md:inline-block bg-white text-gray-900 px-8 py-3 rounded-sm text-sm font-bold uppercase tracking-widest hover:bg-gray-100 transition-colors">
+                        class="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium tracking-wide uppercase hover:opacity-90 transition-opacity">
                         Bestill
                     </a>
-                    <div class="flex items-center gap-4 md:gap-6 border-l border-white/10 pl-4 md:pl-8 ml-2 relative">
-                        <!-- Theme Toggle Code (Simplified for brevity, same as other pages) -->
-                        <button id="theme-toggle"
-                            class="text-gray-400 hover:text-white transition-colors focus:outline-none p-1">
-                            <svg class="w-6 h-6 icon-sun hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                    <!-- Theme & Menu -->
+                    <div class="flex items-center gap-4 border-l border-gray-200 dark:border-gray-700 pl-6">
+                        <button id="theme-toggle" class="text-gray-500 hover:text-[#c5a059] transition-colors p-1">
+                            <!-- Sun/Moon Icons handled by JS -->
+                            <svg id="icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
                                 </path>
                             </svg>
-                            <svg class="w-6 h-6 icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg id="icon-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
                                 </path>
                             </svg>
                         </button>
-                        <!-- Menu Button -->
+
                         <button id="menuButton"
-                            class="group w-10 h-10 flex items-center justify-center relative z-50 focus:outline-none">
-                            <div class="w-8 flex flex-col gap-1.5 items-end">
-                                <span
-                                    class="block w-full h-0.5 bg-white transition-all duration-300 origin-center group-[.is-active]:rotate-45 group-[.is-active]:translate-y-2"></span>
-                                <span
-                                    class="block w-3/4 h-0.5 bg-[#c5a059] transition-all duration-300 group-[.is-active]:opacity-0"></span>
-                                <span
-                                    class="block w-full h-0.5 bg-white transition-all duration-300 origin-center group-[.is-active]:-rotate-45 group-[.is-active]:-translate-y-2"></span>
-                            </div>
+                            class="group w-8 h-6 flex flex-col justify-between items-end focus:outline-none z-50">
+                            <span
+                                class="block w-full h-0.5 bg-gray-900 dark:bg-white transition-all duration-300 group-[.is-active]:rotate-45 group-[.is-active]:translate-y-2.5"></span>
+                            <span
+                                class="block w-2/3 h-0.5 bg-[#c5a059] transition-all duration-300 group-[.is-active]:opacity-0"></span>
+                            <span
+                                class="block w-full h-0.5 bg-gray-900 dark:bg-white transition-all duration-300 group-[.is-active]:-rotate-45 group-[.is-active]:-translate-y-2.5"></span>
                         </button>
                     </div>
                 </div>
@@ -74,258 +96,13 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="flex-grow pt-40 pb-24 px-6">
-        <div class="max-w-4xl mx-auto">
-
-            <!-- Header -->
-            <div class="text-center mb-16">
-                <span class="text-[#c5a059] font-bold tracking-widest uppercase text-sm mb-4 block">Etiske
-                    Retningslinjer</span>
-                <h1 class="text-4xl md:text-5xl font-serif text-[#1a1a1a] dark:text-white mb-6">Digital Styling Policy
-                </h1>
-                <div class="h-px w-24 bg-[#c5a059] mx-auto"></div>
-            </div>
-
-            <!-- Intro Text -->
-            <div
-                class="prose dark:prose-invert max-w-2xl mx-auto text-gray-900 dark:text-gray-200 leading-relaxed text-center mb-16">
-                <p class="text-lg font-medium">
-                    LuksusEiendom benytter digital styling som et supplement til eksisterende boligbilder for å forbedre
-                    presentasjon og helhetsinntrykk.
-                    All digital styling skal være etisk forsvarlig, transparent og <strong>aldri villedende</strong>.
-                </p>
-            </div>
-
-            <!-- Two Column Grid -->
-            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 mb-20">
-
-                <!-- TILLATT (Green Card) -->
-                <div
-                    class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] border-t-8 border-emerald-500 relative overflow-hidden flex flex-col h-full hover:transform hover:-translate-y-1 transition-transform duration-300">
-                    <h2
-                        class="text-2xl font-serif text-gray-900 dark:text-white mb-8 flex items-center gap-4 pb-6 border-b border-gray-100 dark:border-gray-800">
-                        <div
-                            class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shadow-sm">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <span class="font-bold tracking-tight text-emerald-900 dark:text-emerald-400">TILLATT</span>
-                    </h2>
-
-                    <ul class="space-y-6 flex-grow">
-                        <li class="flex items-start gap-4">
-                            <svg class="w-5 h-5 text-emerald-500 mt-1 flex-shrink-0" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <div>
-                                <span class="block text-gray-900 dark:text-white font-bold text-lg mb-1">Justering av
-                                    bilde</span>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Lys, kontrast,
-                                    fargetemperatur og skarphet kan optimaliseres.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <svg class="w-5 h-5 text-emerald-500 mt-1 flex-shrink-0" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <div>
-                                <span class="block text-gray-900 dark:text-white font-bold text-lg mb-1">Digital
-                                    Rydding</span>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Fjerning av rot,
-                                    flyttekasser eller midlertidige elementer.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <svg class="w-5 h-5 text-emerald-500 mt-1 flex-shrink-0" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <div>
-                                <span class="block text-gray-900 dark:text-white font-bold text-lg mb-1">Realistisk
-                                    Møblering</span>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Møblering som
-                                    respekterer rommets faktiske størrelse.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <svg class="w-5 h-5 text-emerald-500 mt-1 flex-shrink-0" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <div>
-                                <span
-                                    class="block text-gray-900 dark:text-white font-bold text-lg mb-1">Stil-optimalisering</span>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Skape et helhetlig,
-                                    ryddig inntrykk uten å endre byggverk.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- IKKE TILLATT (Red Card) -->
-                <div
-                    class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] border-t-8 border-rose-500 relative overflow-hidden flex flex-col h-full hover:transform hover:-translate-y-1 transition-transform duration-300">
-                    <h2
-                        class="text-2xl font-serif text-gray-900 dark:text-white mb-8 flex items-center gap-4 pb-6 border-b border-gray-100 dark:border-gray-800">
-                        <div
-                            class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 shadow-sm">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <span class="font-bold tracking-tight text-rose-900 dark:text-rose-400">IKKE TILLATT</span>
-                    </h2>
-
-                    <ul class="space-y-6 flex-grow">
-                        <li class="flex items-start gap-4">
-                            <svg class="w-5 h-5 text-rose-500 mt-1 flex-shrink-0" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <div>
-                                <span class="block text-gray-900 dark:text-white font-bold text-lg mb-1">Endre
-                                    Planløsning</span>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Fjerning av vegger,
-                                    endring av romstørrelse eller himling.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <svg class="w-5 h-5 text-rose-500 mt-1 flex-shrink-0" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <div>
-                                <span class="block text-gray-900 dark:text-white font-bold text-lg mb-1">Falsk Utsikt /
-                                    Sol</span>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Manipulere
-                                    omgivelser, solforhold eller utsikt.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <svg class="w-5 h-5 text-rose-500 mt-1 flex-shrink-0" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <div>
-                                <span class="block text-gray-900 dark:text-white font-bold text-lg mb-1">Falske
-                                    Elementer</span>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Legge til peis, nye
-                                    vinduer eller dører som ikke finnes.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <svg class="w-5 h-5 text-rose-500 mt-1 flex-shrink-0" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <div>
-                                <span class="block text-gray-900 dark:text-white font-bold text-lg mb-1">Skjule
-                                    feil</span>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Skjule fuktskader,
-                                    sprekker, rør eller ledningsnett.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Merking og Transparens (Footer Section) -->
-            <div
-                class="bg-gray-50 dark:bg-gray-800/50 p-8 md:p-12 rounded-xl text-center max-w-3xl mx-auto border border-gray-100 dark:border-gray-800">
-                <h3 class="text-xl md:text-2xl font-serif text-gray-900 dark:text-white mb-8">Merking og Transparens
-                </h3>
-                <div class="grid md:grid-cols-3 gap-6 mb-8 text-sm font-medium text-gray-700 dark:text-gray-300">
-                    <div class="flex flex-col items-center gap-2">
-                        <div class="w-2 h-2 rounded-full bg-[#c5a059]"></div>
-                        <span>Alle digitalt stylete bilder merkes tydelig</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-2">
-                        <div class="w-2 h-2 rounded-full bg-[#c5a059]"></div>
-                        <span>Styling benyttes kun der det gir merverdi</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-2">
-                        <div class="w-2 h-2 rounded-full bg-[#c5a059]"></div>
-                        <span>Ingen styling uten meglers samtykke</span>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-white dark:bg-gray-900 p-6 rounded-lg inline-block border border-gray-200 dark:border-gray-700 shadow-sm mb-8">
-                    <p class="text-sm font-mono text-gray-600 dark:text-gray-400">
-                        Standard merketekst:<br>
-                        <span class="text-[#c5a059] font-bold">"Digitalt stylet illustrasjon – kun for
-                            inspirasjon."</span>
-                    </p>
-                </div>
-
-                <p class="text-gray-500 italic text-sm">
-                    Målet er alltid en korrekt, ryddig og profesjonell presentasjon som ivaretar både meglerens og
-                    kjøperens tillit.
-                </p>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="py-16 px-6 bg-gray-900 border-t border-gray-800 text-gray-400">
-        <div class="max-w-7xl mx-auto text-center md:text-left">
-            <div class="flex flex-col md:flex-row justify-between items-start gap-12">
-                <div>
-                    <h2 class="text-2xl font-semibold text-white mb-4">LuksusEiendom</h2>
-                    <p class="text-sm max-w-xs mb-6">Kristiansand · Leverer nasjonalt</p>
-                </div>
-                <div class="flex gap-16 text-sm">
-                    <ul class="space-y-3">
-                        <li>
-                            <h5 class="text-white font-medium mb-2">Snarveier</h5>
-                        </li>
-                        <li><a href="index.html" class="hover:text-[#c5a059]">Hjem</a></li>
-                        <li><a href="fag-innsikt.html" class="hover:text-[#c5a059]">Innsikt</a></li>
-                        <li><a href="bedrift.html" class="hover:text-[#c5a059]">Bedrift</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="mt-16 pt-8 border-t border-gray-800 text-xs">
-                <p>&copy; 2026 LuksusEiendom. Alle rettigheter reservert.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Menu Overlay/Panel logic matches other pages -->
+    <!-- Menu Overlay (Copy from others) -->
     <div id="menuOverlay"
         class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] opacity-0 pointer-events-none transition-opacity duration-300">
     </div>
     <div id="main-menu"
         class="fixed top-0 right-0 w-full md:w-[480px] h-screen bg-gray-900 border-l border-white/5 shadow-2xl z-[100] transform translate-x-full transition-transform duration-300 ease-out pt-32 px-10 overflow-y-auto">
-        <!-- Links will be populated by menu.js, but we need structure for it to work if standard scripts are used, 
-             OR we just manually replicate links here for simplicity in static file. 
-             Actually, menu.js controls the interaction, but the HTML links are usually static. 
-             Let's replicate standard links. -->
-        <nav class="flex flex-col gap-8">
+        <nav class="flex flex-col gap-6">
             <a href="index.html" class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors">Hjem</a>
             <a href="tjenester.html"
                 class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors">Tjenester</a>
@@ -341,6 +118,251 @@
         </nav>
     </div>
 
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow pt-40 pb-32">
+        <div class="max-w-6xl mx-auto px-6 md:px-12">
+
+            <!-- Hero -->
+            <div class="text-center max-w-3xl mx-auto mb-20 fade-in-up">
+                <span
+                    class="inline-block py-1 px-3 border border-[#c5a059] rounded-full text-[#c5a059] text-xs font-bold tracking-widest uppercase mb-6">
+                    Etiske Retningslinjer
+                </span>
+                <h1 class="text-5xl md:text-6xl font-serif text-gray-900 dark:text-white leading-tight mb-8">
+                    Digital Styling Policy
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-light">
+                    LuksusEiendom benytter digital styling som et supplement for å forbedre presentasjon og
+                    helhetsinntrykk.
+                    All styling skal være etisk forsvarlig, transparent og <span
+                        class="text-gray-900 dark:text-white font-medium border-b border-[#c5a059]">aldri
+                        villedende</span>.
+                </p>
+            </div>
+
+            <!-- The Policy Grid (Side by Side Lists) -->
+            <div
+                class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden mb-24">
+                <div
+                    class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-100 dark:divide-gray-700">
+
+                    <!-- Approved Section -->
+                    <div class="p-10 md:p-16 bg-emerald-50/30 dark:bg-emerald-900/10">
+                        <div class="flex items-center gap-4 mb-10">
+                            <div
+                                class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shadow-sm ring-4 ring-white dark:ring-gray-800">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-2xl font-serif font-bold text-gray-900 dark:text-white">TILLATT</h2>
+                        </div>
+
+                        <div class="space-y-10 relative">
+                            <!-- Vertical line connector -->
+                            <div
+                                class="absolute left-[11px] top-4 bottom-4 w-0.5 bg-emerald-100 dark:bg-emerald-900/50">
+                            </div>
+
+                            <!-- Item 1 -->
+                            <div class="relative pl-10">
+                                <span
+                                    class="absolute left-0 top-1.5 w-6 h-6 bg-white dark:bg-gray-800 border-2 border-emerald-400 rounded-full z-10"></span>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Justering av bilde</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Lys, kontrast,
+                                    fargetemperatur og skarphet kan optimaliseres for best mulig gjengivelse.</p>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="relative pl-10">
+                                <span
+                                    class="absolute left-0 top-1.5 w-6 h-6 bg-white dark:bg-gray-800 border-2 border-emerald-400 rounded-full z-10"></span>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Digital Rydding</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Fjerning av
+                                    midlertidig rot, flyttekasser, personlige bilder eller elementer som forstyrrer.</p>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="relative pl-10">
+                                <span
+                                    class="absolute left-0 top-1.5 w-6 h-6 bg-white dark:bg-gray-800 border-2 border-emerald-400 rounded-full z-10"></span>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Realistisk Møblering
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Virtuell møblering
+                                    som respekterer rommets faktiske størrelse og proporsjoner.</p>
+                            </div>
+
+                            <!-- Item 4 -->
+                            <div class="relative pl-10">
+                                <span
+                                    class="absolute left-0 top-1.5 w-6 h-6 bg-white dark:bg-gray-800 border-2 border-emerald-400 rounded-full z-10"></span>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Stil-optimalisering
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Skape et helhetlig
+                                    inntrykk ved å "male" overflater digitalt uten å endre struktur.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Not Approved Section -->
+                    <div class="p-10 md:p-16 bg-rose-50/30 dark:bg-rose-900/10">
+                        <div class="flex items-center gap-4 mb-10">
+                            <div
+                                class="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 shadow-sm ring-4 ring-white dark:ring-gray-800">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-2xl font-serif font-bold text-gray-900 dark:text-white">IKKE TILLATT</h2>
+                        </div>
+
+                        <div class="space-y-10 relative">
+                            <!-- Vertical line connector -->
+                            <div class="absolute left-[11px] top-4 bottom-4 w-0.5 bg-rose-100 dark:bg-rose-900/50">
+                            </div>
+
+                            <!-- Item 1 -->
+                            <div class="relative pl-10">
+                                <span
+                                    class="absolute left-0 top-1.5 w-6 h-6 bg-white dark:bg-gray-800 border-2 border-rose-400 rounded-full z-10 flex items-center justify-center">
+                                    <span class="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>
+                                </span>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Endre Planløsning</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Fjerning av vegger,
+                                    endring av romstørrelse, takhøyde eller bygningsstruktur.</p>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="relative pl-10">
+                                <span
+                                    class="absolute left-0 top-1.5 w-6 h-6 bg-white dark:bg-gray-800 border-2 border-rose-400 rounded-full z-10 flex items-center justify-center">
+                                    <span class="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>
+                                </span>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Falsk Utsikt / Sol</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Manipulere
+                                    omgivelser for å vise en utsikt eller solforhold som ikke er reelle.</p>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="relative pl-10">
+                                <span
+                                    class="absolute left-0 top-1.5 w-6 h-6 bg-white dark:bg-gray-800 border-2 border-rose-400 rounded-full z-10 flex items-center justify-center">
+                                    <span class="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>
+                                </span>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Falske Elementer</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Legge til peis,
+                                    vinduer, dører eller faste installasjoner som ikke finnes.</p>
+                            </div>
+
+                            <!-- Item 4 -->
+                            <div class="relative pl-10">
+                                <span
+                                    class="absolute left-0 top-1.5 w-6 h-6 bg-white dark:bg-gray-800 border-2 border-rose-400 rounded-full z-10 flex items-center justify-center">
+                                    <span class="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>
+                                </span>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Skjule feil</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Digital reparasjon
+                                    av fuktskader, sprekker, rør, ledninger eller mangler.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer Section (Sticky Note Style) -->
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-900 text-white rounded-2xl p-10 md:p-14 text-center relative overflow-hidden">
+                    <!-- Decor -->
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-[#c5a059] opacity-10 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500 opacity-10 rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/3">
+                    </div>
+
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-serif mb-8 text-[#c5a059]">Merking og Transparens</h3>
+                        <div class="grid md:grid-cols-3 gap-8 mb-10 text-sm font-medium tracking-wide">
+                            <div class="flex flex-col items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[#c5a059]">
+                                    1</div>
+                                <span>Alle bilder merkes tydelig</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[#c5a059]">
+                                    2</div>
+                                <span>Kun der det gir merverdi</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[#c5a059]">
+                                    3</div>
+                                <span>Alltid meglers samtykke</span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="inline-block border border-white/20 bg-white/5 rounded-lg px-8 py-4 backdrop-blur-sm">
+                            <p class="text-gray-300 font-mono text-sm mb-2">Standard merking i annonse:</p>
+                            <p class="text-lg font-bold text-white">"Digitalt stylet illustrasjon – kun for
+                                inspirasjon."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12 text-gray-500 text-sm italic">
+                    <p>Oppdatert: Januar 2026 &middot; LuksusEiendom Compliance Team</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 text-sm text-gray-400">
+            <div class="col-span-1 md:col-span-2">
+                <a href="index.html" class="text-2xl font-serif text-white block mb-6">LuksusEiendom<span
+                        class="text-[#c5a059]">.</span></a>
+                <p class="max-w-xs leading-relaxed mb-6">Vi skaper visuelle opplevelser som selger boliger raskere og
+                    til høyere pris. Norges ledende innen digital styling.</p>
+                <div class="flex gap-4">
+                    <!-- Social placeholders -->
+                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-wider mb-6 text-xs">Snarveier</h4>
+                <ul class="space-y-3">
+                    <li><a href="index.html" class="hover:text-[#c5a059] transition-colors">Hjem</a></li>
+                    <li><a href="tjenester.html" class="hover:text-[#c5a059] transition-colors">Tjenester</a></li>
+                    <li><a href="se-forskjellen.html" class="hover:text-[#c5a059] transition-colors">Portfolio</a></li>
+                    <li><a href="om-oss.html" class="hover:text-[#c5a059] transition-colors">Om oss</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-wider mb-6 text-xs">Juridisk</h4>
+                <ul class="space-y-3">
+                    <li><a href="policy.html" class="text-[#c5a059]">Styling Policy</a></li>
+                    <li><a href="personvern.html" class="hover:text-[#c5a059] transition-colors">Personvern</a></li>
+                    <li><a href="bedrift.html" class="hover:text-[#c5a059] transition-colors">Bedriftsavtale</a></li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-gray-800 text-xs text-gray-500 flex justify-between items-center">
+            <p>&copy; 2026 LuksusEiendom AS. Alle rettigheter reservert.</p>
+            <p>Designet i Norge.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script src="./menu.js"></script>
     <script src="./theme.js"></script>
 </body>
