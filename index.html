@@ -35,14 +35,14 @@
 <body class="antialiased flex flex-col min-h-screen">
 
     <!-- Header -->
-    <header class="py-8 px-6 max-w-7xl mx-auto w-full flex flex-col md:flex-row justify-between items-center border-b border-gray-100 bg-white z-20 relative">
+    <header class="py-8 px-6 max-w-[90rem] mx-auto w-full flex flex-col md:flex-row justify-between items-center border-b border-gray-100 bg-white z-20 relative">
         <div class="text-center md:text-left mb-4 md:mb-0">
-            <h1 class="text-3xl font-bold tracking-tighter serif uppercase tracking-widest">LuksusEiendom</h1>
-            <p class="text-xs uppercase tracking-widest text-gray-500 mt-2">Moderne Luksus-boligannonser</p>
+            <h1 class="text-4xl md:text-5xl font-semibold tracking-tight">LuksusEiendom</h1>
+            <p class="text-sm font-medium text-gray-500 mt-3">Moderne Luksus-boligannonser</p>
         </div>
-        <nav class="flex space-x-8 text-sm uppercase tracking-widest font-medium">
-            <a href="#tjenester" class="hover:text-[#c5a059] transition">Tjenester</a>
-            <a href="#kontakt" class="hover:text-[#c5a059] transition">Kontakt</a>
+        <nav class="flex space-x-8 text-sm font-medium tracking-wide">
+            <a href="#tjenester" class="hover:text-[#c5a059] transition-colors duration-200">Tjenester</a>
+            <a href="#kontakt" class="hover:text-[#c5a059] transition-colors duration-200">Kontakt</a>
         </nav>
     </header>
 
@@ -66,23 +66,32 @@
         </div>
 
         <!-- Innhold (Tekst) -->
-        <div class="max-w-4xl mx-auto text-center relative z-10 text-white">
-            <span class="inline-block px-4 py-2 mb-8 text-[10px] font-bold tracking-widest uppercase bg-white text-black rounded-full">Sørlandet • Kristiansand</span>
+        <div class="max-w-5xl mx-auto text-center relative z-10 text-white px-4">
+            <!-- Badge - Modern Glassmorphism -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
+                <span class="w-1.5 h-1.5 bg-[#c5a059] rounded-full animate-pulse-dot"></span>
+                <span class="text-xs font-medium tracking-wide">Sørlandet · Kristiansand</span>
+            </div>
 
-            <h2 class="text-5xl md:text-7xl font-light serif mb-8 leading-tight text-white drop-shadow-lg">
-                Bedre presenterte FINN-annonser. <span class="italic text-[#c5a059]">Klar til publisering.</span>
+            <!-- Hero Headline - Larger & Bolder -->
+            <h2 class="text-6xl md:text-8xl font-semibold tracking-tight mb-6 leading-[1.1] text-white drop-shadow-lg">
+                Bedre presenterte<br class="hidden md:block">
+                <span class="italic text-[#c5a059] font-serif">FINN-annonser</span>
             </h2>
 
-            <p class="text-lg text-gray-100 mb-12 max-w-2xl mx-auto leading-relaxed font-light drop-shadow-md">
-                Moderne luksus-boligannonser for eiendomsmeglere. Mindre tidsbruk. Samme fakta. All digital styling merkes tydelig.
+            <!-- Subhead - Refined -->
+            <p class="text-xl md:text-2xl text-white/90 mb-12 font-light leading-relaxed max-w-3xl mx-auto drop-shadow-md">
+                Moderne luksus-boligannonser for eiendomsmeglere.<br class="hidden md:block">
+                Mindre tidsbruk. Samme fakta. Profesjonell styling.
             </p>
 
+            <!-- CTAs - Premium Buttons -->
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <!-- SECURITY: Added rel="noopener noreferrer" to all external links -->
-                <a href="https://forms.gle/J5DvMgTjGm1qPBv26" target="_blank" rel="noopener noreferrer" class="px-10 py-4 bg-[#c5a059] text-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black border border-transparent transition-all duration-300">
+                <a href="https://forms.gle/J5DvMgTjGm1qPBv26" target="_blank" rel="noopener noreferrer" class="btn-primary">
                     Bestill via skjema
                 </a>
-                <a href="#tjenester" class="px-10 py-4 border border-white text-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300">
+                <a href="#tjenester" class="btn-secondary">
                     Se pakker
                 </a>
             </div>
@@ -90,16 +99,23 @@
     </section>
 
     <!-- Før / Etter Slider Section -->
-    <section class="py-12 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <h3 class="text-3xl font-light serif mb-4">Se potensialet</h3>
-                <div class="h-0.5 w-12 bg-[#c5a059] mx-auto mb-4"></div>
-                <p class="text-gray-500 text-sm tracking-wide uppercase">Dra slideren for å se effekten av digital styling</p>
+    <section class="py-20 md:py-32 px-6 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header - Enhanced Visual Hierarchy -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-3 mb-6">
+                    <div class="h-px w-12 bg-gradient-to-r from-transparent to-[#c5a059]"></div>
+                    <span class="text-xs font-medium text-[#b08d45] uppercase tracking-wider">Før & Etter</span>
+                    <div class="h-px w-12 bg-gradient-to-l from-transparent to-[#c5a059]"></div>
+                </div>
+                
+                <h3 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">Se potensialet</h3>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Dra slideren for å se effekten av profesjonell digital styling</p>
             </div>
 
-            <!-- Luxury Slider Container -->
-            <div id="luxury-slider-container" class="luxury-slider-wrapper relative w-full max-w-4xl mx-auto aspect-[4/3] md:aspect-[16/9] overflow-hidden shadow-2xl border border-gray-100 cursor-ew-resize select-none bg-gray-200">
+            <!-- Luxury Slider Container - Larger Focus -->
+            <div class="max-w-5xl mx-auto">
+                <div id="luxury-slider-container" class="luxury-slider-wrapper relative w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden cursor-ew-resize select-none bg-gray-200 ring-1 ring-gray-200">
 
                 <!-- After Image (Background - Full Width) -->
                 <img src="./Demo_1_after.png"
@@ -160,241 +176,266 @@
                 </div>
 
             </div>
+            </div>
         </div>
     </section>
 
 
     <section class="py-24 px-6 bg-white">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h3 class="text-3xl font-light serif mb-4">Hvorfor LuksusEiendom?</h3>
-                <div class="h-0.5 w-12 bg-[#c5a059] mx-auto mb-4"></div>
+            <div class="text-center mb-20">
+                <h3 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">Hvorfor LuksusEiendom?</h3>
+                <div class="h-px w-16 bg-gradient-to-r from-transparent via-[#c5a059] to-transparent mx-auto mb-4"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 bg-[#fafafa] rounded-full flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 gold-accent">
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110 duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#c5a059]">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <h4 class="text-lg font-semibold mb-3 uppercase tracking-wide">Spar 1–3 timer</h4>
+                    <h4 class="text-lg font-semibold mb-3 tracking-tight">Spar 1–3 timer</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">Per objekt. Vi tar deg fra FINN-kladd til ferdig premium-annonse på 24–72 timer.</p>
                 </div>
 
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 bg-[#fafafa] rounded-full flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 gold-accent">
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110 duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#c5a059]">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
                         </svg>
                     </div>
-                    <h4 class="text-lg font-semibold mb-3 uppercase tracking-wide">Etisk & Transparent</h4>
+                    <h4 class="text-lg font-semibold mb-3 tracking-tight">Etisk & Transparent</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">All digital styling merkes tydelig. Vi endrer aldri faktiske forhold – kun presentasjon.</p>
                 </div>
 
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 bg-[#fafafa] rounded-full flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 gold-accent">
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110 duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#c5a059]">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-7.5 6L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
                         </svg>
                     </div>
-                    <h4 class="text-lg font-semibold mb-3 uppercase tracking-wide">Systematisk Kvalitet</h4>
+                    <h4 class="text-lg font-semibold mb-3 tracking-tight">Systematisk Kvalitet</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">Hver annonse følger samme kvalitetsstandard – mindre personavhengig, alltid like høyt nivå.</p>
                 </div>
 
-                <div class="text-center">
-                    <div class="w-16 h-16 mx-auto mb-6 bg-[#fafafa] rounded-full flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 gold-accent">
+                <div class="text-center group">
+                    <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110 duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#c5a059]">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                         </svg>
                     </div>
-                    <h4 class="text-lg font-semibold mb-3 uppercase tracking-wide">Konsistent Kvalitet</h4>
+                    <h4 class="text-lg font-semibold mb-3 tracking-tight">Konsistent Kvalitet</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">Standardiserte maler + AI-effektivisering + manuell kvalitetssikring = premium resultat hver gang.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Unngå disse i din annonse-seksjonen -->
-    <section class="py-12 px-6 bg-gray-50">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <h3 class="text-3xl font-light serif mb-4">Unngå disse i din annonse</h3>
-                <div class="h-0.5 w-12 bg-[#c5a059] mx-auto mb-4"></div>
-                <p class="text-gray-500 text-sm tracking-wide uppercase">For en mer profesjonell presentasjon</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <!-- Item 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md transition-transform transform hover:-translate-y-1">
-                    <h4 class="text-xl font-semibold mb-4">1. Unngå vage superlativer</h4>
-                    <p class="text-gray-700 text-sm leading-relaxed mb-4">
-                        Bruk spesifikke og beskrivende ord. Forklar hvorfor boligen er "fantastisk" eller "unik".
-                    </p>
-                    <div class="flex flex-col gap-2 text-left">
-                        <span class="text-gray-500 text-xs font-semibold uppercase tracking-wide">Eksempler på hva som helst:</span>
-                        <ul class="list-disc list-inside marker:text-[#c5a059] text-sm">
-                            <li class="flex items-start">
-                                <span class="text-gray-400 mr-3 mt-2">•</span>
-                                <span>Vage superlativer ("fantastisk", "unik") uten begrunnelse</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-gray-400 mr-3 mt-2">•</span>
-                                <span>Bransjeklisjeer som ikke tilfører verdi</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-gray-400 mr-3 mt-2">•</span>
-                                <span>Uklare eller misvisende formuleringer</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-gray-400 mr-3 mt-2">•</span>
-                                <span>Lange tekstblokker uten struktur</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-gray-400 mr-3 mt-2">•</span>
-                                <span>Irrelevant informasjon som distraherer fra budskapet</span>
-                            </li>
-                        </ul>
+    <!-- Unngå disse i din annonse-seksjonen - Redesigned -->
+    <section class="py-20 md:py-32 px-6 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-12 text-center">Vi unngår alltid</h2>
+            
+            <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center">
+                        <span class="text-red-400 text-xl font-bold">×</span>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2 text-white">Vage superlativer</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            "Fantastisk" uten begrunnelse – vi bruker konkrete beskrivelser
+                        </p>
                     </div>
                 </div>
 
-                <!-- Item 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md transition-transform transform hover:-translate-y-1">
-                    <h4 class="text-xl font-semibold mb-4">2. Unngå klisjeer</h4>
-                    <p class="text-gray-700 text-sm leading-relaxed mb-4">
-                        Klisjeer kan få annonsen til å virke uoriginal og lite tiltalende. Finn unike vinkler!
-                    </p>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center">
+                        <span class="text-red-400 text-xl font-bold">×</span>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2 text-white">Bransjeklisjeer</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Generiske fraser som ikke tilfører verdi
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Item 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md transition-transform transform hover:-translate-y-1">
-                    <h4 class="text-xl font-semibold mb-4">3. Unngå uklare formuleringer</h4>
-                    <p class="text-gray-700 text-sm leading-relaxed mb-4">
-                        Sørg for at alle detaljer er klare og tydelige. Unngå tvetydigheter som kan forvirre kjøpere.
-                    </p>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center">
+                        <span class="text-red-400 text-xl font-bold">×</span>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2 text-white">Uklare formuleringer</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Misvisende eller tvetydige beskrivelser
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Item 4 -->
-                <div class="bg-white p-6 rounded-lg shadow-md transition-transform transform hover:-translate-y-1">
-                    <h4 class="text-xl font-semibold mb-4">4. Unngå lange tekstblokker</h4>
-                    <p class="text-gray-700 text-sm leading-relaxed mb-4">
-                        Del opp teksten i kortere avsnitt. Bruk punktlister for å gjøre informasjonen mer oversiktlig.
-                    </p>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center">
+                        <span class="text-red-400 text-xl font-bold">×</span>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2 text-white">Lange tekstblokker</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Ustrukturert informasjon som forvirrer
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Item 5 -->
-                <div class="bg-white p-6 rounded-lg shadow-md transition-transform transform hover:-translate-y-1">
-                    <h4 class="text-xl font-semibold mb-4">5. Unngå irrelevant informasjon</h4>
-                    <p class="text-gray-700 text-sm leading-relaxed mb-4">
-                        Hold fokus på boligens beste egenskaper. Unngå detaljer som ikke tilfører verdi til annonsen.
-                    </p>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center">
+                        <span class="text-red-400 text-xl font-bold">×</span>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2 text-white">Irrelevant informasjon</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Detaljer som distraherer fra budskapet
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tjenester Seksjon -->
-    <section id="tjenester" class="py-12 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-light serif mb-4">Våre Tjenester</h2>
-                <div class="h-0.5 w-12 bg-[#c5a059] mx-auto mb-4"></div>
-                <p class="text-gray-500 text-sm tracking-wide uppercase">Skreddersydde løsninger for eiendomsmeglere</p>
+    <!-- Tjenester Seksjon - Redesigned -->
+    <section id="tjenester" class="py-24 md:py-32 px-6 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">Våre Tjenester</h2>
+                <div class="h-px w-16 bg-gradient-to-r from-transparent via-[#c5a059] to-transparent mx-auto mb-4"></div>
+                <p class="text-lg text-gray-600">Skreddersydde løsninger for eiendomsmeglere</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Pakke 1: Grunnpakke -->
-                <div class="rounded-lg bg-[#f9f9f9] p-6 shadow-md transition-transform transform hover:scale-[1.02]">
-                    <h3 class="text-2xl font-semibold mb-4">Grunnpakke</h3>
-                    <p class="text-gray-700 text-sm leading-relaxed mb-4">
+                <div class="pricing-card">
+                    <h3 class="text-2xl font-semibold mb-4 tracking-tight">Grunnpakke</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">
                         Vår grunnpakke gir deg en solid start med profesjonell annonsedesign og publikasjon på FINN.no.
                     </p>
 
                     <!-- Inkluderer Seksjon -->
-                    <h4 class="text-xl font-semibold mb-3 mt-6">Inkluderer:</h4>
-                    <ul class="list-disc list-inside marker:text-[#c5a059] text-sm mb-4">
-                        <li>Oppretting av FINN-annonse</li>
-                        <li>Profesjonell bildedigitalisering</li>
-                        <li>Standardisert annonsetekst</li>
-                        <li>Publikasjon på FINN.no</li>
-                    </ul>
-
-                    <!-- Ekstra Tjenester Seksjon -->
-                    <h4 class="text-xl font-semibold mb-3">Ekstra tjenester (tilleggstjenester):</h4>
-                    <ul class="list-disc list-inside marker:text-[#c5a059] text-sm mb-4">
-                        <li>Fremheving av annonse</li>
-                        <li>Ukevis rapportering på annonseprestasjon</li>
-                        <li>Sosiale medier annonsering</li>
+                    <h4 class="text-base font-semibold mb-4 mt-8 text-gray-900">Inkluderer:</h4>
+                    <ul class="space-y-3 text-sm text-gray-600 mb-6">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Oppretting av FINN-annonse</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Profesjonell bildedigitalisering</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Standardisert annonsetekst</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Publikasjon på FINN.no</span>
+                        </li>
                     </ul>
 
                     <!-- Call to Action -->
-                    <div class="mt-6">
-                        <a href="https://forms.gle/J5DvMgTjGm1qPBv26" target="_blank" rel="noopener noreferrer" class="block text-center px-8 py-4 bg-[#c5a059] text-white text-sm font-bold uppercase rounded-full transition-all duration-300 hover:bg-white hover:text-[#c5a059]">
+                    <div class="mt-8">
+                        <a href="https://forms.gle/J5DvMgTjGm1qPBv26" target="_blank" rel="noopener noreferrer" class="btn-primary w-full">
                             Bestill Grunnpakke
                         </a>
                     </div>
                 </div>
 
                 <!-- Pakke 2: Luxury Listing (Populær) -->
-                <div class="border-2 border-black p-8 flex flex-col bg-white card-hover transition-all duration-300 relative transform md:-translate-y-4 shadow-xl z-10">
-                    <div class="absolute top-0 inset-x-0 -mt-4 flex justify-center">
-                        <span class="bg-[#c5a059] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-2">Mest Populær</span>
+                <div class="pricing-card pricing-card-featured relative">
+                    <div class="pricing-badge">Mest Populær</div>
+                    
+                    <h3 class="text-2xl font-semibold mb-4 tracking-tight mt-2">Luxury Listing</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                        Oppnå maksimal eksponering med vår premium annonseringstjeneste. Designet for eiendomsmeglere som ønsker å imponere.
+                    </p>
+
+                    <!-- Inkluderer Seksjon -->
+                    <h4 class="text-base font-semibold mb-4 mt-8 text-gray-900">Inkluderer:</h4>
+                    <ul class="space-y-3 text-sm text-gray-600 mb-6">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="font-medium text-gray-900">Alt i Grunnpakke</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Premium bildedigitalisering</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Skreddersydd annonsetekst</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Fremheving på FINN.no</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Sosiale medier annonsering</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Ukevis rapportering</span>
+                        </li>
+                    </ul>
+
+                    <!-- Call to Action -->
+                    <div class="mt-8">
+                        <a href="https://forms.gle/J5DvMgTjGm1qPBv26" target="_blank" rel="noopener noreferrer" class="btn-primary w-full">
+                            Bestill Luxury Listing
+                        </a>
                     </div>
-                    <div class="mb-8 border-b border-gray-100 pb-8 mt-2">
-                        <h3 class="text-2xl font-semibold mb-4">Luxury Listing</h3>
-                        <p class="text-gray-700 text-sm leading-relaxed mb-4">
-                            Oppnå maksimal eksponering med vår premium annonseringstjeneste. Designet for eiendomsmeglere som ønsker å imponere.
-                        </p>
 
-                        <!-- Inkluderer Seksjon -->
-                        <h4 class="text-xl font-semibold mb-3 mt-6">Inkluderer:</h4>
-                        <ul class="list-disc list-inside marker:text-[#c5a059] text-sm mb-4">
-                            <li>Alt i Grunnpakke</li>
-                            <li>Premium bildedigitalisering</li>
-                            <li>Skreddersydd annonsetekst</li>
-                            <li>Fremheving på FINN.no</li>
-                            <li>Sosiale medier annonsering</li>
-                            <li>Ukevis rapportering</li>
-                        </ul>
-
-                        <!-- Call to Action -->
-                        <div class="mt-6">
-                            <a href="https://forms.gle/J5DvMgTjGm1qPBv26" target="_blank" rel="noopener noreferrer" class="block text-center px-8 py-4 bg-cyan-600 text-white text-sm font-bold uppercase rounded-full transition-all duration-300 hover:bg-white hover:text-cyan-600">
-                                Bestill Luxury Listing
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Abonnement Seksjon (Ny) -->
-                    <div class="pt-6">
-                        <h4 class="text-lg font-semibold mb-3 uppercase tracking-wide">Abonnement</h4>
+                    <!-- Abonnement Seksjon -->
+                    <div class="pt-8 mt-8 border-t border-gray-200">
+                        <h4 class="text-base font-semibold mb-3 text-gray-900">Abonnement</h4>
                         <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                            Få mest mulig ut av våre tjenester med et månedlig abonnement. Ideelt for eiendomsmeglere som jobber med flere objekter jevnlig.
+                            Få mest mulig ut av våre tjenester med et månedlig abonnement.
                         </p>
 
-                        <!-- Fordeler Liste -->
-                        <ul class="space-y-3 text-sm text-gray-700">
-                            <li class="flex items-start">
-                                <span class="gold-accent mr-3">✔</span>
+                        <ul class="space-y-3 text-sm text-gray-600 mb-4">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
                                 <span>Forutsigbar månedlig kostnad</span>
                             </li>
-                            <li class="flex items-start">
-                                <span class="gold-accent mr-3">✔</span>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
                                 <span>Prioritert levering (SLA)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="gold-accent mr-3">✔</span>
-                                <span>Standardisert profil på tvers av kontoret</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="gold-accent mr-3">✔</span>
-                                <span>Dedikert kapasitet for ditt kontor</span>
                             </li>
                         </ul>
 
-                        <!-- Call to Action -->
                         <div class="mt-4">
-                            <a href="https://forms.gle/J5DvMgTjGm1qPBv26" target="_blank" rel="noopener noreferrer" class="block text-center px-8 py-4 bg-[#c5a059] text-white text-sm font-bold uppercase rounded-full transition-all duration-300 hover:bg-white hover:text-[#c5a059]">
+                            <a href="https://forms.gle/J5DvMgTjGm1qPBv26" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full text-gray-900 bg-white border-gray-300 hover:bg-gray-50">
                                 Bestill Abonnement
                             </a>
                         </div>
@@ -402,31 +443,56 @@
                 </div>
 
                 <!-- Pakke 3: Premium Pakke -->
-                <div class="rounded-lg bg-[#f9f9f9] p-6 border-t-4 border-[#c5a059] shadow-md transition-transform transform hover:scale-[1.02] relative">
-                    <div class="absolute top-0 right-0 -mt-4 -mr-4">
-                        <div class="p-2 rounded-full bg-[#c5a059] text-white text-xs font-bold uppercase tracking-widest rotate-45 transform origin-bottom-right">
-                            Anbefalt
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-4">Premium Pakke</h3>
-                    <p class="text-gray-700 text-sm leading-relaxed mb-4">
-                        Den ultimate pakken for eiendomsmeglere som ønsker det beste for sine kunder. Inkluderer alt du trenger for å lage fremragende boligannonser.
+                <div class="pricing-card relative">
+                    <h3 class="text-2xl font-semibold mb-4 tracking-tight">Premium Pakke</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                        Den ultimate pakken for eiendomsmeglere som ønsker det beste for sine kunder.
                     </p>
 
                     <!-- Inkluderer Seksjon -->
-                    <h4 class="text-xl font-semibold mb-3 mt-6">Inkluderer:</h4>
-                    <ul class="list-disc list-inside marker:text-[#c5a059] text-sm mb-4">
-                        <li>Alt i Luxury Listing</li>
-                        <li>Ekstra fremheving på FINN.no</li>
-                        <li>Premium plassering i søkeresultater</li>
-                        <li>Dedikert annonsekonsulent</li>
-                        <li>Tilpasset markedsstrategi</li>
-                        <li>Konkurransedyktig prisanalyse</li>
+                    <h4 class="text-base font-semibold mb-4 mt-8 text-gray-900">Inkluderer:</h4>
+                    <ul class="space-y-3 text-sm text-gray-600 mb-6">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="font-medium text-gray-900">Alt i Luxury Listing</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Ekstra fremheving på FINN.no</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Premium plassering i søkeresultater</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Dedikert annonsekonsulent</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Tilpasset markedsstrategi</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#c5a059] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Konkurransedyktig prisanalyse</span>
+                        </li>
                     </ul>
 
                     <!-- Call to Action -->
-                    <div class="mt-6">
-                        <a href="https://forms.gle/J5DvMgTjGm1qPBv26" target="_blank" rel="noopener noreferrer" class="block text-center px-8 py-4 bg-[#c5a059] text-white text-sm font-bold uppercase rounded-full transition-all duration-300 hover:bg-white hover:text-[#c5a059]">
+                    <div class="mt-8">
+                        <a href="https://forms.gle/J5DvMgTjGm1qPBv26" target="_blank" rel="noopener noreferrer" class="btn-primary w-full">
                             Bestill Premium Pakke
                         </a>
                     </div>
@@ -435,89 +501,71 @@
         </div>
     </section>
 
-    <!-- Kontakt / CTA Section -->
-    <section id="kontakt" class="py-20 px-6 bg-[#1a1a1a] text-white">
+    <!-- Kontakt / CTA Section - Redesigned -->
+    <section id="kontakt" class="py-24 md:py-32 px-6 bg-gray-900 text-white">
         <div class="max-w-4xl mx-auto text-center">
-            <h3 class="text-3xl md:text-4xl serif font-light mb-6">Klar for å oppgradere annonsen din?</h3>
-            <p class="text-gray-400 mb-10 text-sm tracking-wide leading-relaxed max-w-xl mx-auto">
+            <h3 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6">Klar for å oppgradere annonsen din?</h3>
+            <p class="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed max-w-2xl mx-auto">
                 Vi er en ekstern annonse-desk for eiendomsmeglere. Send oss en henvendelse via skjema eller kontakt oss direkte. Vi opererer fra Kristiansand, men leverer digitalt til hele Norge.
             </p>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-8">
-                <a href="https://forms.gle/J5DvMgTjGm1qPBv26" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-[#c5a059] text-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <a href="https://forms.gle/J5DvMgTjGm1qPBv26" target="_blank" rel="noopener noreferrer" class="btn-primary">
                     Gå til bestillingsskjema
                 </a>
                 <div class="text-center md:text-left">
-                    <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Send DM med "LUKSUS"</p>
-                    <p class="text-sm font-medium">eller bruk skjema</p>
+                    <p class="text-sm font-medium text-gray-400 mb-2">Send DM med "LUKSUS"</p>
+                    <p class="text-base font-medium text-white">eller bruk skjema</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-8 px-6 bg-gray-800 text-white">
-        <div class="max-w-7xl mx-auto border-t border-gray-700 pt-8">
-            <div class="flex flex-col md:flex-row md:justify-between mb-8">
-                <div class="mb-6 md:mb-0">
-                    <h2 class="text-xl font-bold tracking-tighter serif uppercase">LuksusEiendom</h2>
-                    <p class="text-[10px] uppercase tracking-widest text-gray-500 mt-2">Moderne Luksus-boligannonser • Norway</p>
+    <!-- Footer - Redesigned Modern Minimal -->
+    <footer class="py-16 px-6 bg-gray-900 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <!-- Logo + Links -->
+            <div class="flex flex-col md:flex-row justify-between gap-12 mb-12">
+                <div class="max-w-xs">
+                    <h2 class="text-2xl font-semibold tracking-tight mb-3 text-white">LuksusEiendom</h2>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Moderne luksus-boligannonser for eiendomsmeglere på Sørlandet.
+                    </p>
                 </div>
 
-                <div class="grid grid-cols-2 gap-8">
+                <div class="flex gap-16">
                     <div>
-                        <h5 class="text-lg font-semibold mb-2">Ressurser</h5>
-                        <ul class="space-y-2">
-                            <li>
-                                <a href="#" class="text-sm text-gray-400 hover:text-white transition">Blogg</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-sm text-gray-400 hover:text-white transition">Nyhetsbrev</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-sm text-gray-400 hover:text-white transition">Verktøy for meglere</a>
-                            </li>
+                        <h5 class="text-sm font-medium mb-4 text-gray-300">Ressurser</h5>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li><a href="#" class="hover:text-white transition-colors duration-200">Blogg</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors duration-200">Nyhetsbrev</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors duration-200">Verktøy for meglere</a></li>
                         </ul>
                     </div>
 
                     <div>
-                        <h5 class="text-lg font-semibold mb-2">Kundeservice</h5>
-                        <ul class="space-y-2">
-                            <li>
-                                <a href="#kontakt" class="text-sm text-gray-400 hover:text-white transition">Kontakt oss</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-sm text-gray-400 hover:text-white transition">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-sm text-gray-400 hover:text-white transition">Kundetilbakemeldinger</a>
-                            </li>
+                        <h5 class="text-sm font-medium mb-4 text-gray-300">Kundeservice</h5>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li><a href="#kontakt" class="hover:text-white transition-colors duration-200">Kontakt oss</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors duration-200">FAQ</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors duration-200">Kundetilbakemeldinger</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row sm:justify-between items-center">
-                <div class="text-center sm:text-left mb-4 sm:mb-0">
-                    <p class="text-sm text-gray-400">&copy; 2023 LuksusEiendom. Alle rettigheter reservert.</p>
-                </div>
-                <div class="flex space-x-4">
-                    <!-- Ikoner for sosiale medier -->
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <!-- Facebook -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 2.243c1.293.214 2.366.897 3.414 2.366C22.623 6.543 24 8.852 24 12c0 3.148-1.377 5.457-2.586 7.391C20.366 21.103 19.293 21.786 18 22c-2.016.123-3.687-.911-4.828-2.343L12 18l1.172-1.172C14.313 15.911 16.016 15 18 15c1.598 0 3.033.508 4.243 1.293C24.59 16.567 22 19.307 22 24h-4c0-3.313-2.687-6-6-6s-6 2.687-6 6H2c0-4.693 2.59-7.433 6.243-9.707C8.967 10.508 10.402 10 12 10c1.984 0 3.687.911 4.828 2.343L18 14l-1.172 1.172C15.687 16.089 13.984 17 12 17c-1.598 0-3.033-.508-4.243-1.293C.59 7.433 2 4.693 2 0h4c0 3.313 2.687 6 6 6s6-2.687 6-6h4c0 3.648-1.343 7.036-3.586 9.879C20.033 11.492 18.598 11 17 11c-1.984 0-3.687-.911-4.828-2.343L12 8l1.172-1.172C14.313 5.911 16.016 5 18 5c1.598 0 3.033.508 4.243 1.293C23.591 2.567 22 0 22-4h-4c0 3.313-2.687 6-6 6s-6-2.687-6-6H2c0 4.693-2.59 7.433-6.243 9.707C-1.967 9.492.467 9 2 9c2.016 0 3.687.911 4.828 2.343L8 11l-1.172 1.172C7.687 13.089 5.984 14 4 14c-1.598 0-3.033-.508-4.243-1.293C-.591 16.567 2 20.307 2 24h4c0-3.313 2.687-6 6-6s6 2.687 6 6h4c0-3.648-1.343-7.036-3.586-9.879C8.967 10.508 10.402 10 12 10c1.984 0 3.687.911 4.828 2.343L18 14z"/>
-                        </svg>
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500">
+                    © 2026 LuksusEiendom. Alle rettigheter reservert.
+                </p>
+                <div class="flex gap-6">
+                    <a href="/personvern.html" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">
+                        Personvern
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <!-- Instagram -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487a4.5 4.5 0 00-6.724 0A10.969 10.969 0 002 12a10.968 10.968 0 008.138 7.513 4.5 4.5 0 006.724 0A10.968 10.968 0 0022 12a10.969 10.969 0 00-5.138-7.513zM12 15.586l3.536 3.535a8.963 8.963 0 01-7.072 0L12 15.586zm0-7.172L8.464 7.879a8.964 8.964 0 007.072 0L12 8.414zm0 4.586a2.121 2.121 0 11-2.121 2.121A2.118 2.118 0 0112 13.586zm-.879-4.467l2.536-2.536a8.963 8.963 0 017.072 7.072L12 9.121 9.465 6.586a8.964 8.964 0 007.072-7.072L12 2.121z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <!-- LinkedIn -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487a4.5 4.5 0 00-6.724 0A10.969 10.969 0 002 12a10.968 10.968 0 008.138 7.513 4.5 4.5 0 006.724 0A10.968 10.968 0 0022 12a10.969 10.969 0 00-5.138-7.513zM12 15.586l3.536 3.535a8.963 8.963 0 01-7.072 0L12 15.586zm0-7.172L8.464 7.879a8.964 8.964 0 007.072 0L12 8.414zm0 4.586a2.121 2.121 0 11-2.121 2.121A2.118 2.118 0 0112 13.586zm7.07-8.536a1.5 1.5 0 11-2.121 2.121A8.965 8.965 0 0018 12c0 1.047-.185 2.06-.528 3.016a1.5 1.5 0 01-2.838-.956A6.963 6.963 0 0015 12a6.967 6.967 0 00-2.018-4.95 1.5 1.5 0 11-2.121-2.121A8.964 8.964 0 0012 5c1.047 0 2.06.185 3.016.528a1.5 1.5 0 01.956 2.838A6.963 6.963 0 0015 12a6.967 6.967 0 002.018 4.95 1.5 1.5 0 01-.424 2.121z"/>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                         </svg>
                     </a>
                 </div>
@@ -526,8 +574,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script>
-        // Custom JavaScript can be added here
-    </script>
+    <script src="./slider.js"></script>
+    <script src="./animations.js"></script>
 </body>
 </html>
