@@ -376,10 +376,11 @@ input[type=range]::-moz-range-thumb {
 }
 
 .handle-button svg {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     color: var(--gold-400);
-    stroke-width: 2.5;
+    fill: currentColor;
+    stroke: none;
 }
 
 /* Subtle Pulse Animation */
