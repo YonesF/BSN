@@ -1,6 +1,6 @@
 /**
  * LuksusEiendom Luxury Before/After Slider
- * PRODUCTION VERSION - Multi-instance support
+ * PRODUCTION VERSION - Multi-instance support with robust event handling
  */
 
 (function () {
@@ -34,16 +34,14 @@
         }
 
         init() {
-            // Set initial position immediately
+            // Set initial position immediately to avoid layout shift or zero width
             this.updateSliderPosition();
 
             const images = this.container.querySelectorAll('img');
 
-            // Check if images exist
+            // Wait for images to load, but don't block initialization
             images.forEach((img, index) => {
-                if (img.complete) {
-                    // Already loaded
-                } else {
+                if (!img.complete) {
                     img.addEventListener('load', () => {
                         console.log(`[SLIDER:${this.id}] ? Image ${index} loaded`);
                     });
@@ -71,7 +69,9 @@
 
             if (beforeContainer && beforeImg) {
                 const containerWidth = this.container.offsetWidth;
-                beforeImg.style.width = containerWidth + 'px';
+                if (containerWidth > 0) {
+                    beforeImg.style.width = containerWidth + 'px';
+                }
             }
         }
 
@@ -100,19 +100,24 @@
         }
 
         setupEventListeners() {
-            this.container.addEventListener('mousedown', (e) => this.handleStart(e));
-            this.container.addEventListener('touchstart', (e) => this.handleStart(e), { passive: false });
+            // Bind methods to this instance
+            this.handleStart = this.handleStart.bind(this);
+            this.handleMove = this.handleMove.bind(this);
+            this.handleEnd = this.handleEnd.bind(this);
+            this.handleHover = this.handleHover.bind(this);
+
+            // Container-specific listeners (start dragging)
+            this.container.addEventListener('mousedown', this.handleStart);
+            this.container.addEventListener('touchstart', this.handleStart, { passive: false });
+
             this.container.addEventListener('mouseenter', () => this.handleHover(true));
             this.container.addEventListener('mouseleave', () => this.handleHover(false));
 
-            // Global listeners for drag (bound to this instance)
-            this.boundHandleMove = (e) => this.handleMove(e);
-            this.boundHandleEnd = () => this.handleEnd();
-
-            document.addEventListener('mousemove', this.boundHandleMove);
-            document.addEventListener('mouseup', this.boundHandleEnd);
-            document.addEventListener('touchmove', this.boundHandleMove, { passive: false });
-            document.addEventListener('touchend', this.boundHandleEnd);
+            // Global listeners (move/end dragging)
+            document.addEventListener('mousemove', this.handleMove);
+            document.addEventListener('mouseup', this.handleEnd);
+            document.addEventListener('touchmove', this.handleMove, { passive: false });
+            document.addEventListener('touchend', this.handleEnd);
 
             window.addEventListener('resize', () => {
                 this.fixBeforeImageWidth();
@@ -121,16 +126,23 @@
         }
 
         handleStart(e) {
+            // Only left mouse button or touch
+            if (e.type === 'mousedown' && e.button !== 0) return;
+
             this.isDragging = true;
             this.container.classList.add('dragging');
+
+            // Prevent text selection
+            e.preventDefault();
+
             this.updatePosition(e);
         }
 
         handleMove(e) {
-            if (this.isDragging) {
-                e.preventDefault(); // Prevent scrolling on touch
-                this.updatePosition(e);
-            }
+            if (!this.isDragging) return;
+
+            e.preventDefault(); // Prevent scrolling on touch while dragging
+            this.updatePosition(e);
         }
 
         handleEnd() {
@@ -150,14 +162,23 @@
 
         updatePosition(e) {
             const rect = this.container.getBoundingClientRect();
-            const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+            let clientX;
+
+            if (e.type.includes('touch')) {
+                // Use the first touch
+                clientX = e.touches[0].clientX;
+            } else {
+                clientX = e.clientX;
+            }
 
             // Calculate x relative to this container
             const x = clientX - rect.left;
             const width = rect.width;
 
-            this.sliderPosition = Math.max(0, Math.min(100, (x / width) * 100));
-            this.updateSliderPosition();
+            if (width > 0) {
+                this.sliderPosition = Math.max(0, Math.min(100, (x / width) * 100));
+                this.updateSliderPosition();
+            }
         }
 
         updateSliderPosition() {
@@ -187,15 +208,17 @@
     function initSlider() {
         console.log('[SLIDER] ?? DOM State:', document.readyState);
 
-        // Find all elements with class 'luxury-slider-container' or 'luxury-slider-wrapper'
-        // Using a common class selector is best practice here.
-        // Based on existing HTML, the wrapper has class 'luxury-slider-wrapper'.
+        // Find all elements with class 'luxury-slider-wrapper'
         const sliders = document.querySelectorAll('.luxury-slider-wrapper');
 
         if (sliders.length > 0) {
             console.log(`[SLIDER] Found ${sliders.length} sliders. Initializing...`);
             sliders.forEach(sliderEl => {
+                // Prevention against double initialization if script runs twice
+                if (sliderEl.dataset.sliderInitialized) return;
+
                 new LuxurySlider(sliderEl);
+                sliderEl.dataset.sliderInitialized = 'true';
             });
         } else {
             console.warn('[SLIDER] No sliders found with class .luxury-slider-wrapper');
