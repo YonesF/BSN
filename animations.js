@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Skip elements inside the slider wrapper to avoid conflicts
             if (el.closest('.luxury-slider-wrapper')) return;
 
-            // Apply "blur-rise" as default for text
-            el.setAttribute('data-animate', 'blur-rise');
+            // Apply "blur-glide" as default for text
+            el.setAttribute('data-animate', 'blur-glide');
         });
 
         // Cards & Grids: Staggered Cascade
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // We'll trust the parent's "blur-rise" for the block, OR we can animate items.
                 // Let's make items specifically animate if they are strictly list items in these sections.
                 if (li.closest('ul')) {
-                    li.setAttribute('data-animate', 'blur-rise');
+                    li.setAttribute('data-animate', 'blur-glide');
                     // Reset delay modulo 3 or 4 to avoid huge delays in long lists
                     li.setAttribute('data-delay', ((i % 5) * 100).toString());
                 }
