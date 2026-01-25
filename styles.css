@@ -8,6 +8,7 @@ body {
 
 /* ... (Keep existing Grid System) ... */
 :root {
+    /* Spacing */
     --space-1: 8px;
     --space-2: 16px;
     --space-3: 24px;
@@ -21,14 +22,88 @@ body {
     --space-20: 160px;
     --space-24: 192px;
 
+    /* Animations */
     --transition-base: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     --transition-slow: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
     --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* COLORS: Light Mode (Default) */
+    --bg-main: #fafafa;
+    --bg-card: #ffffff;
+    --bg-secondary: #f8f5f2;
+    --text-main: #1a1a1a;
+    --text-muted: #4b5563;
+    /* gray-600 */
+    --border-color: #e5e7eb;
+    /* gray-200 */
 
     --gold-400: #c5a059;
     --gold-600: #b08d45;
     --gold-100: #f5efe6;
 }
+
+/* COLORS: Dark Mode */
+.dark-mode {
+    --bg-main: #111827;
+    /* gray-900 */
+    --bg-card: #1f2937;
+    /* gray-800 */
+    --bg-secondary: #0f172a;
+    /* gray-950/darker */
+    --text-main: #f9fafb;
+    /* gray-50 */
+    --text-muted: #d1d5db;
+    /* gray-300 */
+    --border-color: #374151;
+    /* gray-700 */
+
+    --gold-400: #d4af37;
+    /* Slightly brighter gold for dark mode */
+    --gold-100: #2d261e;
+    /* Dark gold wash */
+}
+
+/* Apply Theme Variables to Body */
+body {
+    background-color: var(--bg-main) !important;
+    color: var(--text-main) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* -------------------------------------------------------------------------- */
+/* DARK MODE UTILITY OVERRIDES (Force Tailwind to respect theme) */
+/* -------------------------------------------------------------------------- */
+.dark-mode .bg-white {
+    background-color: var(--bg-card) !important;
+}
+
+.dark-mode .bg-gray-50 {
+    background-color: var(--bg-main) !important;
+}
+
+.dark-mode .bg-gray-100 {
+    background-color: var(--bg-secondary) !important;
+}
+
+.dark-mode .text-gray-900 {
+    color: var(--text-main) !important;
+}
+
+.dark-mode .text-gray-600,
+.dark-mode .text-gray-500 {
+    color: var(--text-muted) !important;
+}
+
+.dark-mode .border-gray-100,
+.dark-mode .border-gray-200 {
+    border-color: var(--border-color) !important;
+}
+
+/* Keep Gold text gold */
+.dark-mode .text-\[\#c5a059\] {
+    color: var(--gold-400) !important;
+}
+
 
 /* ===========================
    ANIMATIONS & TRANSITIONS
@@ -432,18 +507,17 @@ input[type=range]::-moz-range-thumb {
         width: 3rem;
         height: 3rem;
     }
-}
 
-.btn-primary,
-.btn-secondary {
-    min-height: 48px;
-    padding: 1rem 1.5rem;
-}
+    .btn-primary,
+    .btn-secondary {
+        min-height: 48px;
+        padding: 1rem 1.5rem;
+    }
 
-section {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-}
+    section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
 }
 
 /* Utility */
