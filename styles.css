@@ -28,14 +28,15 @@ body {
     --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     /* COLORS: Light Mode (Default) */
-    --bg-main: #fafafa;
+    --bg-main: #ffffff;
     --bg-card: #ffffff;
-    --bg-secondary: #f8f5f2;
-    --text-main: #1a1a1a;
-    --text-muted: #4b5563;
-    /* gray-600 */
-    --border-color: #e5e7eb;
-    /* gray-200 */
+    --bg-secondary: #fdfdfd;
+    /* Very subtle off-white for distinction if needed, or just white */
+    --text-main: #000000;
+    --text-muted: #333333;
+    /* High contrast dark gray */
+    --border-color: #e5e5e5;
+    /* Light grey border is okay, or use gold */
 
     --gold-400: #c5a059;
     --gold-600: #b08d45;
@@ -44,22 +45,22 @@ body {
 
 /* COLORS: Dark Mode */
 .dark-mode {
-    --bg-main: #111827;
-    /* gray-900 */
-    --bg-card: #1f2937;
-    /* gray-800 */
-    --bg-secondary: #0f172a;
-    /* gray-950/darker */
-    --text-main: #f9fafb;
-    /* gray-50 */
-    --text-muted: #d1d5db;
-    /* gray-300 */
-    --border-color: #374151;
-    /* gray-700 */
+    --bg-main: #000000;
+    /* Pure Black */
+    --bg-card: #050505;
+    /* Deep Black for cards */
+    --bg-secondary: #0a0a0a;
+    /* Alternative Black */
+    --text-main: #ffffff;
+    /* Pure White */
+    --text-muted: #e5e5e5;
+    /* Off-white for secondary text */
+    --border-color: #333333;
+    /* Dark gray border */
 
     --gold-400: #d4af37;
     /* Slightly brighter gold for dark mode */
-    --gold-100: #2d261e;
+    --gold-100: #1a1a1a;
     /* Dark gold wash */
 }
 
@@ -78,21 +79,27 @@ body {
     background-color: var(--bg-card) !important;
 }
 
-.dark-mode .bg-gray-50 {
+.dark-mode .bg-gray-50,
+.dark-mode .bg-gray-100,
+.dark-mode .bg-gray-500,
+.dark-mode .bg-slate-900,
+.dark-mode .bg-\[\#f8f5f2\] {
     background-color: var(--bg-main) !important;
+    /* Force black backgrounds in dark mode */
 }
 
-.dark-mode .bg-gray-100 {
-    background-color: var(--bg-secondary) !important;
-}
-
-.dark-mode .text-gray-900 {
+.dark-mode .text-gray-900,
+.dark-mode .text-gray-800,
+.dark-mode .text-gray-700 {
     color: var(--text-main) !important;
+    /* Force white text in dark mode */
 }
 
 .dark-mode .text-gray-600,
-.dark-mode .text-gray-500 {
+.dark-mode .text-gray-500,
+.dark-mode .text-gray-400 {
     color: var(--text-muted) !important;
+    /* High contrast off-white */
 }
 
 .dark-mode .border-gray-100,
