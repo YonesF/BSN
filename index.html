@@ -44,7 +44,7 @@
 
     <!-- Navigation - Palantir Style Floating Header -->
     <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="bg-gray-900/80 backdrop-blur-md border-b border-white/10 w-full">
+        <div class="bg-gray-900/80 backdrop-blur-md border-b border-white/10 w-full relative z-50">
             <div class="max-w-[120rem] mx-auto px-8 h-24 flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex items-center">
@@ -55,49 +55,77 @@
                 <!-- Right Actions -->
                 <div class="flex items-center gap-8">
                     <a href="#kontakt"
-                        class="bg-white text-gray-900 px-8 py-3 rounded-sm text-sm font-bold uppercase tracking-widest hover:bg-gray-100 transition-colors">
-                        Get Started
+                        class="hidden md:inline-block bg-white text-gray-900 px-8 py-3 rounded-sm text-sm font-bold uppercase tracking-widest hover:bg-gray-100 transition-colors">
+                        Bestill
                     </a>
 
                     <div class="flex items-center gap-6 border-l border-white/10 pl-8 ml-2 relative">
                         <!-- Search -->
-                        <button class="text-gray-400 hover:text-white transition-colors">
+                        <button class="text-gray-400 hover:text-white transition-colors" aria-label="Søk">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
                         </button>
 
-                        <!-- Menu -->
-                        <button id="menuButton" class="text-gray-400 hover:text-white transition-colors relative z-50">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 6h16M4 12h16m-7 6h7"></path>
-                            </svg>
+                        <!-- Hamburger Menu Trigger -->
+                        <button id="menuButton" aria-expanded="false" aria-controls="main-menu"
+                            class="group w-10 h-10 flex items-center justify-center relative z-50 focus:outline-none">
+                            <span class="sr-only">Åpne meny</span>
+                            <div class="w-8 flex flex-col gap-1.5 items-end">
+                                <span
+                                    class="block w-full h-0.5 bg-white transition-all duration-300 origin-center group-[.is-active]:rotate-45 group-[.is-active]:translate-y-2"></span>
+                                <span
+                                    class="block w-3/4 h-0.5 bg-[#c5a059] transition-all duration-300 group-[.is-active]:opacity-0"></span>
+                                <span
+                                    class="block w-full h-0.5 bg-white transition-all duration-300 origin-center group-[.is-active]:-rotate-45 group-[.is-active]:-translate-y-2"></span>
+                            </div>
                         </button>
-
-                        <!-- Dropdown Menu -->
-                        <div id="dropdownMenu"
-                            class="absolute top-20 right-0 w-64 bg-white shadow-xl rounded-lg py-2 hidden flex-col z-40 border border-gray-100 transform origin-top-right transition-all duration-200 opacity-0 scale-95">
-                            <a href="#tjenester"
-                                class="block px-6 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#c5a059] transition-colors border-b border-gray-100">
-                                Pakker og priser
-                            </a>
-                            <a href="om-oss.html"
-                                class="block px-6 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#c5a059] transition-colors border-b border-gray-100">
-                                Om oss
-                            </a>
-                            <a href="#kontakt"
-                                class="block px-6 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#c5a059] transition-colors border-b border-gray-100">
-                                Kontakt oss
-                            </a>
-                            <a href="#"
-                                class="block px-6 py-3 text-sm text-gray-400 hover:bg-gray-50 cursor-not-allowed">
-                                Personvern (Kommer)
-                            </a>
-                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Full Screen Menu Overlay -->
+        <div id="menuOverlay"
+            class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300"
+            aria-hidden="true"></div>
+
+        <!-- Menu Panel (Right Side) -->
+        <div id="main-menu"
+            class="fixed top-0 right-0 w-full md:w-[480px] h-screen bg-gray-900 border-l border-white/5 shadow-2xl z-40 transform translate-x-full transition-transform duration-300 ease-out pt-32 px-10 overflow-y-auto"
+            role="navigation">
+            <nav class="flex flex-col gap-8">
+                <a href="#tjenester"
+                    class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors focus:outline-none"
+                    tabindex="-1">Tjenester</a>
+                <a href="#tjenester"
+                    class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors focus:outline-none"
+                    tabindex="-1">Pakker & Priser</a>
+                <a href="#abonnement"
+                    class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors focus:outline-none"
+                    tabindex="-1">Abonnement</a>
+                <a href="#policy"
+                    class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors focus:outline-none"
+                    tabindex="-1">Digital Styling Policy</a>
+                <a href="om-oss.html"
+                    class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors focus:outline-none"
+                    tabindex="-1">Om oss</a>
+
+                <div class="w-16 h-px bg-[#c5a059]/30 my-4"></div>
+
+                <a href="#kontakt"
+                    class="inline-flex items-center justify-center bg-[#c5a059] text-white px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest hover:bg-[#b08d45] transition-colors w-full md:w-auto self-start focus:outline-none"
+                    tabindex="-1">
+                    Bestill nå
+                </a>
+            </nav>
+
+            <div class="mt-20">
+                <p class="text-sm text-gray-500 uppercase tracking-widest mb-4">Kontakt oss</p>
+                <a href="mailto:post@luksuseiendom.no"
+                    class="block text-xl text-white hover:text-[#c5a059] transition-colors mb-2">post@luksuseiendom.no</a>
+                <p class="text-gray-400">Kristiansand, Norge</p>
             </div>
         </div>
     </nav>
@@ -465,7 +493,7 @@
     </section>
 
     <!-- 5. Subscription Model -->
-    <section class="py-24 px-6 bg-gray-900 text-white">
+    <section id="abonnement" class="py-24 px-6 bg-gray-900 text-white">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-serif mb-4">Abonnement for Meglerkontor</h2>
@@ -525,7 +553,7 @@
     </section>
 
     <!-- 6. Digital Styling Policy (Trust Section) -->
-    <section class="py-24 px-6 bg-gray-50 border-b border-gray-200">
+    <section id="policy" class="py-24 px-6 bg-gray-50 border-b border-gray-200">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-serif mb-4 text-gray-900">Retningslinjer for Digital Styling</h2>
@@ -734,36 +762,80 @@
     <!-- Menu Toggle Script -->
     <script>
         const menuButton = document.getElementById('menuButton');
-        const dropdownMenu = document.getElementById('dropdownMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const mainMenu = document.getElementById('main-menu');
+        const menuLinks = mainMenu.querySelectorAll('a');
+        let isMenuOpen = false;
 
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+
+            // Toggle UI state
+            menuButton.classList.toggle('is-active');
+            menuButton.setAttribute('aria-expanded', isMenuOpen);
+
+            if (isMenuOpen) {
+                // Open Menu
+                menuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                mainMenu.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden'; // Scroll lock
+
+                // Focus management
+                menuLinks.forEach(link => link.setAttribute('tabindex', '0'));
+                setTimeout(() => menuLinks[0].focus(), 100); // Wait for transition
+            } else {
+                // Close Menu
+                menuOverlay.classList.add('opacity-0', 'pointer-events-none');
+                mainMenu.classList.add('translate-x-full');
+                document.body.style.overflow = ''; // Release scroll lock
+
+                // Focus management
+                menuLinks.forEach(link => link.setAttribute('tabindex', '-1'));
+                menuButton.focus();
+            }
+        }
+
+        function closeMenu() {
+            if (isMenuOpen) toggleMenu();
+        }
+
+        // Event Listeners
         menuButton.addEventListener('click', (e) => {
             e.stopPropagation();
-            const isHidden = dropdownMenu.classList.contains('hidden');
-            if (isHidden) {
-                dropdownMenu.classList.remove('hidden');
-                // Small timeout to allow display:block to apply before opacity transition
-                setTimeout(() => {
-                    dropdownMenu.classList.remove('opacity-0', 'scale-95');
-                    dropdownMenu.classList.add('opacity-100', 'scale-100');
-                }, 10);
-            } else {
-                dropdownMenu.classList.remove('opacity-100', 'scale-100');
-                dropdownMenu.classList.add('opacity-0', 'scale-95');
-                setTimeout(() => {
-                    dropdownMenu.classList.add('hidden');
-                }, 200);
+            toggleMenu();
+        });
+
+        menuOverlay.addEventListener('click', closeMenu);
+
+        // Close on Link Click
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Keyboard Accessibility (ESC to close)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isMenuOpen) {
+                closeMenu();
             }
         });
 
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!menuButton && !dropdownMenu) return;
-            if (!menuButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
-                dropdownMenu.classList.remove('opacity-100', 'scale-100');
-                dropdownMenu.classList.add('opacity-0', 'scale-95');
-                setTimeout(() => {
-                    dropdownMenu.classList.add('hidden');
-                }, 200);
+        // Trap Focus inside Menu (Basic implementation)
+        mainMenu.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab' && isMenuOpen) {
+                const firstElement = menuLinks[0];
+                const lastElement = menuLinks[menuLinks.length - 1];
+
+                if (e.shiftKey) { /* Shift + Tab */
+                    if (document.activeElement === firstElement) {
+                        e.preventDefault();
+                        lastElement.focus();
+                    }
+                } else { /* Tab */
+                    if (document.activeElement === lastElement) {
+                        e.preventDefault();
+                        firstElement.focus();
+                    }
+                }
             }
         });
     </script>
