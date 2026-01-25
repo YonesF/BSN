@@ -101,55 +101,91 @@
         </div>
     </section>
 
-    <!-- 2. Interactive Component: Image Slider -->
+    <!-- 2. Interactive Component: Image Gallery (Grid) -->
     <section class="py-10 px-6 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-7xl mx-auto">
 
-            <!-- Slider Container -->
-            <div class="max-w-5xl mx-auto mb-6">
-                <div id="luxury-slider-container"
-                    class="luxury-slider-wrapper relative w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden cursor-ew-resize select-none bg-gray-200 ring-1 ring-gray-200">
+            <!-- Grid Container -->
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
 
-                    <!-- After Image (Background - Full Width) -->
-                    <img src="./Classical Room After.png" alt="Etter styling"
-                        class="absolute inset-0 w-full h-full object-cover" draggable="false">
+                <!-- 1. Japandi Slider -->
+                <div class="flex flex-col">
+                    <h3 class="text-xl font-serif text-gray-900 dark:text-white mb-4 text-center">Stil: Japandi</h3>
+                    <div
+                        class="luxury-slider-wrapper relative w-full aspect-[4/3] overflow-hidden cursor-ew-resize select-none bg-gray-200 ring-1 ring-gray-200 shadow-xl rounded-xl">
 
-                    <!-- Label: ETTER -->
-                    <div class="after-label">
-                        ETTER STYLING
-                    </div>
+                        <!-- After Image -->
+                        <img src="./Japandi Room After.png" alt="Etter styling"
+                            class="absolute inset-0 w-full h-full object-cover" draggable="false">
 
-                    <!-- Before Image Container (Clipped) -->
-                    <div class="before-image-container absolute top-0 left-0 h-full overflow-hidden"
-                        style="width: 50%; z-index: 10;">
-                        <img src="./Classical Room Before.png" alt="Før styling"
-                            class="absolute top-0 left-0 h-full object-cover" draggable="false">
+                        <!-- Label: ETTER -->
+                        <div class="after-label">ETTER</div>
 
-                        <!-- Label: FØR -->
-                        <div class="before-label">
-                            FØR STYLING
+                        <!-- Before Image Container -->
+                        <div class="before-image-container absolute top-0 left-0 h-full overflow-hidden"
+                            style="width: 50%; z-index: 10;">
+                            <img src="./Japandi Room Before.png" alt="Før styling"
+                                class="absolute top-0 left-0 h-full object-cover" draggable="false">
+
+                            <!-- Label: FØR -->
+                            <div class="before-label">FØR</div>
                         </div>
-                    </div>
 
-                    <!-- Slider Handle -->
-                    <div class="slider-handle absolute inset-y-0" style="left: 50%; z-index: 30;">
-                        <!-- White Vertical Line -->
-                        <div class="absolute inset-y-0 -left-px w-0.5 bg-white shadow-[0_0_10px_rgba(0,0,0,0.2)]"></div>
-
-                        <!-- Handle Button -->
-                        <div class="handle-button absolute top-1/2 left-1/2"
-                            style="transform: translate(-50%, -50%); transition: margin 0.1s;">
-                            <!-- Solid Double Arrow Icon -->
-                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
-                                <path d="M7 7l-5 5 5 5v-3h10v3l5-5-5-5v3H7V7z" />
-                            </svg>
+                        <!-- Slider Handle -->
+                        <div class="slider-handle absolute inset-y-0" style="left: 50%; z-index: 30;">
+                            <div class="absolute inset-y-0 -left-px w-0.5 bg-white shadow-[0_0_10px_rgba(0,0,0,0.2)]">
+                            </div>
+                            <div class="handle-button absolute top-1/2 left-1/2"
+                                style="transform: translate(-50%, -50%); transition: margin 0.1s;">
+                                <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                    <path d="M7 7l-5 5 5 5v-3h10v3l5-5-5-5v3H7V7z" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- 2. Moderne Rustikk Slider -->
+                <div class="flex flex-col">
+                    <h3 class="text-xl font-serif text-gray-900 dark:text-white mb-4 text-center">Stil: Moderne Rustikk
+                    </h3>
+                    <div
+                        class="luxury-slider-wrapper relative w-full aspect-[4/3] overflow-hidden cursor-ew-resize select-none bg-gray-200 ring-1 ring-gray-200 shadow-xl rounded-xl">
+                        <!-- After Image -->
+                        <img src="./Moderne Rustikk Room After.png" alt="Etter styling"
+                            class="absolute inset-0 w-full h-full object-cover" draggable="false">
+
+                        <!-- Label: ETTER -->
+                        <div class="after-label">ETTER</div>
+
+                        <!-- Before Image Container -->
+                        <div class="before-image-container absolute top-0 left-0 h-full overflow-hidden"
+                            style="width: 50%; z-index: 10;">
+                            <img src="./Moderne Rustikk Room Before.png" alt="Før styling"
+                                class="absolute top-0 left-0 h-full object-cover" draggable="false">
+
+                            <!-- Label: FØR -->
+                            <div class="before-label">FØR</div>
+                        </div>
+
+                        <!-- Slider Handle -->
+                        <div class="slider-handle absolute inset-y-0" style="left: 50%; z-index: 30;">
+                            <div class="absolute inset-y-0 -left-px w-0.5 bg-white shadow-[0_0_10px_rgba(0,0,0,0.2)]">
+                            </div>
+                            <div class="handle-button absolute top-1/2 left-1/2"
+                                style="transform: translate(-50%, -50%); transition: margin 0.1s;">
+                                <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                    <path d="M7 7l-5 5 5 5v-3h10v3l5-5-5-5v3H7V7z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Caption -->
-            <p class="text-center text-xs md:text-sm text-gray-400 max-w-2xl mx-auto italic">
+            <p class="text-center text-xs md:text-sm text-gray-400 max-w-2xl mx-auto italic mt-12">
                 Digital styling brukes kun for visuell presentasjon og endrer aldri faktiske forhold ved boligen.
             </p>
         </div>

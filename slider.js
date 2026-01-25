@@ -1,58 +1,58 @@
 /**
  * LuksusEiendom Luxury Before/After Slider
- * PRODUCTION VERSION - Fully debugged and optimized
+ * PRODUCTION VERSION - Multi-instance support
  */
 
-(function() {
+(function () {
     'use strict';
-    
+
     console.log('[SLIDER] ?? Script loaded and executing');
 
     class LuxurySlider {
-        constructor(containerId) {
-            console.log('[SLIDER] ?? Constructor called with ID:', containerId);
-            
-            this.container = document.getElementById(containerId);
+        constructor(container) {
+            // Support both ID string and DOM element
+            if (typeof container === 'string') {
+                this.container = document.getElementById(container);
+            } else {
+                this.container = container;
+            }
+
             if (!this.container) {
-                console.error('[SLIDER] ? Container not found:', containerId);
-                console.log('[SLIDER] Available IDs:', 
-                    Array.from(document.querySelectorAll('[id]')).map(el => el.id).join(', ')
-                );
+                console.error('[SLIDER] ? Container not found');
                 return;
             }
 
-            console.log('[SLIDER] ? Container found');
+            // Generate a unique ID for logging if none exists
+            this.id = this.container.id || 'slider-' + Math.random().toString(36).substr(2, 9);
+            console.log('[SLIDER] ?? Initializing slider instance:', this.id);
 
             this.sliderPosition = 50; // Start at 50% immediately
             this.isDragging = false;
             this.isHovered = false;
-            
+
             this.init();
         }
 
         init() {
-            console.log('[SLIDER] ?? Initializing...');
-            
             // Set initial position immediately
             this.updateSliderPosition();
-            
+
             const images = this.container.querySelectorAll('img');
-            console.log('[SLIDER] ?? Found', images.length, 'images');
-            
+
             // Check if images exist
             images.forEach((img, index) => {
-                console.log(`[SLIDER] Image ${index}:`, img.src, '- Complete:', img.complete);
-                
-                img.addEventListener('load', () => {
-                    console.log(`[SLIDER] ? Image ${index} loaded successfully`);
-                });
-                
-                img.addEventListener('error', (e) => {
-                    console.error(`[SLIDER] ? Image ${index} failed to load:`, img.src);
-                    console.error('[SLIDER] Error details:', e);
-                });
+                if (img.complete) {
+                    // Already loaded
+                } else {
+                    img.addEventListener('load', () => {
+                        console.log(`[SLIDER:${this.id}] ? Image ${index} loaded`);
+                    });
+                    img.addEventListener('error', (e) => {
+                        console.error(`[SLIDER:${this.id}] ? Image ${index} failed to load:`, img.src);
+                    });
+                }
             });
-            
+
             // Start slider immediately (don't wait for images)
             setTimeout(() => {
                 this.startSlider();
@@ -60,7 +60,6 @@
         }
 
         startSlider() {
-            console.log('[SLIDER] ?? Starting slider functionality');
             this.fixBeforeImageWidth();
             this.setupEventListeners();
             this.runIntroAnimation();
@@ -69,19 +68,14 @@
         fixBeforeImageWidth() {
             const beforeContainer = this.container.querySelector('.before-image-container');
             const beforeImg = beforeContainer?.querySelector('img');
-            
+
             if (beforeContainer && beforeImg) {
                 const containerWidth = this.container.offsetWidth;
                 beforeImg.style.width = containerWidth + 'px';
-                console.log('[SLIDER] ?? Fixed before-image width:', containerWidth + 'px');
-            } else {
-                console.error('[SLIDER] ? Before container or image not found');
             }
         }
 
         runIntroAnimation() {
-            console.log('[SLIDER] ?? Starting intro animation (0% ? 50%)');
-            
             const start = 0;
             const end = 50;
             const duration = 1500;
@@ -91,14 +85,12 @@
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
                 const easeOut = 1 - Math.pow(1 - progress, 4);
-                
+
                 this.sliderPosition = start + (end - start) * easeOut;
                 this.updateSliderPosition();
 
                 if (progress < 1) {
                     requestAnimationFrame(animate);
-                } else {
-                    console.log('[SLIDER] ? Intro animation complete');
                 }
             };
 
@@ -108,29 +100,27 @@
         }
 
         setupEventListeners() {
-            console.log('[SLIDER] ?? Setting up event listeners');
-            
             this.container.addEventListener('mousedown', (e) => this.handleStart(e));
             this.container.addEventListener('touchstart', (e) => this.handleStart(e), { passive: false });
             this.container.addEventListener('mouseenter', () => this.handleHover(true));
             this.container.addEventListener('mouseleave', () => this.handleHover(false));
-            
-            document.addEventListener('mousemove', (e) => this.handleMove(e));
-            document.addEventListener('mouseup', () => this.handleEnd());
-            document.addEventListener('touchmove', (e) => this.handleMove(e), { passive: false });
-            document.addEventListener('touchend', () => this.handleEnd());
-            
+
+            // Global listeners for drag (bound to this instance)
+            this.boundHandleMove = (e) => this.handleMove(e);
+            this.boundHandleEnd = () => this.handleEnd();
+
+            document.addEventListener('mousemove', this.boundHandleMove);
+            document.addEventListener('mouseup', this.boundHandleEnd);
+            document.addEventListener('touchmove', this.boundHandleMove, { passive: false });
+            document.addEventListener('touchend', this.boundHandleEnd);
+
             window.addEventListener('resize', () => {
-                console.log('[SLIDER] ?? Window resized, recalculating');
                 this.fixBeforeImageWidth();
                 this.updateSliderPosition();
             });
-
-            console.log('[SLIDER] ? Event listeners attached');
         }
 
         handleStart(e) {
-            console.log('[SLIDER] ??? Drag started');
             this.isDragging = true;
             this.container.classList.add('dragging');
             this.updatePosition(e);
@@ -138,17 +128,16 @@
 
         handleMove(e) {
             if (this.isDragging) {
-                e.preventDefault();
+                e.preventDefault(); // Prevent scrolling on touch
                 this.updatePosition(e);
             }
         }
 
         handleEnd() {
             if (this.isDragging) {
-                console.log('[SLIDER] ??? Drag ended at', Math.round(this.sliderPosition) + '%');
+                this.isDragging = false;
+                this.container.classList.remove('dragging');
             }
-            this.isDragging = false;
-            this.container.classList.remove('dragging');
         }
 
         handleHover(isHovered) {
@@ -162,9 +151,11 @@
         updatePosition(e) {
             const rect = this.container.getBoundingClientRect();
             const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+
+            // Calculate x relative to this container
             const x = clientX - rect.left;
             const width = rect.width;
-            
+
             this.sliderPosition = Math.max(0, Math.min(100, (x / width) * 100));
             this.updateSliderPosition();
         }
@@ -178,7 +169,7 @@
             if (beforeContainer) {
                 beforeContainer.style.width = `${this.sliderPosition}%`;
             }
-            
+
             if (handle) {
                 handle.style.left = `${this.sliderPosition}%`;
             }
@@ -195,21 +186,25 @@
     // Initialize when DOM is ready
     function initSlider() {
         console.log('[SLIDER] ?? DOM State:', document.readyState);
-        
-        const slider = new LuxurySlider('luxury-slider-container');
-        
-        if (slider.container) {
-            console.log('[SLIDER] ? ? ? SLIDER INITIALIZED SUCCESSFULLY! ? ? ?');
+
+        // Find all elements with class 'luxury-slider-container' or 'luxury-slider-wrapper'
+        // Using a common class selector is best practice here.
+        // Based on existing HTML, the wrapper has class 'luxury-slider-wrapper'.
+        const sliders = document.querySelectorAll('.luxury-slider-wrapper');
+
+        if (sliders.length > 0) {
+            console.log(`[SLIDER] Found ${sliders.length} sliders. Initializing...`);
+            sliders.forEach(sliderEl => {
+                new LuxurySlider(sliderEl);
+            });
         } else {
-            console.error('[SLIDER] ? ? ? SLIDER INITIALIZATION FAILED! ? ? ?');
+            console.warn('[SLIDER] No sliders found with class .luxury-slider-wrapper');
         }
     }
 
     if (document.readyState === 'loading') {
-        console.log('[SLIDER] ? Waiting for DOMContentLoaded...');
         document.addEventListener('DOMContentLoaded', initSlider);
     } else {
-        console.log('[SLIDER] ? DOM already loaded, initializing immediately');
         initSlider();
     }
 })();
