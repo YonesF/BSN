@@ -49,20 +49,20 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     <a href="index.html"
-                        class="text-3xl font-medium tracking-wide text-gray-100 font-sans hover:text-white transition-colors">LuksusEiendomStudio</a>
+                        class="text-xl md:text-3xl font-medium tracking-wide text-gray-100 font-sans hover:text-white transition-colors truncate max-w-[200px] md:max-w-none">LuksusEiendomStudio</a>
                 </div>
 
                 <!-- Right Actions -->
-                <div class="flex items-center gap-8">
+                <div class="flex items-center gap-4 md:gap-8">
                     <a href="#kontakt"
                         class="hidden md:inline-block bg-white text-gray-900 px-8 py-3 rounded-sm text-sm font-bold uppercase tracking-widest hover:bg-gray-100 transition-colors">
                         Bestill
                     </a>
 
-                    <div class="flex items-center gap-6 border-l border-white/10 pl-8 ml-2 relative">
+                    <div class="flex items-center gap-4 md:gap-6 border-l border-white/10 pl-4 md:pl-8 ml-2 relative">
                         <!-- Search -->
                         <button class="text-gray-400 hover:text-white transition-colors" aria-label="Søk">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
@@ -72,7 +72,7 @@
                         <button id="menuButton" aria-expanded="false" aria-controls="main-menu"
                             class="group w-10 h-10 flex items-center justify-center relative z-50 focus:outline-none">
                             <span class="sr-only">Åpne meny</span>
-                            <div class="w-8 flex flex-col gap-1.5 items-end">
+                            <div class="w-6 md:w-8 flex flex-col gap-1.5 items-end">
                                 <span
                                     class="block w-full h-0.5 bg-white transition-all duration-300 origin-center group-[.is-active]:rotate-45 group-[.is-active]:translate-y-2"></span>
                                 <span
@@ -131,7 +131,7 @@
     </nav>
 
     <!-- Hero Section med VIDEO BAKGRUNN - Full Screen -->
-    <section class="relative h-screen px-6 overflow-hidden flex items-center justify-center bg-gray-900">
+    <section class="relative h-[100dvh] px-6 overflow-hidden flex items-center justify-center bg-gray-900">
 
         <!-- Video Container -->
         <div class="absolute inset-0 z-0 overflow-hidden">
@@ -144,20 +144,20 @@
                     type="video/mp4">
             </video>
             <!-- Overlay -->
-            <div class="absolute inset-0 bg-gray-900/30 backdrop-blur-[2px]"></div>
+            <div class="absolute inset-0 bg-gray-900/40 backdrop-blur-[2px]"></div>
         </div>
 
         <!-- Innhold (Tekst) -->
-        <div class="max-w-6xl mx-auto text-center relative z-10 text-white px-4 mt-16">
+        <div class="max-w-6xl mx-auto text-center relative z-10 text-white px-4 mt-16 md:mt-0">
             <!-- Main Headline - Palantir Style (Clean, Sans/Serif blend) -->
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight mb-8 leading-tight drop-shadow-2xl"
+            <h1 class="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-medium tracking-tight mb-6 md:mb-8 leading-tight drop-shadow-2xl"
                 data-animate="fade-up">
-                <span class="block">Bedre presenterte FINN-annonser.</span>
-                <span class="block text-white/90">Klar til publisering. <span
+                <span class="block mb-2 md:mb-0">Bedre presenterte FINN-annonser.</span>
+                <span class="block text-white/90">Klar til publisering. <br class="md:hidden"> <span
                         class="italic font-serif text-[#c5a059]">Mindre tidsbruk.</span></span>
             </h1>
 
-            <p class="text-xl md:text-2xl text-white/80 font-light mb-12 max-w-2xl mx-auto leading-relaxed"
+            <p class="text-base sm:text-xl md:text-2xl text-white/80 font-light mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed"
                 data-animate="fade-up" data-animate-delay="200">
                 Samme fakta. <br>
                 All digital styling merkes tydelig.
@@ -180,30 +180,30 @@
         <div class="max-w-6xl mx-auto">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div data-animate="fade-up">
-                    <h3 class="text-3xl md:text-4xl font-serif mb-6 text-gray-900">
+                    <h3 class="text-2xl md:text-4xl font-serif mb-6 text-gray-900">
                         Samme fakta. <br>
                         <span class="text-[#c5a059] italic">Bedre presentasjon.</span>
                     </h3>
-                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
                         Vi er din eksterne annonse-desk. Du sender oss FINN-kladd og bilder – vi leverer en komplett,
-                        premium boligannonse klar for publisering.
+                        premium boligannonse klar til publisering.
                     </p>
 
                     <ul class="space-y-4">
                         <li class="flex items-center gap-3">
                             <span
-                                class="w-8 h-8 rounded-full bg-[#c5a059]/10 flex items-center justify-center text-[#c5a059] text-sm font-semibold">1</span>
-                            <span class="text-gray-700">Vi overtar FINN-kladd + bilder</span>
+                                class="w-8 h-8 rounded-full bg-[#c5a059]/10 flex items-center justify-center text-[#c5a059] text-sm font-semibold flex-shrink-0">1</span>
+                            <span class="text-gray-700 text-sm md:text-base">Vi overtar FINN-kladd + bilder</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <span
-                                class="w-8 h-8 rounded-full bg-[#c5a059]/10 flex items-center justify-center text-[#c5a059] text-sm font-semibold">2</span>
-                            <span class="text-gray-700">Vi leverer ferdig, premium annonse</span>
+                                class="w-8 h-8 rounded-full bg-[#c5a059]/10 flex items-center justify-center text-[#c5a059] text-sm font-semibold flex-shrink-0">2</span>
+                            <span class="text-gray-700 text-sm md:text-base">Vi leverer ferdig, premium annonse</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <span
-                                class="w-8 h-8 rounded-full bg-[#c5a059]/10 flex items-center justify-center text-[#c5a059] text-sm font-semibold">3</span>
-                            <span class="text-gray-700">Spar 1–3 timer per objekt</span>
+                                class="w-8 h-8 rounded-full bg-[#c5a059]/10 flex items-center justify-center text-[#c5a059] text-sm font-semibold flex-shrink-0">3</span>
+                            <span class="text-gray-700 text-sm md:text-base">Spar 1–3 timer per objekt</span>
                         </li>
                     </ul>
                 </div>
@@ -242,8 +242,9 @@
                     <div class="h-px w-12 bg-gradient-to-l from-transparent to-[#c5a059]"></div>
                 </div>
 
-                <h3 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">Se potensialet</h3>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Dra slideren for å se effekten av profesjonell
+                <h3 class="text-2xl md:text-5xl font-semibold tracking-tight mb-4">Se potensialet</h3>
+                <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">Dra slideren for å se effekten av
+                    profesjonell
                     digital styling</p>
             </div>
 
@@ -327,7 +328,7 @@
     <section id="tjenester" class="py-24 md:py-32 px-6 bg-gray-50">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-serif font-medium tracking-tight mb-4 text-gray-900">Våre Pakker
+                <h2 class="text-3xl md:text-5xl font-serif font-medium tracking-tight mb-4 text-gray-900">Våre Pakker
                 </h2>
                 <div class="h-px w-16 bg-[#c5a059] mx-auto mb-4"></div>
             </div>
@@ -440,7 +441,7 @@
     <section id="hvordan-det-fungerer" class="py-24 px-6 bg-white">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-serif mb-4 text-gray-900">Slik jobber vi</h2>
+                <h2 class="text-3xl md:text-5xl font-serif mb-4 text-gray-900">Slik jobber vi</h2>
                 <div class="h-px w-16 bg-[#c5a059] mx-auto opacity-50"></div>
             </div>
 
@@ -511,7 +512,7 @@
     <section id="abonnement" class="py-24 px-6 bg-gray-900 text-white">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16" data-animate="fade-up">
-                <h2 class="text-4xl md:text-5xl font-serif mb-4">Abonnement for Meglerkontor</h2>
+                <h2 class="text-3xl md:text-5xl font-serif mb-4">Abonnement for Meglerkontor</h2>
                 <div class="h-px w-16 bg-[#c5a059] mx-auto mb-6 opacity-50"></div>
                 <p class="text-lg text-gray-400 max-w-2xl mx-auto font-light">
                     Forutsigbar kapasitet. Standardisert kvalitet. Din eksterne annonseavdeling.
@@ -639,8 +640,8 @@
         <div class="max-w-6xl mx-auto">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h2 class="text-4xl font-serif mb-6 text-gray-900">Hvorfor velge oss?</h2>
-                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    <h2 class="text-3xl md:text-4xl font-serif mb-6 text-gray-900">Hvorfor velge oss?</h2>
+                    <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
                         Mange meglere bruker kvelder og helger på annonsearbeid. Andre delegerer til assistenter med
                         varierende resultat.
                     </p>
@@ -695,9 +696,9 @@
     </section>
 
     <!-- 8. Ordering / CTA Section -->
-    <section id="kontakt" class="py-24 px-6 bg-[#f8f5f2]">
+    <section id="kontakt" class="py-16 md:py-24 px-6 bg-[#f8f5f2]">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-serif mb-8 text-gray-900">Klar for en oppgradering?</h2>
+            <h2 class="text-3xl md:text-5xl font-serif mb-8 text-gray-900">Klar for en oppgradering?</h2>
 
             <div class="bg-white p-8 shadow-sm rounded-xl mb-8 inline-block w-full max-w-md">
                 <p class="text-xs font-bold tracking-widest text-[#c5a059] uppercase mb-2">Raskeste vei</p>
