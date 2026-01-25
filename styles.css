@@ -4,48 +4,37 @@ body {
     color: #1a1a1a;
     scroll-behavior: smooth;
     overflow-x: hidden;
-    /* Prevent horizontal scroll from animations */
 }
 
 /* ... (Keep existing Grid System) ... */
 :root {
-    /* 8px Grid System Scale */
     --space-1: 8px;
-    /* 1 unit */
     --space-2: 16px;
-    /* 2 units */
     --space-3: 24px;
-    /* 3 units */
     --space-4: 32px;
-    /* 4 units */
     --space-5: 40px;
-    /* 5 units */
     --space-6: 48px;
-    /* 6 units */
     --space-8: 64px;
-    /* 8 units */
     --space-10: 80px;
-    /* 10 units */
     --space-12: 96px;
-    /* 12 units */
     --space-16: 128px;
-    /* 16 units */
     --space-20: 160px;
-    /* 20 units */
     --space-24: 192px;
-    /* 24 units */
 
     --transition-base: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     --transition-slow: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
     --gold-400: #c5a059;
     --gold-600: #b08d45;
+    --gold-100: #f5efe6;
 }
 
 /* ===========================
    ANIMATIONS & TRANSITIONS
    ========================== */
 
-/* Fade Up Animation */
+/* Fade Up */
 [data-animate="fade-up"] {
     opacity: 0;
     transform: translateY(30px);
@@ -75,48 +64,114 @@ body {
     transition-delay: 0.4s;
 }
 
-/* Scale Hover Effect */
-.hover-scale {
-    transition: transform var(--transition-base);
+/* -------------------------------------------------------------------------- */
+/* PREMIUM HOVER EFFECTS */
+/* -------------------------------------------------------------------------- */
+
+/* 1. Magical Card Hover (Gold Glow + Lift) */
+.hover-card-premium {
+    transition: all var(--transition-base);
+    position: relative;
+    z-index: 1;
 }
 
-.hover-scale:hover {
-    transform: scale(1.02);
+.hover-card-premium::before {
+    /* Glow Border Effect */
+    content: '';
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    border-radius: inherit;
+    background: linear-gradient(135deg, transparent 40%, var(--gold-400), transparent 60%);
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    opacity: 0;
+    transition: opacity 0.4s ease, background-position 0.4s ease;
 }
 
-/* Button Pulse/Glow on Hover */
-.btn-glow {
+.hover-card-premium:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -5px rgba(197, 160, 89, 0.15);
+    /* Gold tinted shadow */
+    border-color: rgba(197, 160, 89, 0.3);
+}
+
+.hover-card-premium:hover::before {
+    opacity: 1;
+    background-position: 100% 100%;
+}
+
+/* 2. Scalable Icon Group */
+.hover-icon-group:hover .icon-target {
+    transform: scale(1.15) rotate(5deg);
+    color: var(--gold-400);
+    transition: transform var(--transition-bounce), color 0.3s ease;
+}
+
+.icon-target {
+    transition: transform var(--transition-base), color 0.3s ease;
+}
+
+/* 3. List Item Slide */
+.hover-list-item {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.hover-list-item:hover {
+    transform: translateX(6px);
+    background-color: var(--gold-100);
+    /* Delicate gold wash */
+}
+
+/* 4. Button Advanced Glow */
+.btn-premium {
     position: relative;
     overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
 }
 
-.btn-glow::after {
+.btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(197, 160, 89, 0.3);
+}
+
+.btn-premium::after {
+    /* Shiny sweep */
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 200%;
+    left: -150%;
+    width: 150%;
     height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
     transform: skewX(-20deg);
-    transition: left 0.5s;
+    transition: none;
 }
 
-.btn-glow:hover::after {
-    left: 100%;
-    transition: left 0.7s;
+.btn-premium:hover::after {
+    left: 150%;
+    transition: left 0.6s ease-in-out;
 }
 
-/* ... (Keep existing CSS below) ... */
+/* 5. Process Step Circle Pulse */
+.step-circle {
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.step-container:hover .step-circle {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(197, 160, 89, 0.1);
+    border-color: var(--gold-400);
+}
+
+/* ===========================
+   BASE & EXISTING STYLES
+   ========================== */
 
 .serif,
 .font-serif {
     font-family: 'Playfair Display', serif;
-}
-
-.card-hover:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .gold-accent {
@@ -127,7 +182,7 @@ body {
     background-color: #c5a059;
 }
 
-/* Slider spesifikk CSS */
+/* Existing slider specific CSS */
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -144,7 +199,6 @@ input[type=range]::-moz-range-thumb {
     cursor: ew-resize;
 }
 
-/* FIX: Before/After slider - prevent zoom */
 #after-image-container {
     will-change: width;
 }
@@ -160,56 +214,15 @@ input[type=range]::-moz-range-thumb {
     object-position: left center;
 }
 
-/* FAQ Section Styles */
-details {
-    transition: var(--transition-slow);
-}
-
-details[open] {
-    box-shadow: var(--shadow-subtle);
-}
-
-details summary {
-    list-style: none;
-    user-select: none;
-    cursor: pointer;
-}
-
-details summary::-webkit-details-marker {
-    display: none;
-}
-
-details[open] summary~* {
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ===========================
-   LUXURY SLIDER STYLES
-   ========================== */
-
+/* Luxury Slider Wrapper */
 .luxury-slider-wrapper {
     background-color: #e5e7eb;
-    /* var(--gray-200) fallback */
     position: relative;
     border-radius: 1rem;
-    /* var(--radius-xl) fallback */
     overflow: hidden;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Before image container - CRITICAL POSITIONING */
 .before-image-container {
     position: absolute !important;
     top: 0 !important;
@@ -231,7 +244,6 @@ details[open] summary~* {
     max-width: none !important;
 }
 
-/* After image (background) - CRITICAL POSITIONING */
 .luxury-slider-wrapper>img:first-of-type {
     pointer-events: none;
     z-index: 1 !important;
@@ -253,14 +265,13 @@ details[open] summary~* {
     border-color: var(--gold-400) !important;
 }
 
-/* Smooth transitions for labels */
 .before-label,
 .after-label {
     transition: opacity 0.5s ease;
     backdrop-filter: blur(12px);
 }
 
-/* Slider handle */
+/* Slider Handle */
 .slider-handle {
     pointer-events: none;
 }
@@ -269,7 +280,6 @@ details[open] summary~* {
     pointer-events: all !important;
 }
 
-/* Handle hover effects */
 .handle-button:hover .handle-ring {
     box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
 }
@@ -279,7 +289,6 @@ details[open] summary~* {
     border-color: var(--gold-400);
 }
 
-/* Prevent text selection during drag */
 .luxury-slider-wrapper.dragging,
 .luxury-slider-wrapper.dragging * {
     user-select: none !important;
@@ -287,21 +296,12 @@ details[open] summary~* {
     -moz-user-select: none !important;
 }
 
-/* Instruction fade */
 .slider-instruction {
     transition: opacity 0.7s ease;
 }
 
-/* ===========================
-   RESPONSIVE DESIGN
-   ========================== */
-
-/* Mobile optimizations */
+/* Responsive */
 @media (max-width: 768px) {
-    :root {
-        --font-display: clamp(2rem, 10vw, 3rem);
-        --font-h1: clamp(1.5rem, 8vw, 2.5rem);
-    }
 
     .before-label,
     .after-label {
@@ -324,56 +324,26 @@ details[open] summary~* {
         padding: 0.375rem 0.75rem;
     }
 
-    .slider-instruction span {
-        font-size: 0.5rem;
-    }
-
-    /* Touch-friendly targets */
     .btn-primary,
     .btn-secondary {
         min-height: 48px;
         padding: 1rem 1.5rem;
     }
 
-    /* More spacing on mobile */
     section {
         padding-top: 4rem;
         padding-bottom: 4rem;
     }
 }
 
-/* ===========================
-   UTILITY CLASSES
-   ========================== */
-
+/* Utility */
 .text-balance {
     text-wrap: balance;
 }
 
-.container-premium {
-    max-width: 90rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-
-.section-premium {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-}
-
-/* Gradient text */
 .text-gradient-gold {
     background: linear-gradient(135deg, var(--gold-400), var(--gold-600));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-}
-
-/* Decorative line */
-.decorative-line {
-    height: 1px;
-    width: 3rem;
-    background: linear-gradient(90deg, transparent, var(--gold-400), transparent);
 }

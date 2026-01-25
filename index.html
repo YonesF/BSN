@@ -335,7 +335,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Luxury Text -->
                 <div
-                    class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover-card-premium transition-all duration-300 flex flex-col">
                     <div class="mb-6">
                         <h3 class="text-2xl font-serif text-gray-900">Luxury Text</h3>
                         <p class="text-3xl font-medium mt-4 text-[#c5a059]">990 kr</p>
@@ -358,14 +358,14 @@
                     </ul>
 
                     <a href="https://forms.gle/J5DvMgTjGm1qPBv26" target="_blank" rel="noopener noreferrer"
-                        class="w-full py-4 text-center border border-gray-200 text-gray-900 font-medium rounded-lg hover:bg-gray-50 transition-colors">
+                        class="w-full py-4 text-center border border-gray-200 text-gray-900 font-medium rounded-lg hover:bg-gray-50 transition-colors btn-premium">
                         Bestill Text
                     </a>
                 </div>
 
                 <!-- Luxury Listing -->
                 <div
-                    class="bg-white p-8 rounded-2xl border-2 border-[#c5a059]/20 shadow-lg relative flex flex-col transform md:-translate-y-4">
+                    class="bg-white p-8 rounded-2xl border-2 border-[#c5a059]/20 shadow-lg relative flex flex-col transform md:-translate-y-4 hover-card-premium">
                     <div
                         class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#c5a059] text-white px-4 py-1 text-xs font-bold tracking-widest uppercase rounded-full">
                         Anbefalt</div>
@@ -395,13 +395,14 @@
                     </ul>
 
                     <a href="https://forms.gle/J5DvMgTjGm1qPBv26" target="_blank" rel="noopener noreferrer"
-                        class="w-full py-4 text-center bg-[#c5a059] text-white font-medium rounded-lg hover:bg-[#b08d45] transition-colors shadow-md hover:shadow-lg">
+                        class="w-full py-4 text-center bg-[#c5a059] text-white font-medium rounded-lg hover:bg-[#b08d45] transition-colors shadow-md hover:shadow-lg btn-premium">
                         Bestill Listing
                     </a>
                 </div>
 
                 <!-- Luxury Upgrade -->
-                <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800 text-white shadow-xl flex flex-col">
+                <div
+                    class="bg-gray-900 p-8 rounded-2xl border border-gray-800 text-white shadow-xl flex flex-col hover-card-premium">
                     <div class="mb-6">
                         <h3 class="text-2xl font-serif text-white">Luxury Upgrade</h3>
                         <p class="text-3xl font-medium mt-4 text-[#c5a059]">4 990 kr</p>
@@ -427,7 +428,7 @@
                     </ul>
 
                     <a href="https://forms.gle/J5DvMgTjGm1qPBv26" target="_blank" rel="noopener noreferrer"
-                        class="w-full py-4 text-center border border-gray-700 text-white font-medium rounded-lg hover:bg-white/10 transition-colors">
+                        class="w-full py-4 text-center border border-gray-700 text-white font-medium rounded-lg hover:bg-white/10 transition-colors btn-premium">
                         Bestill Upgrade
                     </a>
                 </div>
@@ -459,10 +460,22 @@
                     </p>
                 </div>
 
-                <!-- Step 2 -->
-                <div class="relative z-10 text-center bg-white">
+                <!-- Step 1 -->
+                <div class="relative z-10 text-center bg-white step-container">
                     <div
-                        class="w-24 h-24 mx-auto mb-6 bg-gray-50 rounded-full flex items-center justify-center border border-gray-100">
+                        class="w-24 h-24 mx-auto mb-6 bg-gray-50 rounded-full flex items-center justify-center border border-gray-100 step-circle">
+                        <span class="text-2xl font-serif text-[#c5a059]">1</span>
+                    </div>
+                    <h3 class="text-xl font-medium mb-3">Du sender inn</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed max-w-xs mx-auto">
+                        FINN-kladd/ID + bilder.<br>Enkel overlevering via e-post eller skjema.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 text-center bg-white step-container">
+                    <div
+                        class="w-24 h-24 mx-auto mb-6 bg-gray-50 rounded-full flex items-center justify-center border border-gray-100 step-circle">
                         <span class="text-2xl font-serif text-[#c5a059]">2</span>
                     </div>
                     <h3 class="text-xl font-medium mb-3">Vi produserer (24-72t)</h3>
@@ -474,9 +487,9 @@
                 </div>
 
                 <!-- Step 3 -->
-                <div class="relative z-10 text-center bg-white">
+                <div class="relative z-10 text-center bg-white step-container">
                     <div
-                        class="w-24 h-24 mx-auto mb-6 bg-gray-50 rounded-full flex items-center justify-center border border-gray-100">
+                        class="w-24 h-24 mx-auto mb-6 bg-gray-50 rounded-full flex items-center justify-center border border-gray-100 step-circle">
                         <span class="text-2xl font-serif text-[#c5a059]">3</span>
                     </div>
                     <h3 class="text-xl font-medium mb-3">Levering + Revisjon</h3>
