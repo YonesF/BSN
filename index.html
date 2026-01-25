@@ -217,66 +217,41 @@
                         class="absolute inset-0 w-full h-full object-cover" draggable="false">
 
                     <!-- Label: ETTER -->
-                    <div class="after-label absolute top-4 right-4 px-4 py-2 bg-black/30 backdrop-blur-md border border-white/20 text-white text-xs tracking-widest uppercase transition-opacity duration-500"
-                        style="z-index: 5;">
-                        <span class="font-bold" style="color: #c5a059;">ETTER</span> STYLING
+                    <div class="after-label">
+                        ETTER STYLING
                     </div>
 
                     <!-- Before Image Container (Clipped) -->
                     <div class="before-image-container absolute top-0 left-0 h-full overflow-hidden"
-                        style="width: 50%; box-shadow: 5px 0 30px rgba(0,0,0,0.3); z-index: 10;">
+                        style="width: 50%; z-index: 10;">
                         <img src="./54603800-d5a2-4466-b8e1-9880f1748d86.jpg" alt="Før styling"
                             class="absolute top-0 left-0 h-full object-cover" draggable="false">
 
-                        <!-- Dark overlay for contrast -->
-                        <div class="absolute inset-0 bg-black/20 pointer-events-none"
-                            style="mix-blend-mode: multiply; z-index: 1;"></div>
-
                         <!-- Label: FØR -->
-                        <div class="before-label absolute top-4 left-4 px-4 py-2 bg-white/90 backdrop-blur-md text-neutral-900 text-xs tracking-widest uppercase shadow-sm transition-opacity duration-500"
-                            style="z-index: 2;">
-                            <span class="font-bold mr-2" style="color: #c5a059;">FØR</span> STYLING
+                        <div class="before-label">
+                            FØR STYLING
                         </div>
                     </div>
 
                     <!-- Slider Handle -->
-                    <div class="slider-handle absolute inset-y-0 w-0.5 bg-white" style="left: 50%; z-index: 30;">
-                        <!-- Glow effect -->
-                        <div class="absolute inset-y-0 -left-1 w-2 bg-white/30 pointer-events-none"
-                            style="filter: blur(4px);"></div>
+                    <div class="slider-handle absolute inset-y-0" style="left: 50%; z-index: 30;">
+
+                        <!-- White Vertical Line -->
+                        <div class="absolute inset-y-0 -left-px w-0.5 bg-white shadow-[0_0_10px_rgba(0,0,0,0.2)]"></div>
 
                         <!-- Handle Button -->
-                        <div class="handle-button absolute top-1/2 left-1/2 w-12 h-12 flex items-center justify-center cursor-ew-resize"
-                            style="transform: translate(-50%, -50%); transition: transform 0.2s; z-index: 40;">
-                            <!-- Outer glass ring -->
-                            <div class="handle-ring absolute inset-0 rounded-full bg-white/10 backdrop-blur-md border border-white/60 transition-all duration-300"
-                                style="box-shadow: 0 0 20px rgba(0,0,0,0.2);"></div>
-
-                            <!-- Inner circle -->
-                            <div
-                                class="absolute w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center">
-                                <!-- Arrows SVG -->
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c5a059"
-                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="15 18 9 12 15 6"></polyline>
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Instruction (Fades on interaction) -->
-                    <div class="slider-instruction absolute bottom-8 left-1/2 pointer-events-none transition-opacity duration-700"
-                        style="transform: translateX(-50%); opacity: 0.8; z-index: 20;">
-                        <div
-                            class="flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-sm rounded-full text-white text-[10px] uppercase tracking-widest border border-white/10">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c5a059"
-                                stroke-width="2">
-                                <path d="M12 2L2 19.5h20L12 2z"></path>
+                        <div class="handle-button absolute top-1/2 left-1/2"
+                            style="transform: translate(-50%, -50%); transition: margin 0.1s;">
+                            <!-- Chevron Icons -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                                <polyline points="9 18 15 12 9 6"></polyline>
                             </svg>
-                            <span>Dra for å sammenligne</span>
                         </div>
                     </div>
+
+                    <!-- Instruction Removed (cleaned up) -->
 
                 </div>
             </div>
