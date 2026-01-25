@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="LuksusEiendom Digital Styling Policy. Våre etiske retningslinjer for bildebehandling og presentasjon av eiendom.">
+    <meta name="keywords" content="digital styling policy, eiendomsetikk, bildebehandling regler">
+    <meta name="author" content="LuksusEiendom">
+
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <title>Digital Styling Policy – LuksusEiendom</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body class="antialiased flex flex-col min-h-screen bg-white text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="bg-gray-900/80 backdrop-blur-md border-b border-white/10 w-full relative z-50">
+            <div class="max-w-[120rem] mx-auto px-8 h-24 flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"
+                        class="text-xl md:text-3xl font-medium tracking-wide text-gray-100 font-sans hover:text-white transition-colors">LuksusEiendomStudio</a>
+                </div>
+                <div class="flex items-center gap-4 md:gap-8">
+                    <a href="index.html#kontakt"
+                        class="hidden md:inline-block bg-white text-gray-900 px-8 py-3 rounded-sm text-sm font-bold uppercase tracking-widest hover:bg-gray-100 transition-colors">
+                        Bestill
+                    </a>
+                    <div class="flex items-center gap-4 md:gap-6 border-l border-white/10 pl-4 md:pl-8 ml-2 relative">
+                        <!-- Theme Toggle Code (Simplified for brevity, same as other pages) -->
+                        <button id="theme-toggle"
+                            class="text-gray-400 hover:text-white transition-colors focus:outline-none p-1">
+                            <svg class="w-6 h-6 icon-sun hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg>
+                            <svg class="w-6 h-6 icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                                </path>
+                            </svg>
+                        </button>
+                        <!-- Menu Button -->
+                        <button id="menuButton"
+                            class="group w-10 h-10 flex items-center justify-center relative z-50 focus:outline-none">
+                            <div class="w-8 flex flex-col gap-1.5 items-end">
+                                <span
+                                    class="block w-full h-0.5 bg-white transition-all duration-300 origin-center group-[.is-active]:rotate-45 group-[.is-active]:translate-y-2"></span>
+                                <span
+                                    class="block w-3/4 h-0.5 bg-[#c5a059] transition-all duration-300 group-[.is-active]:opacity-0"></span>
+                                <span
+                                    class="block w-full h-0.5 bg-white transition-all duration-300 origin-center group-[.is-active]:-rotate-45 group-[.is-active]:-translate-y-2"></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-40 pb-24 px-6">
+        <div class="max-w-4xl mx-auto">
+
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <span class="text-[#c5a059] font-bold tracking-widest uppercase text-sm mb-4 block">Etiske
+                    Retningslinjer</span>
+                <h1 class="text-4xl md:text-5xl font-serif text-gray-900 dark:text-white mb-6">Digital Styling Policy
+                </h1>
+                <div class="h-px w-24 bg-[#c5a059] mx-auto"></div>
+            </div>
+
+            <div class="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p class="text-lg text-center mb-12">
+                    LuksusEiendom benytter digital styling som et supplement til eksisterende boligbilder for å forbedre
+                    presentasjon og helhetsinntrykk.
+                    All digital styling skal være etisk forsvarlig, transparent og <strong>aldri villedende</strong>.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-12 my-12">
+                    <!-- OK Section -->
+                    <div
+                        class="bg-green-50 dark:bg-green-900/20 p-8 rounded-xl border border-green-100 dark:border-green-800">
+                        <h2 class="text-2xl font-serif text-green-800 dark:text-green-400 mb-6 flex items-center gap-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Hva er tillatt (OK)
+                        </h2>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full mt-2.5"></span>
+                                <span>Justering av lys, kontrast, fargetemperatur og skarphet.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full mt-2.5"></span>
+                                <span>Opprydding og fjerning av rot eller midlertidige elementer.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full mt-2.5"></span>
+                                <span>Nøytral, realistisk møblering/staging der rommets faktiske størrelse og funksjon
+                                    bevares.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full mt-2.5"></span>
+                                <span>Visuell forenkling som tydeliggjør rommets bruk (f.eks. fremheve
+                                    soneinndeling).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full mt-2.5"></span>
+                                <span>Stiljusteringer som gir et ryddigere og mer konsistent uttrykk.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- NOT OK Section -->
+                    <div class="bg-red-50 dark:bg-red-900/20 p-8 rounded-xl border border-red-100 dark:border-red-800">
+                        <h2 class="text-2xl font-serif text-red-800 dark:text-red-400 mb-6 flex items-center gap-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            Hva er IKKE tillatt
+                        </h2>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2.5"></span>
+                                <span>Endring av planløsning, romstørrelse eller takhøyde.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2.5"></span>
+                                <span>Endring eller forbedring av utsikt, solforhold eller beliggenhet.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2.5"></span>
+                                <span>Tillegg av peis, ildsted, vinduer, dører eller arkitektoniske elementer som ikke
+                                    finnes.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2.5"></span>
+                                <span>SkjulingAv permanente bygningsmessige forhold (f.eks. skader, rør,
+                                    ledninger).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2.5"></span>
+                                <span>Kunstig forbedring av materialkvalitet eller standard som ikke eksisterer.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 dark:bg-gray-800 p-8 rounded-xl mt-12">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Merking og Transparens</h3>
+                    <ul class="space-y-2 list-disc list-inside">
+                        <li>Alle digitalt stylete bilder merkes tydelig.</li>
+                        <li>Styling benyttes kun der det gir merverdi for presentasjon.</li>
+                        <li>Ingen styling brukes uten meglers samtykke.</li>
+                    </ul>
+                    <div
+                        class="mt-6 p-4 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg inline-block">
+                        <p class="text-sm font-mono text-gray-500">Standard merketekst: "Digitalt stylet illustrasjon –
+                            kun for inspirasjon."</p>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <p class="italic text-gray-500">Målet er alltid en korrekt, ryddig og profesjonell presentasjon som
+                        ivaretar både meglerens og kjøperens tillit.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 bg-gray-900 border-t border-gray-800 text-gray-400">
+        <div class="max-w-7xl mx-auto text-center md:text-left">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+                <div>
+                    <h2 class="text-2xl font-semibold text-white mb-4">LuksusEiendom</h2>
+                    <p class="text-sm max-w-xs mb-6">Kristiansand · Leverer nasjonalt</p>
+                </div>
+                <div class="flex gap-16 text-sm">
+                    <ul class="space-y-3">
+                        <li>
+                            <h5 class="text-white font-medium mb-2">Snarveier</h5>
+                        </li>
+                        <li><a href="index.html" class="hover:text-[#c5a059]">Hjem</a></li>
+                        <li><a href="fag-innsikt.html" class="hover:text-[#c5a059]">Innsikt</a></li>
+                        <li><a href="bedrift.html" class="hover:text-[#c5a059]">Bedrift</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-gray-800 text-xs">
+                <p>&copy; 2026 LuksusEiendom. Alle rettigheter reservert.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Menu Overlay/Panel logic matches other pages -->
+    <div id="menuOverlay"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] opacity-0 pointer-events-none transition-opacity duration-300">
+    </div>
+    <div id="main-menu"
+        class="fixed top-0 right-0 w-full md:w-[480px] h-screen bg-gray-900 border-l border-white/5 shadow-2xl z-[100] transform translate-x-full transition-transform duration-300 ease-out pt-32 px-10 overflow-y-auto">
+        <!-- Links will be populated by menu.js, but we need structure for it to work if standard scripts are used, 
+             OR we just manually replicate links here for simplicity in static file. 
+             Actually, menu.js controls the interaction, but the HTML links are usually static. 
+             Let's replicate standard links. -->
+        <nav class="flex flex-col gap-8">
+            <a href="index.html" class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors">Hjem</a>
+            <a href="tjenester.html"
+                class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors">Tjenester</a>
+            <a href="bedrift.html"
+                class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors">Bedriftsavtale</a>
+            <a href="fag-innsikt.html"
+                class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors">Innsikt & Råd</a>
+            <a href="se-forskjellen.html"
+                class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors">Se Forskjellen</a>
+            <a href="policy.html" class="text-3xl font-serif text-[#c5a059] transition-colors">Styling Policy</a>
+            <a href="om-oss.html" class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors">Om
+                oss</a>
+        </nav>
+    </div>
+
+    <script src="./menu.js"></script>
+    <script src="./theme.js"></script>
+</body>
+
+</html>

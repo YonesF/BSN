@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Bedriftsavtale for eiendomsmeglere. Få fast kapasitet, prioritert levering og et konsistent annonseuttrykk med LuksusEiendom.">
+    <meta name="keywords" content="bedriftsavtale eiendomsmegling, annonseproduksjon abonnement, tekstforfatter megler">
+    <meta name="author" content="LuksusEiendom">
+
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <title>Bedriftsavtale – LuksusEiendom</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body class="antialiased flex flex-col min-h-screen bg-gray-50 text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="bg-gray-900/80 backdrop-blur-md border-b border-white/10 w-full relative z-50">
+            <div class="max-w-[120rem] mx-auto px-8 h-24 flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html"
+                        class="text-xl md:text-3xl font-medium tracking-wide text-gray-100 font-sans hover:text-white transition-colors">LuksusEiendomStudio</a>
+                </div>
+                <div class="flex items-center gap-4 md:gap-8">
+                    <a href="index.html#kontakt"
+                        class="hidden md:inline-block bg-white text-gray-900 px-8 py-3 rounded-sm text-sm font-bold uppercase tracking-widest hover:bg-gray-100 transition-colors">
+                        Bestill
+                    </a>
+                    <div class="flex items-center gap-4 md:gap-6 border-l border-white/10 pl-4 md:pl-8 ml-2 relative">
+                        <button id="theme-toggle"
+                            class="text-gray-400 hover:text-white transition-colors focus:outline-none p-1">
+                            <svg class="w-6 h-6 icon-sun hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg>
+                            <svg class="w-6 h-6 icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                                </path>
+                            </svg>
+                        </button>
+                        <button id="menuButton"
+                            class="group w-10 h-10 flex items-center justify-center relative z-50 focus:outline-none">
+                            <div class="w-8 flex flex-col gap-1.5 items-end">
+                                <span
+                                    class="block w-full h-0.5 bg-white transition-all duration-300 origin-center group-[.is-active]:rotate-45 group-[.is-active]:translate-y-2"></span>
+                                <span
+                                    class="block w-3/4 h-0.5 bg-[#c5a059] transition-all duration-300 group-[.is-active]:opacity-0"></span>
+                                <span
+                                    class="block w-full h-0.5 bg-white transition-all duration-300 origin-center group-[.is-active]:-rotate-45 group-[.is-active]:-translate-y-2"></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-48 pb-24 px-6 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-[#c5a059] font-bold tracking-widest uppercase text-sm mb-6 block"
+                data-animate="fade-up">For meglerkontor</span>
+            <h1 class="text-4xl md:text-6xl font-serif mb-8" data-animate="fade-up" data-delay="100">Din eksterne
+                annonseavdeling</h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed" data-animate="fade-up" data-delay="200">
+                Få forutsigbar kvalitet, rask levering og et løft for hele kontorets portefølje med en skreddersydd
+                bedriftsavtale.
+            </p>
+        </div>
+    </header>
+
+    <!-- Value Props -->
+    <section class="py-24 px-6 bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="text-center p-6">
+                    <div
+                        class="w-16 h-16 bg-[#c5a059]/10 rounded-full flex items-center justify-center mx-auto mb-6 text-[#c5a059]">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Prioritert Levering (SLA)</h3>
+                    <p class="text-gray-500 dark:text-gray-400">Garanti for levering innen 24-48 timer, slik at dere
+                        aldri mister momentum i salgsprosessen.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div
+                        class="w-16 h-16 bg-[#c5a059]/10 rounded-full flex items-center justify-center mx-auto mb-6 text-[#c5a059]">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Konsistent Kvalitet</h3>
+                    <p class="text-gray-500 dark:text-gray-400">Hele kontoret får et enhetlig, profesjonelt uttrykk. Vi
+                        følger deres "tone of voice" eller utvikler en for dere.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div
+                        class="w-16 h-16 bg-[#c5a059]/10 rounded-full flex items-center justify-center mx-auto mb-6 text-[#c5a059]">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Samle-faktura</h3>
+                    <p class="text-gray-500 dark:text-gray-400">Enkel administrasjon med månedlig samlefaktura og
+                        oversiktlig rapportering per oppdrag.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Tiers -->
+    <section class="py-24 px-6 bg-gray-50 dark:bg-gray-800 transition-colors">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-serif text-gray-900 dark:text-white mb-6">Velg nivået som passer
+                    dere</h2>
+                <div class="h-px w-24 bg-[#c5a059] mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Basic -->
+                <div
+                    class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-8 hover:shadow-xl transition-shadow">
+                    <h3 class="text-2xl font-serif text-gray-900 dark:text-white mb-2">Kontor Basic</h3>
+                    <p class="text-gray-500 text-sm mb-6">For mindre kontor eller team i oppstart.</p>
+                    <div class="text-4xl font-bold text-[#c5a059] mb-8">
+                        ~5 <span class="text-base font-normal text-gray-400">oppdrag / mnd</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-green-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg> Levering innen 48t</li>
+                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-green-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg> Luxury Text & Listing</li>
+                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-green-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg> Månedlig faktura</li>
+                    </ul>
+                    <a href="mailto:post@luksuseiendom.no?subject=Bedriftsavtale Basic"
+                        class="block w-full text-center py-3 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-50 dark:hover:bg-gray-800 transition text-sm uppercase tracking-wider font-medium text-gray-900 dark:text-white">Be
+                        om tilbud</a>
+                </div>
+
+                <!-- Pro -->
+                <div
+                    class="bg-white dark:bg-gray-900 border-2 border-[#c5a059] transform md:-translate-y-4 rounded-xl p-8 shadow-2xl relative">
+                    <div
+                        class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#c5a059] text-white px-4 py-1 text-xs font-bold uppercase tracking-widest rounded-full">
+                        Anbefalt</div>
+                    <h3 class="text-2xl font-serif text-gray-900 dark:text-white mb-2">Kontor Pro</h3>
+                    <p class="text-gray-500 text-sm mb-6">For etablerte kontorer med jevn flyt.</p>
+                    <div class="text-4xl font-bold text-[#c5a059] mb-8">
+                        ~10 <span class="text-base font-normal text-gray-400">oppdrag / mnd</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-green-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg> <strong>Prioritert levering (24t)</strong></li>
+                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-green-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg> Inkl. 2 Luxury Upgrade / mnd</li>
+                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-green-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg> Dedikert kontaktperson</li>
+                    </ul>
+                    <a href="mailto:post@luksuseiendom.no?subject=Bedriftsavtale Pro"
+                        class="block w-full text-center py-3 bg-[#c5a059] text-white rounded hover:bg-[#b08d45] transition text-sm uppercase tracking-wider font-bold">Be
+                        om tilbud</a>
+                </div>
+
+                <!-- Plus -->
+                <div
+                    class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-8 hover:shadow-xl transition-shadow">
+                    <h3 class="text-2xl font-serif text-gray-900 dark:text-white mb-2">Kontor Plus</h3>
+                    <p class="text-gray-500 text-sm mb-6">For store kontorer eller kjeder.</p>
+                    <div class="text-4xl font-bold text-[#c5a059] mb-8">
+                        Volum <span class="text-base font-normal text-gray-400">etter avtale</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-green-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg> Skreddersydd SLA</li>
+                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-green-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg> API-integrasjon (opsjon)</li>
+                        <li class="flex items-center gap-3"><svg class="w-5 h-5 text-green-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg> Opplæring / Workshops</li>
+                    </ul>
+                    <a href="mailto:post@luksuseiendom.no?subject=Bedriftsavtale Plus"
+                        class="block w-full text-center py-3 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-50 dark:hover:bg-gray-800 transition text-sm uppercase tracking-wider font-medium text-gray-900 dark:text-white">Kontakt
+                        oss</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 bg-gray-900 border-t border-gray-800 text-gray-400">
+        <div class="max-w-7xl mx-auto text-center md:text-left">
+            <p>&copy; 2026 LuksusEiendom. Alle rettigheter reservert.</p>
+        </div>
+    </footer>
+
+    <!-- Menu logic -->
+    <div id="menuOverlay"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] opacity-0 pointer-events-none transition-opacity duration-300">
+    </div>
+    <div id="main-menu"
+        class="fixed top-0 right-0 w-full md:w-[480px] h-screen bg-gray-900 border-l border-white/5 shadow-2xl z-[100] transform translate-x-full transition-transform duration-300 ease-out pt-32 px-10 overflow-y-auto">
+        <nav class="flex flex-col gap-8">
+            <a href="index.html" class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors">Hjem</a>
+            <a href="bedrift.html" class="text-3xl font-serif text-[#c5a059] transition-colors">Bedriftsavtale</a>
+            <a href="fag-innsikt.html"
+                class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors">Innsikt & Råd</a>
+            <a href="se-forskjellen.html"
+                class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors">Se forskjell</a>
+            <a href="policy.html" class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors">Style
+                Policy</a>
+            <a href="om-oss.html" class="text-3xl font-serif text-white hover:text-[#c5a059] transition-colors">Om
+                oss</a>
+        </nav>
+    </div>
+    <script src="./menu.js"></script>
+    <script src="./theme.js"></script>
+    <script src="./animations.js"></script>
+</body>
+
+</html>
