@@ -396,73 +396,91 @@
         </div>
     </section>
 
-    <!-- 4. How It Works (Simple 3-step flow) -->
-    <section id="hvordan-det-fungerer" class="py-24 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-serif mb-4 text-gray-900">Slik jobber vi</h2>
-                <div class="h-px w-16 bg-[#c5a059] mx-auto opacity-50"></div>
+    <!-- 4. How It Works (Premium Process) -->
+    <section id="hvordan-det-fungerer" class="py-32 px-6 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-24" data-animate="fade-up">
+                <h2 class="text-4xl md:text-6xl font-serif text-gray-900 mb-6 tracking-tight">Slik jobber vi</h2>
+                <div class="h-px w-24 bg-[#c5a059] mx-auto mb-8 opacity-60"></div>
+                <p
+                    class="text-xl md:text-2xl text-gray-500 font-light max-w-3xl mx-auto leading-relaxed font-serif italic">
+                    Din eksterne annonse-desk. Fra kladd til premium annonse på 1-2-3.
+                </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-12 relative">
-                <!-- Connecting Line (Desktop) -->
-                <div class="hidden md:block absolute top-12 left-0 w-full h-px bg-gray-100 z-0"></div>
+            <!-- Steps Grid -->
+            <div class="relative grid md:grid-cols-3 gap-8 md:gap-16">
 
-                <!-- Step 1 -->
-                <div class="relative z-10 text-center bg-white">
-                    <div
-                        class="w-24 h-24 mx-auto mb-6 bg-gray-50 rounded-full flex items-center justify-center border border-gray-100">
-                        <span class="text-2xl font-serif text-[#c5a059]">1</span>
-                    </div>
-                    <h3 class="text-xl font-medium mb-3">Du sender inn</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed max-w-xs mx-auto">
-                        FINN-kladd/ID + bilder.<br>Enkel overlevering via e-post eller skjema.
-                    </p>
+                <!-- Connecting Line (Desktop) - Behind content -->
+                <div
+                    class="hidden md:block absolute top-[5rem] left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-[#c5a059] to-transparent opacity-30 z-0">
                 </div>
 
                 <!-- Step 1 -->
-                <div class="relative z-10 text-center bg-white step-container">
+                <div class="bg-white p-10 rounded-2xl border border-gray-100 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] hover-card-premium text-center group z-10"
+                    data-animate="fade-up" data-delay="150">
+                    <!-- Icon Container -->
                     <div
-                        class="w-24 h-24 mx-auto mb-6 bg-gray-50 rounded-full flex items-center justify-center border border-gray-100 step-circle">
-                        <span class="text-2xl font-serif text-[#c5a059]">1</span>
+                        class="relative w-24 h-24 mx-auto mb-10 bg-[#faf9f6] rounded-full flex items-center justify-center border border-[#c5a059]/20 group-hover:border-[#c5a059] group-hover:bg-white transition-all duration-500 z-10 shadow-sm group-hover:scale-110">
+                        <!-- Icon: Send / Upload -->
+                        <svg class="w-10 h-10 text-[#c5a059]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"
+                                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
                     </div>
-                    <h3 class="text-xl font-medium mb-3">Du sender inn</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed max-w-xs mx-auto">
-                        FINN-kladd/ID + bilder.<br>Enkel overlevering via e-post eller skjema.
+
+                    <h3 class="text-2xl font-serif text-gray-900 mb-4">1. Du sender inn</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                        Send oss FINN-kode, kladd eller bilder via enkelt skjema eller DM. Vi trenger kun basisinfo for
+                        å starte.
                     </p>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="relative z-10 text-center bg-white step-container">
+                <div class="bg-white p-10 rounded-2xl border border-gray-100 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] hover-card-premium text-center group z-10"
+                    data-animate="fade-up" data-delay="300">
                     <div
-                        class="w-24 h-24 mx-auto mb-6 bg-gray-50 rounded-full flex items-center justify-center border border-gray-100 step-circle">
-                        <span class="text-2xl font-serif text-[#c5a059]">2</span>
+                        class="relative w-24 h-24 mx-auto mb-10 bg-[#faf9f6] rounded-full flex items-center justify-center border border-[#c5a059]/20 group-hover:border-[#c5a059] group-hover:bg-white transition-all duration-500 z-10 shadow-sm group-hover:scale-110">
+                        <!-- Icon: Magic / Production -->
+                        <svg class="w-10 h-10 text-[#c5a059]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"
+                                d="M11 4a2 2 0 114 0v1a1 1 0 001 1h1a2 2 0 110 4h-1a1 1 0 00-1 1v1a2 2 0 11-4 0v-1a1 1 0 00-1-1H7a2 2 0 110-4h1a1 1 0 001-1V4zM5 15a2 2 0 114 0v1a1 1 0 001 1h1a2 2 0 110 4h-1a1 1 0 00-1 1v1a2 2 0 11-4 0v-1a1 1 0 00-1-1H2a2 2 0 110-4h1a1 1 0 001-1v-1z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M16 16l4 4">
+                            </path>
+                        </svg>
                     </div>
-                    <h3 class="text-xl font-medium mb-3">Vi produserer (24-72t)</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed max-w-xs mx-auto">
-                        Analyse, tekstforfatting og bildeoptimalisering. <br>
-                        <span class="text-gray-400 text-xs mt-1 block">AI brukt som verktøy – kvalitetssikret av
-                            mennesker.</span>
+                    <h3 class="text-2xl font-serif text-gray-900 mb-4">2. Vi produserer (24-72t)</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                        Vi utarbeider premium annonsetekst, struktur og bildeoptimalisering. Vi bruker moderne
+                        AI-verktøy for effektivitet, men alt kvalitetssikres manuelt av mennesker.
                     </p>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="relative z-10 text-center bg-white step-container">
+                <div class="bg-white p-10 rounded-2xl border border-gray-100 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] hover-card-premium text-center group z-10"
+                    data-animate="fade-up" data-delay="450">
                     <div
-                        class="w-24 h-24 mx-auto mb-6 bg-gray-50 rounded-full flex items-center justify-center border border-gray-100 step-circle">
-                        <span class="text-2xl font-serif text-[#c5a059]">3</span>
+                        class="relative w-24 h-24 mx-auto mb-10 bg-[#faf9f6] rounded-full flex items-center justify-center border border-[#c5a059]/20 group-hover:border-[#c5a059] group-hover:bg-white transition-all duration-500 z-10 shadow-sm group-hover:scale-110">
+                        <!-- Icon: Success / Check -->
+                        <svg class="w-10 h-10 text-[#c5a059]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
                     </div>
-                    <h3 class="text-xl font-medium mb-3">Levering + Revisjon</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed max-w-xs mx-auto">
-                        Alt levert digitalt og klart for publisering.<br>ALLTID manuell kvalitetskontroll.
+                    <h3 class="text-2xl font-serif text-gray-900 mb-4">3. Levering + Revisjon</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                        Du mottar alt digitalt i en delt mappe, klart for publisering. Én revisjonsrunde er alltid
+                        inkludert for å sikre at du er 100% fornøyd.
                     </p>
                 </div>
+
             </div>
 
-            <div class="mt-12 text-center">
-                <p class="text-sm text-gray-500 bg-gray-50 inline-block px-4 py-2 rounded-full">
-                    Leverer nasjonalt til hele Norge 🇳🇴
-                </p>
+            <div class="mt-20 text-center">
+                <p class="text-sm text-gray-400 uppercase tracking-widest font-medium">Brukt av meglere i hele Norge
+                    🇳🇴</p>
             </div>
         </div>
     </section>
