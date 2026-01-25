@@ -1,12 +1,12 @@
 // Premium Motion Design & Scroll Animations
 // LuksusEiendom 2025
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     'use strict';
 
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
+
     if (prefersReducedMotion) {
         return; // Skip animations if user prefers reduced motion
     }
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fade-in on scroll animation
     const animateOnScroll = () => {
         const elements = document.querySelectorAll('[data-animate="fade-up"]');
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -53,11 +53,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add parallax effect to hero section (subtle)
-    const heroSection = document.querySelector('.relative.min-h-\\[80vh\\]');
+    const heroSection = document.querySelector('section.relative.h-screen');
     if (heroSection) {
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
-            const heroContent = heroSection.querySelector('.relative.z-10');
+            const heroContent = heroSection.querySelector('.max-w-6xl');
             if (heroContent && scrolled < window.innerHeight) {
                 heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
                 heroContent.style.opacity = 1 - (scrolled / window.innerHeight) * 0.5;
@@ -67,15 +67,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add stagger delay to elements
     const addStaggerDelay = () => {
-        const featureCards = document.querySelectorAll('.grid.grid-cols-1.md\\:grid-cols-4 > div');
-        featureCards.forEach((card, index) => {
+        // Stagger Service Cards
+        const serviceCards = document.querySelectorAll('#tjenester .grid > div');
+        serviceCards.forEach((card, index) => {
             card.setAttribute('data-animate', 'fade-up');
-            card.setAttribute('data-animate-delay', (index * 100).toString());
+            card.setAttribute('data-animate-delay', ((index + 1) * 100).toString());
+        });
+
+        // Stagger Why Us Items
+        const whyUsItems = document.querySelectorAll('.space-y-6 > div');
+        whyUsItems.forEach((item, index) => {
+            item.setAttribute('data-animate', 'fade-up');
+            item.setAttribute('data-animate-delay', ((index + 1) * 100).toString());
         });
     };
 
     addStaggerDelay();
-    
+
     // Re-initialize observer after adding attributes
     setTimeout(() => {
         animateOnScroll();
