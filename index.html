@@ -48,7 +48,8 @@
             <div class="max-w-[120rem] mx-auto px-8 h-24 flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <span class="text-3xl font-medium tracking-wide text-gray-100 font-sans">LuksusEiendomStudio</span>
+                    <a href="index.html"
+                        class="text-3xl font-medium tracking-wide text-gray-100 font-sans hover:text-white transition-colors">LuksusEiendomStudio</a>
                 </div>
 
                 <!-- Right Actions -->
@@ -58,7 +59,7 @@
                         Get Started
                     </a>
 
-                    <div class="flex items-center gap-6 border-l border-white/10 pl-8 ml-2">
+                    <div class="flex items-center gap-6 border-l border-white/10 pl-8 ml-2 relative">
                         <!-- Search -->
                         <button class="text-gray-400 hover:text-white transition-colors">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,12 +69,33 @@
                         </button>
 
                         <!-- Menu -->
-                        <button class="text-gray-400 hover:text-white transition-colors">
+                        <button id="menuButton" class="text-gray-400 hover:text-white transition-colors relative z-50">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4 6h16M4 12h16m-7 6h7"></path>
                             </svg>
                         </button>
+
+                        <!-- Dropdown Menu -->
+                        <div id="dropdownMenu"
+                            class="absolute top-20 right-0 w-64 bg-white shadow-xl rounded-lg py-2 hidden flex-col z-40 border border-gray-100 transform origin-top-right transition-all duration-200 opacity-0 scale-95">
+                            <a href="#tjenester"
+                                class="block px-6 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#c5a059] transition-colors border-b border-gray-100">
+                                Pakker og priser
+                            </a>
+                            <a href="om-oss.html"
+                                class="block px-6 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#c5a059] transition-colors border-b border-gray-100">
+                                Om oss
+                            </a>
+                            <a href="#kontakt"
+                                class="block px-6 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#c5a059] transition-colors border-b border-gray-100">
+                                Kontakt oss
+                            </a>
+                            <a href="#"
+                                class="block px-6 py-3 text-sm text-gray-400 hover:bg-gray-50 cursor-not-allowed">
+                                Personvern (Kommer)
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1177,6 +1199,41 @@
 <!-- Scripts -->
 <script src="./slider.js"></script>
 <script src="./animations.js"></script>
+<!-- Menu Toggle Script -->
+<script>
+    const menuButton = document.getElementById('menuButton');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    menuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isHidden = dropdownMenu.classList.contains('hidden');
+        if (isHidden) {
+            dropdownMenu.classList.remove('hidden');
+            // Small timeout to allow display:block to apply before opacity transition
+            setTimeout(() => {
+                dropdownMenu.classList.remove('opacity-0', 'scale-95');
+                dropdownMenu.classList.add('opacity-100', 'scale-100');
+            }, 10);
+        } else {
+            dropdownMenu.classList.remove('opacity-100', 'scale-100');
+            dropdownMenu.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                dropdownMenu.classList.add('hidden');
+            }, 200);
+        }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!menuButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove('opacity-100', 'scale-100');
+            dropdownMenu.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                dropdownMenu.classList.add('hidden');
+            }, 200);
+        }
+    });
+</script>
 </body>
 
 </html>
