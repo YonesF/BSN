@@ -99,131 +99,180 @@
                 </p>
 
                 <div class="grid md:grid-cols-2 gap-12 my-12">
-                    <!-- OK Section (Green Box) -->
+                    <!-- OK Section (Clean Design) -->
                     <div
-                        class="bg-emerald-50 dark:bg-emerald-900/10 p-8 rounded-xl border border-emerald-200 dark:border-emerald-800 shadow-sm">
-                        <!-- Headline inside box: Dark Green -->
-                        <h2
-                            class="text-2xl font-serif text-emerald-950 dark:text-emerald-400 mb-6 flex items-center gap-3">
+                        class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border-t-8 border-emerald-500 relative overflow-hidden">
+                        <!-- Headline -->
+                        <h2 class="text-3xl font-serif text-gray-900 dark:text-white mb-8 flex items-center gap-4">
                             <div
-                                class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-800 dark:text-emerald-400">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
+                                class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            Hva er tillatt (OK)
+                            <span class="font-bold tracking-tight">TILLATT</span>
                         </h2>
-                        <ul class="space-y-4">
-                            <!-- List Items: Very Dark Green Text -->
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-emerald-700 mt-0.5 flex-shrink-0" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <span class="text-emerald-950 dark:text-emerald-100 font-semibold">Justering av lys,
-                                    kontrast, fargetemperatur og skarphet.</span>
+
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4 group">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-emerald-500 transition-colors duration-300">
+                                    <svg class="w-4 h-4 text-emerald-600 group-hover:text-white transition-colors duration-300"
+                                        fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span
+                                        class="block text-gray-900 dark:text-gray-100 font-bold text-lg mb-1">Justering
+                                        av bilde</span>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Lys, kontrast,
+                                        fargetemperatur og skarphet kan optimaliseres.</p>
+                                </div>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-emerald-700 mt-0.5 flex-shrink-0" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <span class="text-emerald-950 dark:text-emerald-100 font-semibold">Opprydding og
-                                    fjerning av rot eller midlertidige elementer.</span>
+                            <li class="flex items-start gap-4 group">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-emerald-500 transition-colors duration-300">
+                                    <svg class="w-4 h-4 text-emerald-600 group-hover:text-white transition-colors duration-300"
+                                        fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span class="block text-gray-900 dark:text-gray-100 font-bold text-lg mb-1">Digital
+                                        Rydding</span>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Fjerning av rot,
+                                        flyttekasser eller midlertidige elementer.</p>
+                                </div>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-emerald-700 mt-0.5 flex-shrink-0" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <span class="text-emerald-950 dark:text-emerald-100 font-semibold">Nøytral, realistisk
-                                    møblering/staging der rommets faktiske størrelse og funksjon bevares.</span>
+                            <li class="flex items-start gap-4 group">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-emerald-500 transition-colors duration-300">
+                                    <svg class="w-4 h-4 text-emerald-600 group-hover:text-white transition-colors duration-300"
+                                        fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span
+                                        class="block text-gray-900 dark:text-gray-100 font-bold text-lg mb-1">Realistisk
+                                        Møblering</span>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Møblering som
+                                        respekterer rommets faktiske størrelse.</p>
+                                </div>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-emerald-700 mt-0.5 flex-shrink-0" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <span class="text-emerald-950 dark:text-emerald-100 font-semibold">Visuell forenkling
-                                    som tydeliggjør rommets bruk (f.eks. fremheve soneinndeling).</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-emerald-700 mt-0.5 flex-shrink-0" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <span class="text-emerald-950 dark:text-emerald-100 font-semibold">Stiljusteringer som
-                                    gir et ryddigere og mer konsistent uttrykk.</span>
+                            <li class="flex items-start gap-4 group">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-emerald-500 transition-colors duration-300">
+                                    <svg class="w-4 h-4 text-emerald-600 group-hover:text-white transition-colors duration-300"
+                                        fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span
+                                        class="block text-gray-900 dark:text-gray-100 font-bold text-lg mb-1">Stil-optimalisering</span>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Skape et
+                                        helhetlig, ryddig inntrykk uten å endre byggverk.</p>
+                                </div>
                             </li>
                         </ul>
                     </div>
 
-                    <!-- NOT OK Section (Red Box) -->
+                    <!-- NOT OK Section (Clean Design) -->
                     <div
-                        class="bg-rose-50 dark:bg-rose-900/10 p-8 rounded-xl border border-rose-200 dark:border-rose-800 shadow-sm">
-                        <!-- Headline inside box: Dark Red -->
-                        <h2 class="text-2xl font-serif text-rose-950 dark:text-rose-400 mb-6 flex items-center gap-3">
+                        class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border-t-8 border-rose-500 relative overflow-hidden">
+                        <!-- Headline -->
+                        <h2 class="text-3xl font-serif text-gray-900 dark:text-white mb-8 flex items-center gap-4">
                             <div
-                                class="w-8 h-8 rounded-full bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center text-rose-800 dark:text-rose-400">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12"></path>
+                                class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-600">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            Hva er IKKE tillatt
+                            <span class="font-bold tracking-tight">IKKE TILLATT</span>
                         </h2>
-                        <ul class="space-y-4">
-                            <!-- List Items: Very Dark Red Text -->
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-rose-700 mt-0.5 flex-shrink-0" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <span class="text-rose-950 dark:text-rose-100 font-semibold">Endring av planløsning,
-                                    romstørrelse eller takhøyde.</span>
+
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4 group">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-rose-500 transition-colors duration-300">
+                                    <svg class="w-4 h-4 text-rose-600 group-hover:text-white transition-colors duration-300"
+                                        fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span class="block text-gray-900 dark:text-gray-100 font-bold text-lg mb-1">Endre
+                                        Planløsning</span>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Fjerning av
+                                        vegger, endring av romstørrelse eller himling.</p>
+                                </div>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-rose-700 mt-0.5 flex-shrink-0" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <span class="text-rose-950 dark:text-rose-100 font-semibold">Endring eller forbedring av
-                                    utsikt, solforhold eller beliggenhet.</span>
+                            <li class="flex items-start gap-4 group">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-rose-500 transition-colors duration-300">
+                                    <svg class="w-4 h-4 text-rose-600 group-hover:text-white transition-colors duration-300"
+                                        fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span class="block text-gray-900 dark:text-gray-100 font-bold text-lg mb-1">Falsk
+                                        Utsikt / Sol</span>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Manipulere
+                                        omgivelser, solforhold eller utsikt.</p>
+                                </div>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-rose-700 mt-0.5 flex-shrink-0" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <span class="text-rose-950 dark:text-rose-100 font-semibold">Tillegg av peis, ildsted,
-                                    vinduer, dører eller arkitektoniske elementer som ikke finnes.</span>
+                            <li class="flex items-start gap-4 group">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-rose-500 transition-colors duration-300">
+                                    <svg class="w-4 h-4 text-rose-600 group-hover:text-white transition-colors duration-300"
+                                        fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span class="block text-gray-900 dark:text-gray-100 font-bold text-lg mb-1">Falske
+                                        Elementer</span>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Legge til peis,
+                                        nye vinduer eller dører som ikke finnes.</p>
+                                </div>
                             </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-rose-700 mt-0.5 flex-shrink-0" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <span class="text-rose-950 dark:text-rose-100 font-semibold">Skjuling av permanente
-                                    bygningsmessige forhold (f.eks. skader, rør, ledninger).</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-rose-700 mt-0.5 flex-shrink-0" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <span class="text-rose-950 dark:text-rose-100 font-semibold">Kunstig forbedring av
-                                    materialkvalitet eller standard som ikke eksisterer.</span>
+                            <li class="flex items-start gap-4 group">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-rose-500 transition-colors duration-300">
+                                    <svg class="w-4 h-4 text-rose-600 group-hover:text-white transition-colors duration-300"
+                                        fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span class="block text-gray-900 dark:text-gray-100 font-bold text-lg mb-1">Skjule
+                                        feil</span>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Skjule
+                                        fuktskader, sprekker, rør eller ledningsnett.</p>
+                                </div>
                             </li>
                         </ul>
                     </div>
