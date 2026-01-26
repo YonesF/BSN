@@ -549,6 +549,7 @@ input[type=range]::-moz-range-thumb {
     transform: scale(1.05);
     /* Zoom 5% to push bottom-right logo out of view */
     transform-origin: center center;
+    object-position: center !important;
 }
 
 #slider-classical {

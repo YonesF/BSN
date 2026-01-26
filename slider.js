@@ -60,7 +60,9 @@
         startSlider() {
             this.fixBeforeImageWidth();
             this.setupEventListeners();
-            this.runIntroAnimation();
+            // User requested 50% static start - intro animation removed
+            this.sliderPosition = 50;
+            this.updateSliderPosition();
         }
 
         fixBeforeImageWidth() {
@@ -68,35 +70,17 @@
             const beforeImg = beforeContainer?.querySelector('img');
 
             if (beforeContainer && beforeImg) {
-                const containerWidth = this.container.offsetWidth;
-                if (containerWidth > 0) {
-                    beforeImg.style.width = containerWidth + 'px';
+                // Use getBoundingClientRect for sub-pixel precision to prevent alignment shifts
+                const rect = this.container.getBoundingClientRect();
+                if (rect.width > 0) {
+                    beforeImg.style.width = `${rect.width}px`;
                 }
             }
         }
 
+        // Animation removed as per request for static 50% start
         runIntroAnimation() {
-            const start = 0;
-            const end = 50;
-            const duration = 1500;
-            const startTime = performance.now();
-
-            const animate = (currentTime) => {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const easeOut = 1 - Math.pow(1 - progress, 4);
-
-                this.sliderPosition = start + (end - start) * easeOut;
-                this.updateSliderPosition();
-
-                if (progress < 1) {
-                    requestAnimationFrame(animate);
-                }
-            };
-
-            setTimeout(() => {
-                requestAnimationFrame(animate);
-            }, 500);
+            // No-op
         }
 
         setupEventListeners() {
