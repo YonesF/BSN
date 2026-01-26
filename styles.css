@@ -546,8 +546,8 @@ input[type=range]::-moz-range-thumb {
 
 /* Hide watermark/logo in Classical Style slider by zooming in slightly */
 #slider-classical img {
-    transform: scale(1.05);
-    /* Zoom 5% to push bottom-right logo out of view */
+    transform: scale(1.08) translate(1%, 1%);
+    /* Zoom 8% and shift down-right to completely hide bottom-right watermark */
     transform-origin: center center;
     object-position: center !important;
 }
