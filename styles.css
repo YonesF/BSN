@@ -539,3 +539,19 @@ input[type=range]::-moz-range-thumb {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
+/* -------------------------------------------------------------------------- */
+/* CUSTOM FIXES */
+/* -------------------------------------------------------------------------- */
+
+/* Hide watermark/logo in Classical Style slider by zooming in slightly */
+#slider-classical img {
+    transform: scale(1.05);
+    /* Zoom 5% to push bottom-right logo out of view */
+    transform-origin: center center;
+}
+
+#slider-classical {
+    overflow: hidden !important;
+    /* Ensure content outside box is clipped */
+}
