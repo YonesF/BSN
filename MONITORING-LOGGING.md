@@ -22,7 +22,7 @@
 **Alternative: Certificate Expiry Reminder**
 ```bash
 # Add to crontab to check SSL expiry
-0 0 * * 0 certbot certificates | mail -s "SSL Certificate Status" admin@luksuseiendom.no
+0 0 * * 0 certbot certificates | mail -s "SSL Certificate Status" LuksusEiendom@hotmail.com
 ```
 
 ### 3. Security Monitoring
@@ -175,7 +175,7 @@ sudo nano /etc/awstats/awstats.conf
 # monitor-site.sh
 
 SITE="https://www.luksuseiendom.no"
-EMAIL="admin@luksuseiendom.no"
+EMAIL="LuksusEiendom@hotmail.com"
 
 # Check if site is up
 HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" $SITE)

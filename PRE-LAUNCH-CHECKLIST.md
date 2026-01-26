@@ -28,9 +28,9 @@
 ### Contact Information
 - [ ] Update [Din adresse] in personvern.html
 - [ ] Update [Ditt telefonnummer] in personvern.html
-- [ ] Update security@luksuseiendom.no (create this email)
-- [ ] Update personvern@luksuseiendom.no (create this email)
-- [ ] Update kontakt@luksuseiendom.no (create this email)
+- [ ] Update security@luksuseiendom.no (to LuksusEiendom@hotmail.com)
+- [ ] Update personvern@luksuseiendom.no (to LuksusEiendom@hotmail.com)
+- [ ] Update kontakt@luksuseiendom.no (to LuksusEiendom@hotmail.com)
 - [ ] Update domain in .htaccess hotlink protection (luksuseiendom.no)
 
 ### Security Configuration
@@ -112,7 +112,7 @@
 - [ ] Domain resolves to correct IP
 - [ ] www and non-www both work
 - [ ] HTTPS works on both www and non-www
-- [ ] Email addresses work (@luksuseiendom.no)
+- [ ] Email addresses work (@hotmail.com)
 
 ---
 
